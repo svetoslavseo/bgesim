@@ -14,37 +14,23 @@ const __dirname = path.dirname(__filename);
 // Pre-load all translations for SSR
 const loadTranslationsSync = (lang) => {
   const namespaces = ['common', 'navigation', 'home', 'countries', 'faq', 'footer', 'about', 'legal', 'compatibility', 'calculator', 'what_is_esim', 'testimonials', 'checkout', 'cta', 'comparison', 'author', 'content', 'plans', 'esim_info', 'how_it_works', 'author_page', 'regions'];
-  
   const translations = {};
   
   for (const ns of namespaces) {
     try {
-      // Try different possible paths for the translation files
-      const possiblePaths = [
-        path.resolve(process.cwd(), `public/locales/${lang}/${ns}.json`),
-        path.resolve(process.cwd(), `dist/client/locales/${lang}/${ns}.json`),
-        path.resolve(__dirname, `../../public/locales/${lang}/${ns}.json`),
-        path.resolve(__dirname, `../public/locales/${lang}/${ns}.json`)
-      ];
+      // Correctly locate the locales folder within the build output directory
+      const filePath = path.resolve(__dirname, `../client/locales/${lang}/${ns}.json`);
       
-      let loaded = false;
-      for (const filePath of possiblePaths) {
-        if (fs.existsSync(filePath)) {
-          const data = fs.readFileSync(filePath, 'utf-8');
-          translations[ns] = JSON.parse(data);
-          console.log(`✅ Loaded ${lang}/${ns}.json from ${filePath}`);
-          loaded = true;
-          break;
-        }
-      }
-      
-      if (!loaded) {
-        console.warn(`⚠️ Could not find translation file for ${lang}/${ns}.json`);
-        translations[ns] = {}; // Empty fallback
+      if (fs.existsSync(filePath)) {
+        const data = fs.readFileSync(filePath, 'utf-8');
+        translations[ns] = JSON.parse(data);
+      } else {
+        console.warn(`⚠️ Translation file not found at production path: ${filePath}`);
+        translations[ns] = {}; // Provide an empty fallback
       }
     } catch (error) {
-      console.error(`❌ Failed to load ${lang}/${ns}.json:`, error);
-      translations[ns] = {}; // Empty fallback
+      console.error(`❌ Failed to load or parse ${lang}/${ns}.json:`, error);
+      translations[ns] = {}; // Fallback in case of error
     }
   }
   
@@ -53,32 +39,30 @@ const loadTranslationsSync = (lang) => {
 
 export async function render(url) {
   // Build fresh mocks for DOM globals on every SSR request
-  if (typeof window === 'undefined') {
-    globalThis.window = {
-      location: { 
-        pathname: url, 
-        search: '', 
-        hash: '',
-        href: `http://localhost:3000${url}`,
-        hostname: 'localhost',
-        port: '3000',
-        protocol: 'http:'
-      },
-      history: {
-        pushState: () => {},
-        replaceState: () => {},
-        back: () => {},
-        forward: () => {},
-        go: () => {}
-      },
-      addEventListener: () => {},
-      removeEventListener: () => {},
-      scrollTo: () => {},
-      innerWidth: 1024,
-      innerHeight: 768,
-      matchMedia: () => ({ matches: false, addListener: () => {}, removeListener: () => {} })
-    };
-  }
+  globalThis.window = {
+    location: { 
+      pathname: url, 
+      search: '', 
+      hash: '',
+      href: `http://localhost:3000${url}`,
+      hostname: 'localhost',
+      port: '3000',
+      protocol: 'http:'
+    },
+    history: {
+      pushState: () => {},
+      replaceState: () => {},
+      back: () => {},
+      forward: () => {},
+      go: () => {}
+    },
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    scrollTo: () => {},
+    innerWidth: 1024,
+    innerHeight: 768,
+    matchMedia: () => ({ matches: false, addListener: () => {}, removeListener: () => {} })
+  };
 
   if (typeof document === 'undefined') {
     globalThis.document = {

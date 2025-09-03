@@ -38,7 +38,7 @@ async function createServer() {
     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
     
     // Content Security Policy
-    res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';");
+    res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://flagcdn.com https://picsum.photos; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';");
     
     // X-Content-Type-Options
     res.setHeader('X-Content-Type-Options', 'nosniff');

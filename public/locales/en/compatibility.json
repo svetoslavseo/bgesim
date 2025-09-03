@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "eSIM Device Compatibility Checker",
+    "subtitle": "Check if your device supports eSIM technology",
+    "description": "eSIM (embedded SIM) is a digital SIM that allows you to activate a cellular plan without having to use a physical SIM card. Most modern smartphones support eSIM technology.",
+    "cta": "Use our compatibility checker below to see if your device supports eSIM."
+  },
+  "checker": {
+    "title": "Check Your Device Compatibility",
+    "subtitle": "Enter your phone model to check if it supports eSIM",
+    "search_placeholder": "Search for your device (e.g., iPhone 14, Samsung Galaxy S23)..."
+  },
+  "loading": "Loading device database...",
+  "result": {
+    "compatible": "✅ Compatible!",
+    "not_compatible": "❌ Not Compatible",
+    "compatible_message": "Great news! Your {{brand}} {{model}} supports eSIM technology. You can use eSIM for international travel, multiple carriers, and more.",
+    "not_compatible_message": "Unfortunately, your device doesn't support eSIM technology. You'll need to use a physical SIM card for mobile connectivity.",
+    "next_steps_title": "Next Steps:",
+    "step_1": "Choose your travel destination and prepaid plan",
+    "step_2": "Scan QR code provided by your carrier",
+    "step_3": "Configure eSIM in your device settings",
+    "step_4": "Enjoy seamless international connectivity",
+    "choose_esim": "Choose your eSIM"
+  },
+  "instructions": {
+    "title": "How to use this checker:",
+    "step_1": "Start typing your device brand or model name",
+    "step_2": "Select your device from the dropdown list",
+    "step_3": "Click \"Check Compatibility\" to see the result",
+    "step_4": "Follow the instructions if your device is compatible"
+  },
+  "devices": {
+    "all_brands": "All Brands",
+    "expand_all": "Expand All",
+    "collapse_all": "Collapse All",
+    "device": "device",
+    "devices": "devices",
+    "hide": "Hide",
+    "show": "Show",
+    "esim_compatible": "eSIM Compatible",
+    "no_devices_found": "No devices found matching your search criteria.",
+    "search_placeholder": "Search for your device..."
+  },
+  "what_is_esim": {
+    "title": "What is eSIM?",
+    "description": "An eSIM (embedded SIM) is a digital SIM card built into your device that can be programmed to work with different mobile carriers. Unlike traditional SIM cards, eSIMs are non-removable and can store multiple carrier profiles.",
+    "benefits": "eSIMs offer several advantages: instant activation, no physical SIM card needed, ability to switch between carriers easily, and support for multiple numbers on a single device."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "device_support": {
+      "question": "Which devices support eSIM?",
+      "answer": "Most smartphones released since 2018 support eSIM technology. This includes iPhone XS and newer, Samsung Galaxy S20 and newer, Google Pixel 3 and newer, and many other Android devices. Check our compatibility checker above for specific device support."
+    },
+    "activation": {
+      "question": "How do I activate an eSIM?",
+      "answer": "eSIM activation is typically done through your device's settings. You'll receive a QR code or activation code from your carrier, which you scan or enter in your device's eSIM settings. The process varies slightly between iOS and Android devices."
+    },
+    "benefits": {
+      "question": "What are the benefits of eSIM?",
+      "answer": "eSIMs offer instant activation, no need to carry physical SIM cards, easy switching between carriers, support for multiple numbers on one device, and are more secure than physical SIMs."
+    }
+  },
+  "compatible_devices": {
+    "title": "Compatible Devices"
+  }
+} 

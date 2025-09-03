@@ -1,0 +1,23 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm"]
+
+[phases.install]
+cmds = [
+  "npm ci --legacy-peer-deps --no-optional",
+  "npm list --depth=0"
+]
+
+[phases.build]
+cmds = [
+  "npm run prepare-deployment",
+  "npm run build:railway",
+  "ls -la dist/",
+  "ls -la dist/client/",
+  "ls -la dist/server/"
+]
+
+[start]
+cmd = "npm start"
+
+[variables]
+NODE_ENV = "production" 

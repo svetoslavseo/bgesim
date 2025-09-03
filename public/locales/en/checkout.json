@@ -1,0 +1,55 @@
+{
+  "loading": {
+    "message": "Loading checkout information..."
+  },
+  "navigation": {
+    "back": "Back"
+  },
+  "error": {
+    "title": "Checkout Error",
+    "return_home": "Return to Home"
+  },
+  "errors": {
+    "invalid_plan_data": "Received invalid plan data",
+    "unable_to_load_plan": "Unable to load plan information",
+    "no_plan_provided": "No plan information provided",
+    "no_plan_identifier": "No plan identifier found. Please try selecting a plan again.",
+    "unable_to_proceed_payment": "Unable to proceed with payment. Please try again."
+  },
+  "summary": {
+    "title": "Checkout Summary",
+    "esim_for": "eSIM for {{country}}",
+    "data": "Data",
+    "validity": "Validity",
+    "total": "Total"
+  },
+  "security": {
+    "ssl_encrypted": "Secure SSL encrypted payment"
+  },
+  "payment": {
+    "continue": "Continue",
+    "methods": {
+      "title": "Payment Methods",
+      "international": "International Payment Methods",
+      "chinese": "Chinese Payment Methods",
+      "wechat_pay": "WeChat Pay",
+      "alipay": "Alipay",
+      "unionpay": "UnionPay",
+      "credit_card": "Credit Card",
+      "debit_card": "Debit Card"
+    },
+    "currency": {
+      "usd": "USD",
+      "cny": "CNY",
+      "display": "Prices displayed in {{currency}}"
+    }
+  },
+  "chinese_features": {
+    "wechat_qr": "WeChat QR Code Payment",
+    "alipay_qr": "Alipay QR Code Payment",
+    "unionpay_qr": "UnionPay QR Code Payment",
+    "chinese_phone": "Chinese Customer Service Hotline",
+    "chinese_support": "Chinese Customer Support",
+    "chinese_hours": "Business Hours: 9:00-18:00 (Beijing Time)"
+  }
+} 

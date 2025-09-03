@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Preload critical resources for better Core Web Vitals -->
+    <link rel="preload" href="/esim-data/travelesim-logo.png" as="image" type="image/png" />
+    <link rel="preload" href="/plans.json" as="fetch" type="application/json" crossorigin />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://flagcdn.com" />
+    <link rel="dns-prefetch" href="https://flagcdn.com" />
+    
+    <!-- Font optimization to prevent FOUT/FOIT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      /* Font face declarations for faster loading */
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      
+      /* Prevent layout shift during font loading */
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      
+      /* Critical CSS for above-the-fold content */
+      .critical-hero {
+        background-color: #000;
+        min-height: 500px;
+      }
+      
+      /* Prevent CLS for loading states */
+      .stable-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Skeleton animation */
+      .skeleton-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: .5;
+        }
+      }
+    </style>
+    
+    <title>Travel eSIMple</title>
+    <meta name="description" content="Get affordable eSIM data for 200+ countries and regions. Instant activation, no surprise fees. Stay connected wherever you travel." />
+    
+    <!-- Language alternatives -->
+            <link rel="alternate" hrefLang="bg" href="https://travelesim.bg/" />
+        <link rel="alternate" hrefLang="en" href="https://travelesim.bg/en/" />
+        <link rel="alternate" hrefLang="x-default" href="https://travelesim.bg/" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RW7W6TNJL5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RW7W6TNJL5');
+    </script>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Get affordable eSIM data for 200+ countries and regions. Instant activation, no surprise fees." />
+    <meta property="og:image" content="/esim-data/travelesim-logo.png" />
+    <meta property="og:locale" content="bg_BG" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Travel eSIMple" />
+    <meta property="twitter:description" content="Get affordable eSIM data for 200+ countries and regions. Instant activation, no surprise fees." />
+    <meta property="twitter:image" content="/esim-data/travelesim-logo.png" />
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://travelesim.bg/#organization",
+            "name": "Travel eSIMple",
+            "url": "https://travelesim.bg/",
+            "logo": "https://travelesim.bg/esim-data/travelesim-logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "url": "http://support.travelesim.bg/",
+              "contactType": "Customer Support",
+              "availableLanguage": ["Bulgarian", "English"]
+            },
+            "sameAs": [
+              "https://travelesim.dk/",
+              "https://travelesim.bg/",
+              "https://travelesim.ro/",
+              "https://www.facebook.com/people/Travelesimdk/61573068836051/",
+              "https://www.instagram.com/travelesim.dk/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://travelesim.bg/#website",
+            "url": "https://travelesim.bg/",
+            "name": "Travel eSIMple",
+            "publisher": { "@id": "https://travelesim.bg/#organization" },
+            "inLanguage": "bg"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="stable-container">
+    <div id="root"><!--ssr-outlet--></div>
+    <script type="module" src="/index.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(
+            (registration) => console.log('Service Worker registered successfully'),
+            (error) => console.log('Service Worker registration failed:', error)
+          );
+        });
+      }
+    </script>
+  </body>
+</html>

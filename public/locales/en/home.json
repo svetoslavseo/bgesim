@@ -1,0 +1,202 @@
+{
+  "hero": {
+    "title": "Stay connected, wherever you travel.",
+    "subtitle": "Get affordable eSIM data for 200+ countries and regions. Instant activation, no surprise fees.",
+    "search_placeholder": "Search for a destination",
+    "cta": "Get Started",
+    "learn_more": "Learn More",
+    "view_plans": "View Plans",
+    "browse_countries": "Browse Countries"
+  },
+  "features": {
+    "instant": {
+      "title": "Instant Activation",
+      "description": "Get connected immediately after purchase"
+    },
+    "global": {
+      "title": "Global Coverage",
+      "description": "Connect in 190+ countries worldwide"
+    },
+    "affordable": {
+      "title": "Affordable Plans",
+      "description": "Competitive prices for every budget"
+    },
+    "secure": {
+      "title": "Secure & Reliable",
+      "description": "Trusted by millions of travelers"
+    },
+    "easy": {
+      "title": "Easy Setup",
+      "description": "Simple activation process"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Help whenever you need it"
+    }
+  },
+  "popular_destinations": {
+    "title": "Popular Destinations",
+    "subtitle": "Most requested eSIM destinations",
+    "view_all": "View All Destinations"
+  },
+  "how_it_works": {
+    "title": "How It Works",
+    "step1": {
+      "title": "Choose Your Destination",
+      "description": "Select from 190+ countries and regions"
+    },
+    "step2": {
+      "title": "Select Your Plan",
+      "description": "Choose data, duration, and features"
+    },
+    "step3": {
+      "title": "Instant Activation",
+      "description": "Get connected immediately after purchase"
+    }
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Real experiences from travelers worldwide"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about eSIM",
+    "view_all": "View All FAQ"
+  },
+  "cta_section": {
+    "title": "Ready to Travel?",
+    "subtitle": "Get your eSIM today and stay connected worldwide",
+    "button": "Start Your Journey"
+  },
+  "what_is_esim": {
+    "title": "What is an eSIM?",
+    "description": "An eSIM (or embedded SIM) is a digital SIM card built right into your phone. It works just like a regular SIM, but without the physical card. You can get data plans on the go, making it perfect for international travel.",
+    "no_physical_sims": {
+      "title": "No More Physical SIMs",
+      "description": "Forget swapping tiny plastic cards."
+    },
+    "keep_your_number": {
+      "title": "Keep Your Number",
+      "description": "Use your regular SIM for calls and texts."
+    },
+    "instant_connectivity": {
+      "title": "Instant Connectivity",
+      "description": "Install your eSIM in minutes."
+    }
+  },
+  "destination_selection": {
+    "title": "Choose your destination",
+    "subtitle": "We offer data plans for over 200 countries and regions.",
+    "popular_countries": "Popular Countries",
+    "regional_plans": "Regional Plans",
+    "view_all_destinations": "View All Destinations"
+  },
+  "how_to_get_esim_section": {
+    "title": "How to get an eSIM",
+    "subtitle": "Don't have the Saily app yet? Download it from the App Store or Google Play.",
+    "step1": {
+      "title": "Choose a data plan for your trip",
+      "description": "Select how much data you need, get the plan, and wait for the confirmation email with a QR code.",
+      "option1": "1 GB / 7 days",
+      "option2": "3 GB / 30 days",
+      "option3": "5 GB / 30 days"
+    },
+    "step2": {
+      "title": "Set up your eSIM",
+      "description": "Set up the eSIM on your device by following the instructions in the app.",
+      "installed": "eSIM installed"
+    },
+    "step3": {
+      "title": "Enjoy your data",
+      "description": "Your plan will automatically activate when you reach your destination or 30 days after you've bought it.",
+      "country": "Andorra",
+      "active": "Active",
+      "remaining_data": "Remaining data",
+      "expires_in": "Expires in",
+      "data_usage": "5 / 5 GB",
+      "time_remaining": "29 days, 7 hours"
+    }
+  },
+  "why_choose_us": {
+    "title": "Affordable data wherever you are",
+    "subtitle": "Enjoy seamless connectivity without the high costs. We provide a reliable, affordable, and flexible service that you can count on.",
+    "avoid_roaming": {
+      "title": "Avoid roaming fees",
+      "description": "Travel without the fear of surprise roaming charges. Our prepaid plans are clear and transparent."
+    },
+    "connect_instantly": {
+      "title": "Connect instantly",
+      "description": "Your eSIM is delivered instantly via email and app. Activate it as soon as you land."
+    },
+    "safer_browsing": {
+      "title": "Enjoy safer browsing",
+      "description": "Our service is part of the Nord Security family, so you can trust your connection is secure."
+    }
+  },
+  "testimonials_section": {
+    "title": "Don't just take it from us"
+  },
+  "saily_trusted": "Saily: Trusted by over 85 000 travelers worldwide.",
+  "how_to_get_esim": "How to get an eSIM",
+  "how_to_get_esim_country": "How to get an eSIM for {{country}}",
+  "how_to_get_esim_region": "How to get an eSIM for {{region}}",
+  "ready_to_get_started": "Ready to get started? Download the app from the App Store or Google Play.",
+  "step1_title": "Choose a data plan for your trip",
+  "step1_description": "Select how much data you need, get the plan, and wait for the confirmation email with a QR code.",
+  "step2_title": "Set up your eSIM",
+  "step2_description": "Set up the eSIM on your device by following the instructions in the app.",
+  "step3_title": "Enjoy your data",
+  "step3_description": "Your plan will automatically activate when you reach your destination or 30 days after you've bought it.",
+  "esim_installed": "eSIM installed",
+  "active": "Active",
+  "remaining_data": "Remaining data",
+  "expires_in": "Expires in",
+  "compatibility_title": "Is Your Device eSIM-Compatible?",
+  "compatibility_description": "Most phones released since 2018 are eSIM-compatible. To be sure, please check your device settings or consult your manufacturer's specifications. Your device must also be carrier-unlocked.",
+  "check_compatibility": "Check Device Compatibility",
+  "ready_for_another_destination": "Ready for another destination?",
+  "and_over_destinations": "and over {{count}} destinations",
+  "search_country_region": "Search for a country or region",
+  "my_travel_esim": "My Travel eSIM",
+  "please_select_destination": "Please select your destination",
+  "search": "Search",
+  "stay_connected_anywhere": "Stay Connected Anywhere",
+  "mobile_internet_worldwide": "Mobile internet for your next adventure",
+  "search_destination": "Search destination",
+  "explore_destinations_worldwide": "Explore 200+ destinations worldwide with instant eSIM activation",
+  "explore_all_destinations": "Explore All Destinations",
+  "connected": "Connected",
+  "instant_activation": "Instant Activation",
+  "global_coverage": "200+ Countries",
+  "no_roaming_fees": "No Roaming Fees",
+  "work_from_anywhere": "Work From Anywhere",
+  "reliable_internet_worldwide": "Reliable internet connection in 200+ destinations",
+  "get_started_now": "Get Started Now",
+  "search_result_type_country": "country",
+  "search_result_type_region": "region",
+  "no_destinations_found": "No destinations found for \"{{query}}\"",
+  "device_compatibility_checker": "eSIM Device Compatibility Checker",
+  "brand": "Brand",
+  "select_brand": "Select brand",
+  "model": "Model",
+  "select_model": "Select model",
+  "select_brand_first": "Please select a brand first",
+  "device_compatible": "Your device is eSIM compatible!",
+  "device_not_compatible": "This model is not eSIM compatible.",
+  "device_not_found": "Device not found in our database.",
+  "related_articles": {
+    "title": "Related Articles",
+    "subtitle": "Stay informed with our latest insights on eSIM technology and travel connectivity",
+    "view_all": "View All Articles",
+    "read_more": "Read more"
+  },
+  "meta": {
+    "title": "Travel eSIMple - Global eSIM for Travel | Stay Connected Worldwide",
+    "description": "Get affordable eSIM data for 200+ countries and regions. Instant activation, no hidden fees. Stay connected wherever you travel with Travel eSIMple.",
+    "keywords": "eSIM, travel eSIM, global eSIM, international data, roaming, travel connectivity, mobile data abroad",
+    "og_title": "Travel eSIMple - Global eSIM for Travel",
+    "og_description": "Stay connected worldwide with instant activation and no roaming fees. Get affordable eSIM data for 200+ countries.",
+    "twitter_title": "Travel eSIMple - Global eSIM for Travel",
+    "twitter_description": "Stay connected worldwide with instant activation and no roaming fees. Get affordable eSIM data for 200+ countries."
+  }
+} 

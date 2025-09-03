@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "title": "Mobile Data Usage Calculator for Travel",
+    "description": "Calculate your mobile data needs for international travel. Our smart data usage calculator helps you estimate how much mobile data you'll need based on your daily internet activities, ensuring you choose the right eSIM plan for your trip.",
+    "keywords": "mobile data calculator, travel data estimation, eSIM data plans, international roaming data, travel data usage",
+    "og_title": "Mobile Data Usage Calculator for Travel",
+    "og_description": "Calculate your mobile data needs for international travel. Our smart data usage calculator helps you choose the right eSIM plan.",
+    "twitter_title": "Mobile Data Usage Calculator for Travel",
+    "twitter_description": "Calculate your mobile data needs for international travel. Our smart data usage calculator helps you choose the right eSIM plan."
+  },
+  "hero": {
+    "title": "Mobile Data Usage Calculator for Travel",
+    "description": "Calculate your mobile data needs for international travel. Our smart data usage calculator helps you estimate how much mobile data you'll need based on your daily internet activities, ensuring you choose the right eSIM plan for your trip.",
+    "pro_tip_label": "💡 Pro Tip:",
+    "pro_tip_content": "Most travelers use 1-3GB per day. Use our calculator to get a personalized estimate based on your specific usage patterns."
+  },
+  "calculator": {
+    "title": "Calculate Your Daily Mobile Data Usage",
+    "description": "Estimate your mobile data consumption by selecting your travel profile and adjusting your daily internet activities. This helps you choose the perfect eSIM data plan for your international trip."
+  },
+  "profiles": {
+    "title": "Choose Your Travel Profile",
+    "description": "Select the profile that best matches your typical internet usage while traveling abroad.",
+    "casual": {
+      "name": "Casual Browser",
+      "description": "Browsing, chatting, checking email"
+    },
+    "remote": {
+      "name": "Remote Worker",
+      "description": "Video calls, checking email, browsing"
+    },
+    "personalized": {
+      "name": "Personalized",
+      "description": "Custom setup"
+    }
+  },
+  "activities": {
+    "social_media": {
+      "name": "Social Media",
+      "description": "Scrolling through feeds, posting content, and messaging",
+      "apps": "Instagram, Facebook, LinkedIn, X (Twitter)",
+      "data_per_hour": "150 MB"
+    },
+    "video": {
+      "name": "Video Streaming",
+      "description": "Watching videos, movies, and live streams",
+      "apps": "YouTube, Netflix, TikTok",
+      "data_per_hour": "1500 MB"
+    },
+    "music": {
+      "name": "Music Streaming",
+      "description": "Listening to music and podcasts",
+      "apps": "Spotify, Apple Music, YouTube Music",
+      "data_per_hour": "100 MB"
+    },
+    "navigation": {
+      "name": "Navigation",
+      "description": "Getting directions and location services",
+      "apps": "Google Maps, Apple Maps, Waze",
+      "data_per_hour": "10 MB"
+    },
+    "web_browsing": {
+      "name": "Web Browsing",
+      "description": "Reading articles, shopping online, general browsing",
+      "apps": "News, Online shopping",
+      "data_per_hour": "50 MB"
+    },
+    "emails": {
+      "name": "Emails & Messaging",
+      "description": "Sending emails and instant messages",
+      "apps": "Gmail, WhatsApp, Messenger",
+      "data_per_hour": "4 MB"
+    },
+    "video_calling": {
+      "name": "Video Calling (VoIP)",
+      "description": "Video calls and conferencing",
+      "apps": "Zoom, Google Meet, Facetime",
+      "data_per_hour": "1000 MB"
+    },
+    "downloads": {
+      "name": "Downloads & Updates",
+      "description": "Downloading files and updating apps",
+      "apps": "App updates, File downloads",
+      "data_per_hour": "300 MB"
+    }
+  },
+  "results": {
+    "title": "Your Personalized Data Usage Estimate",
+    "monthly_usage": "Monthly Data Usage",
+    "based_on_daily": "Based on your daily activities",
+    "weekly_usage": "Weekly usage:",
+    "daily_usage": "Daily usage:",
+    "breakdown_title": "Data Usage Breakdown by Activity",
+    "usage": "Usage:",
+    "of_total": "of total",
+    "adjust_usage": "Adjust your usage above to see the breakdown",
+    "recommended_plans_title": "Recommended eSIM Plans for Your Usage",
+    "recommended_plans_description": "Based on your calculated data usage, here are the best eSIM plans that match your needs:",
+    "perfect_match": "Perfect match",
+    "calculate_usage": "Calculate your usage to see recommended plans",
+    "reset_calculator": "Reset Calculator",
+    "custom_hours": "Custom hours",
+    "hours_per_day": "hours/day",
+    "selected": "Selected:",
+    "custom": "(custom)"
+  },
+  "recommendations": {
+    "title": "Recommended eSIM Plans",
+    "description": "Based on your estimated usage, here are some plans that might suit your needs:",
+    "exact_match": "Perfect Match",
+    "close_match": "Good Option",
+    "unlimited": "Unlimited Plan",
+    "view_plan": "View Plan",
+    "no_plans": "No plans available for your usage level"
+  },
+  "how_it_works": {
+    "title": "How Our Mobile Data Usage Calculator Works",
+    "description": "Our data usage calculator estimates your mobile data consumption based on real-world usage patterns. We analyze how much data common internet activities typically consume per hour, then multiply by your daily usage time to provide accurate estimates for international travel.",
+    "calculation_method": "How We Calculate Your Data Usage:",
+    "daily_usage": "Daily Usage: Hours per activity × Data per hour",
+    "weekly_usage": "Weekly Usage: Daily usage × 7 days",
+    "monthly_usage": "Monthly Usage: Daily usage × 30 days",
+    "recommendations": "Recommendations: Based on your monthly estimate",
+    "activity": "Activity",
+    "data_per_hour": "Data per hour",
+    "typical_usage": "Typical Usage",
+    "important_note": "Important Note:",
+    "important_note_content": "These are estimates based on typical usage patterns. Your actual data consumption may vary due to video quality settings, network conditions, app updates, and background processes. We recommend adding 20-30% buffer to your estimate for international travel."
+  },
+  "faq": {
+    "title": "Mobile Data Usage FAQ",
+    "how_accurate": {
+      "question": "How accurate is this calculator?",
+      "answer": "Our calculator provides estimates based on typical usage patterns. Actual usage may vary depending on your specific activities and settings."
+    },
+    "data_units": {
+      "question": "What do MB and GB mean?",
+      "answer": "MB (Megabytes) and GB (Gigabytes) are units of data. 1 GB = 1,024 MB. Most modern apps use several MB per hour of use."
+    },
+    "save_data": {
+      "question": "How can I save data while traveling?",
+      "answer": "Use Wi-Fi when available, download maps offline, disable auto-play videos, and use data-saving modes in apps."
+    },
+    "international_travel": {
+      "question": "How much mobile data do I need for international travel?",
+      "answer": "Most travelers use 1-3GB per day. Light users (email, maps, messaging) need 0.5-1GB daily. Heavy users (streaming, video calls, social media) may need 3-5GB daily. Use our calculator above to get a personalized estimate based on your specific activities."
+    },
+    "apps_most_data": {
+      "question": "Which apps use the most mobile data?",
+      "answer": "Video streaming apps (YouTube, Netflix) use 1-3GB per hour. Video calling (Zoom, FaceTime) uses 500MB-1GB per hour. Social media (Instagram, TikTok) uses 100-300MB per hour. Maps and navigation use 5-10MB per hour. Email and messaging use minimal data (1-5MB per hour)."
+    },
+    "reduce_data_usage": {
+      "question": "How can I reduce my mobile data usage while traveling?",
+      "answer": "Use Wi-Fi when available, download maps offline, disable auto-play videos, use data compression in browsers, turn off background app refresh, and use messaging apps instead of video calls when possible. Consider using our calculator to estimate your needs before your trip."
+    },
+    "average_monthly": {
+      "question": "How many GB does the average person use per month?",
+      "answer": "The average mobile user consumes 5-10GB per month. However, travelers often use more data due to navigation, translation apps, and staying connected with family. Business travelers may use 10-20GB monthly due to video conferencing and cloud services."
+    },
+    "how_long_1gb": {
+      "question": "How long does 1GB of data last?",
+      "answer": "1GB lasts approximately: 1 hour of HD video streaming, 8-10 hours of social media browsing, 20-30 hours of web browsing, 100+ hours of messaging, or 200+ hours of email. The exact duration depends on your specific usage patterns."
+    },
+    "wifi_vs_mobile": {
+      "question": "Do I use mobile data when connected to Wi-Fi?",
+      "answer": "No, when connected to Wi-Fi, your phone uses the Wi-Fi connection instead of mobile data. However, some apps may still use mobile data for background updates. Always check your phone's data usage settings to ensure apps don't use mobile data unnecessarily."
+    },
+    "week_long_trip": {
+      "question": "How much data do I need for a week-long trip?",
+      "answer": "For a week-long trip: Light users need 3-7GB, moderate users need 7-15GB, and heavy users may need 15-30GB. Consider your planned activities - sightseeing with maps uses less data than streaming videos or video calling family daily."
+    },
+    "mb_vs_gb": {
+      "question": "What's the difference between MB and GB?",
+      "answer": "1GB = 1,024MB. Mobile data plans are typically measured in GB. For reference: 1GB can handle about 1 hour of HD video, 8 hours of social media, or 20 hours of web browsing. Our calculator shows results in both MB and GB for clarity."
+    },
+    "calculator_accuracy": {
+      "question": "How accurate is this data usage calculator?",
+      "answer": "Our calculator provides estimates based on typical usage patterns. Actual usage may vary due to video quality settings, app updates, background processes, and network conditions. We recommend adding 20-30% buffer to your estimate for safety."
+    },
+    "unlimited_for_travel": {
+      "question": "Should I get unlimited data for international travel?",
+      "answer": "Unlimited plans are great for heavy users or when you're unsure of your needs. However, they're often more expensive. Use our calculator to estimate your usage first. If you expect to use more than 10GB per week, unlimited plans are usually cost-effective."
+    },
+    "video_call_data": {
+      "question": "How much data do video calls use?",
+      "answer": "Video calls use 500MB-1GB per hour depending on quality. HD video calls use more data than standard quality. Group calls use more data than one-on-one calls. Consider using audio-only calls when possible to save data."
+    },
+    "best_esim_plan": {
+      "question": "What's the best eSIM plan for my data usage?",
+      "answer": "Choose a plan that covers your estimated usage with some buffer. Our calculator recommends plans based on your usage. Look for plans that offer good value (price per GB) and cover your destination countries. Consider plans with rollover data if available."
+    }
+  }
+} 

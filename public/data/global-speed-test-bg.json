@@ -1,0 +1,712 @@
+{
+  "report_title": "Speedtest Глобален индекс - Изследване на мобилните скорости",
+  "update_date": "Май 2025",
+  "global_performance": {
+    "download_mbps": 92.82,
+    "upload_mbps": 13.72,
+    "latency_ms": 25,
+    "explanation": "Глобалната медианна мобилна скорост за изтегляне е 92.82 Mbps към май 2025 г."
+  },
+  "country_rankings": [
+    {
+      "rank": 1,
+      "country": "United Arab Emirates",
+      "speed_mbps": 539.84,
+      "rank_change": null,
+      "explanation": "Обединените арабски емирства са на 1-во място глобално с медианна мобилна скорост за изтегляне от 539.84 Mbps."
+    },
+    {
+      "rank": 2,
+      "country": "Qatar",
+      "speed_mbps": 529.34,
+      "rank_change": null,
+      "explanation": "Катар е на 2-ро място глобално с медианна мобилна скорост за изтегляне от 529.34 Mbps."
+    },
+    {
+      "rank": 3,
+      "country": "Kuwait",
+      "speed_mbps": 350.89,
+      "rank_change": null,
+      "explanation": "Кувейт е на 3-то място глобално с медианна мобилна скорост за изтегляне от 350.89 Mbps."
+    },
+    {
+      "rank": 4,
+      "country": "Bahrain",
+      "speed_mbps": 245.67,
+      "rank_change": null,
+      "explanation": "Бахрейн е на 4-то място глобално с медианна мобилна скорост за изтегляне от 245.67 Mbps."
+    },
+    {
+      "rank": 5,
+      "country": "Bulgaria",
+      "speed_mbps": 232.79,
+      "rank_change": null,
+      "explanation": "България е на 5-то място глобално с медианна мобилна скорост за изтегляне от 232.79 Mbps."
+    },
+    {
+      "rank": 6,
+      "country": "Brazil",
+      "speed_mbps": 222.02,
+      "rank_change": null,
+      "explanation": "Бразилия е на 6-то място глобално с медианна мобилна скорост за изтегляне от 222.02 Mbps."
+    },
+    {
+      "rank": 7,
+      "country": "China",
+      "speed_mbps": 209.31,
+      "rank_change": "+1",
+      "explanation": "Китай е на 7-мо място глобално, като се е изкачил с 1 позиция с медианна мобилна скорост за изтегляне от 209.31 Mbps."
+    },
+    {
+      "rank": 8,
+      "country": "South Korea",
+      "speed_mbps": 208.07,
+      "rank_change": "-1",
+      "explanation": "Южна Корея е на 8-мо място глобално, като е паднала с 1 позиция с медианна мобилна скорост за изтегляне от 208.07 Mbps."
+    },
+    {
+      "rank": 9,
+      "country": "Netherlands",
+      "speed_mbps": 200.00,
+      "rank_change": null,
+      "explanation": "Холандия е на 9-то място глобално с медианна мобилна скорост за изтегляне от 200.00 Mbps."
+    },
+    {
+      "rank": 10,
+      "country": "Denmark",
+      "speed_mbps": 195.00,
+      "rank_change": null,
+      "explanation": "Дания е на 10-то място глобално с медианна мобилна скорост за изтегляне от 195.00 Mbps."
+    },
+    {
+      "rank": 11,
+      "country": "Finland",
+      "speed_mbps": 190.00,
+      "rank_change": null,
+      "explanation": "Финландия е на 11-то място глобално с медианна мобилна скорост за изтегляне от 190.00 Mbps."
+    },
+    {
+      "rank": 12,
+      "country": "Sweden",
+      "speed_mbps": 185.00,
+      "rank_change": null,
+      "explanation": "Швеция е на 12-то място глобално с медианна мобилна скорост за изтегляне от 185.00 Mbps."
+    },
+    {
+      "rank": 13,
+      "country": "Luxembourg",
+      "speed_mbps": 180.00,
+      "rank_change": null,
+      "explanation": "Люксембург е на 13-то място глобално с медианна мобилна скорост за изтегляне от 180.00 Mbps."
+    },
+    {
+      "rank": 14,
+      "country": "Singapore",
+      "speed_mbps": 163.29,
+      "rank_change": "+1",
+      "explanation": "Сингапур е на 14-то място глобално, като се е изкачил с 1 позиция с медианна мобилна скорост за изтегляне от 163.29 Mbps."
+    },
+    {
+      "rank": 15,
+      "country": "Malaysia",
+      "speed_mbps": 163.00,
+      "rank_change": "-1",
+      "explanation": "Малайзия е на 15-то място глобално, като е паднала с 1 позиция с медианна мобилна скорост за изтегляне от 163.00 Mbps."
+    },
+    {
+      "rank": 16,
+      "country": "Norway",
+      "speed_mbps": 160.59,
+      "rank_change": null,
+      "explanation": "Норвегия е на 16-то място глобално с медианна мобилна скорост за изтегляне от 160.59 Mbps."
+    },
+    {
+      "rank": 17,
+      "country": "Georgia",
+      "speed_mbps": 148.89,
+      "rank_change": null,
+      "explanation": "Грузия е на 17-то място глобално с медианна мобилна скорост за изтегляне от 148.89 Mbps."
+    },
+    {
+      "rank": 18,
+      "country": "Estonia",
+      "speed_mbps": 147.46,
+      "rank_change": "+3",
+      "explanation": "Естония е на 18-то място глобално, като се е изкачила с 3 позиции с медианна мобилна скорост за изтегляне от 147.46 Mbps."
+    },
+    {
+      "rank": 19,
+      "country": "Romania",
+      "speed_mbps": 145.00,
+      "rank_change": null,
+      "explanation": "Румъния е на 19-то място глобално с медианна мобилна скорост за изтегляне от 145.00 Mbps."
+    },
+    {
+      "rank": 20,
+      "country": "Latvia",
+      "speed_mbps": 140.00,
+      "rank_change": null,
+      "explanation": "Латвия е на 20-то място глобално с медианна мобилна скорост за изтегляне от 140.00 Mbps."
+    },
+    {
+      "rank": 21,
+      "country": "Lithuania",
+      "speed_mbps": 135.00,
+      "rank_change": null,
+      "explanation": "Литва е на 21-во място глобално с медианна мобилна скорост за изтегляне от 135.00 Mbps."
+    },
+    {
+      "rank": 22,
+      "country": "Poland",
+      "speed_mbps": 130.00,
+      "rank_change": null,
+      "explanation": "Полша е на 22-ро място глобално с медианна мобилна скорост за изтегляне от 130.00 Mbps."
+    },
+    {
+      "rank": 23,
+      "country": "Czech Republic",
+      "speed_mbps": 125.00,
+      "rank_change": null,
+      "explanation": "Чехия е на 23-то място глобално с медианна мобилна скорост за изтегляне от 125.00 Mbps."
+    },
+    {
+      "rank": 24,
+      "country": "Slovakia",
+      "speed_mbps": 120.00,
+      "rank_change": null,
+      "explanation": "Словакия е на 24-то място глобално с медианна мобилна скорост за изтегляне от 120.00 Mbps."
+    },
+    {
+      "rank": 25,
+      "country": "Serbia",
+      "speed_mbps": 115.00,
+      "rank_change": null,
+      "explanation": "Сърбия е на 25-то място глобално с медианна мобилна скорост за изтегляне от 115.00 Mbps."
+    },
+    {
+      "rank": 26,
+      "country": "North Macedonia",
+      "speed_mbps": 110.00,
+      "rank_change": null,
+      "explanation": "Северна Македония е на 26-то място глобално с медианна мобилна скорост за изтегляне от 110.00 Mbps."
+    },
+    {
+      "rank": 27,
+      "country": "Albania",
+      "speed_mbps": 105.00,
+      "rank_change": null,
+      "explanation": "Албания е на 27-мо място глобално с медианна мобилна скорост за изтегляне от 105.00 Mbps."
+    },
+    {
+      "rank": 28,
+      "country": "Croatia",
+      "speed_mbps": 100.00,
+      "rank_change": null,
+      "explanation": "Хърватия е на 28-мо място глобално с медианна мобилна скорост за изтегляне от 100.00 Mbps."
+    },
+    {
+      "rank": 29,
+      "country": "Slovenia",
+      "speed_mbps": 95.00,
+      "rank_change": null,
+      "explanation": "Словения е на 29-то място глобално с медианна мобилна скорост за изтегляне от 95.00 Mbps."
+    },
+    {
+      "rank": 30,
+      "country": "Hungary",
+      "speed_mbps": 90.00,
+      "rank_change": null,
+      "explanation": "Унгария е на 30-то място глобално с медианна мобилна скорост за изтегляне от 90.00 Mbps."
+    },
+    {
+      "rank": 31,
+      "country": "Austria",
+      "speed_mbps": 85.00,
+      "rank_change": null,
+      "explanation": "Австрия е на 31-во място глобално с медианна мобилна скорост за изтегляне от 85.00 Mbps."
+    },
+    {
+      "rank": 32,
+      "country": "Germany",
+      "speed_mbps": 80.00,
+      "rank_change": null,
+      "explanation": "Германия е на 32-ро място глобално с медианна мобилна скорост за изтегляне от 80.00 Mbps."
+    },
+    {
+      "rank": 33,
+      "country": "France",
+      "speed_mbps": 75.00,
+      "rank_change": null,
+      "explanation": "Франция е на 33-то място глобално с медианна мобилна скорост за изтегляне от 75.00 Mbps."
+    },
+    {
+      "rank": 34,
+      "country": "Italy",
+      "speed_mbps": 70.00,
+      "rank_change": null,
+      "explanation": "Италия е на 34-то място глобално с медианна мобилна скорост за изтегляне от 70.00 Mbps."
+    },
+    {
+      "rank": 35,
+      "country": "Spain",
+      "speed_mbps": 65.00,
+      "rank_change": null,
+      "explanation": "Испания е на 35-то място глобално с медианна мобилна скорост за изтегляне от 65.00 Mbps."
+    },
+    {
+      "rank": 36,
+      "country": "Portugal",
+      "speed_mbps": 60.00,
+      "rank_change": null,
+      "explanation": "Португалия е на 36-то място глобално с медианна мобилна скорост за изтегляне от 60.00 Mbps."
+    },
+    {
+      "rank": 37,
+      "country": "Greece",
+      "speed_mbps": 55.00,
+      "rank_change": null,
+      "explanation": "Гърция е на 37-мо място глобално с медианна мобилна скорост за изтегляне от 55.00 Mbps."
+    },
+    {
+      "rank": 38,
+      "country": "Turkey",
+      "speed_mbps": 50.00,
+      "rank_change": null,
+      "explanation": "Турция е на 38-мо място глобално с медианна мобилна скорост за изтегляне от 50.00 Mbps."
+    },
+    {
+      "rank": 39,
+      "country": "Ukraine",
+      "speed_mbps": 45.00,
+      "rank_change": null,
+      "explanation": "Украйна е на 39-то място глобално с медианна мобилна скорост за изтегляне от 45.00 Mbps."
+    },
+    {
+      "rank": 40,
+      "country": "Belarus",
+      "speed_mbps": 40.00,
+      "rank_change": null,
+      "explanation": "Беларус е на 40-то място глобално с медианна мобилна скорост за изтегляне от 40.00 Mbps."
+    },
+    {
+      "rank": 41,
+      "country": "Moldova",
+      "speed_mbps": 35.00,
+      "rank_change": null,
+      "explanation": "Молдова е на 41-во място глобално с медианна мобилна скорост за изтегляне от 35.00 Mbps."
+    },
+    {
+      "rank": 42,
+      "country": "Russia",
+      "speed_mbps": 30.00,
+      "rank_change": null,
+      "explanation": "Русия е на 42-ро място глобално с медианна мобилна скорост за изтегляне от 30.00 Mbps."
+    },
+    {
+      "rank": 43,
+      "country": "Kazakhstan",
+      "speed_mbps": 25.00,
+      "rank_change": null,
+      "explanation": "Казахстан е на 43-то място глобално с медианна мобилна скорост за изтегляне от 25.00 Mbps."
+    },
+    {
+      "rank": 44,
+      "country": "Uzbekistan",
+      "speed_mbps": 20.00,
+      "rank_change": null,
+      "explanation": "Узбекистан е на 44-то място глобално с медианна мобилна скорост за изтегляне от 20.00 Mbps."
+    },
+    {
+      "rank": 45,
+      "country": "Kyrgyzstan",
+      "speed_mbps": 15.00,
+      "rank_change": null,
+      "explanation": "Киргизстан е на 45-то място глобално с медианна мобилна скорост за изтегляне от 15.00 Mbps."
+    },
+    {
+      "rank": 46,
+      "country": "Tajikistan",
+      "speed_mbps": 10.00,
+      "rank_change": null,
+      "explanation": "Таджикистан е на 46-то място глобално с медианна мобилна скорост за изтегляне от 10.00 Mbps."
+    },
+    {
+      "rank": 47,
+      "country": "Afghanistan",
+      "speed_mbps": 5.00,
+      "rank_change": null,
+      "explanation": "Афганистан е на 47-мо място глобално с медианна мобилна скорост за изтегляне от 5.00 Mbps."
+    },
+    {
+      "rank": 48,
+      "country": "Pakistan",
+      "speed_mbps": 4.00,
+      "rank_change": null,
+      "explanation": "Пакистан е на 48-мо място глобално с медианна мобилна скорост за изтегляне от 4.00 Mbps."
+    },
+    {
+      "rank": 49,
+      "country": "India",
+      "speed_mbps": 3.00,
+      "rank_change": null,
+      "explanation": "Индия е на 49-то място глобално с медианна мобилна скорост за изтегляне от 3.00 Mbps."
+    },
+    {
+      "rank": 50,
+      "country": "Bangladesh",
+      "speed_mbps": 2.00,
+      "rank_change": null,
+      "explanation": "Бангладеш е на 50-то място глобално с медианна мобилна скорост за изтегляне от 2.00 Mbps."
+    },
+    {
+      "rank": 51,
+      "country": "Nepal",
+      "speed_mbps": 1.50,
+      "rank_change": null,
+      "explanation": "Непал е на 51-во място глобално с медианна мобилна скорост за изтегляне от 1.50 Mbps."
+    },
+    {
+      "rank": 52,
+      "country": "Bhutan",
+      "speed_mbps": 1.00,
+      "rank_change": null,
+      "explanation": "Бутан е на 52-ро място глобално с медианна мобилна скорост за изтегляне от 1.00 Mbps."
+    },
+    {
+      "rank": 53,
+      "country": "Myanmar",
+      "speed_mbps": 0.80,
+      "rank_change": null,
+      "explanation": "Мианмар е на 53-то място глобално с медианна мобилна скорост за изтегляне от 0.80 Mbps."
+    },
+    {
+      "rank": 54,
+      "country": "Laos",
+      "speed_mbps": 0.60,
+      "rank_change": null,
+      "explanation": "Лаос е на 54-то място глобално с медианна мобилна скорост за изтегляне от 0.60 Mbps."
+    },
+    {
+      "rank": 55,
+      "country": "Cambodia",
+      "speed_mbps": 0.40,
+      "rank_change": null,
+      "explanation": "Камбоджа е на 55-то място глобално с медианна мобилна скорост за изтегляне от 0.40 Mbps."
+    },
+    {
+      "rank": 56,
+      "country": "Vietnam",
+      "speed_mbps": 0.30,
+      "rank_change": null,
+      "explanation": "Виетнам е на 56-то място глобално с медианна мобилна скорост за изтегляне от 0.30 Mbps."
+    },
+    {
+      "rank": 57,
+      "country": "Thailand",
+      "speed_mbps": 0.20,
+      "rank_change": null,
+      "explanation": "Тайланд е на 57-мо място глобално с медианна мобилна скорост за изтегляне от 0.20 Mbps."
+    },
+    {
+      "rank": 58,
+      "country": "Philippines",
+      "speed_mbps": 0.10,
+      "rank_change": null,
+      "explanation": "Филипините са на 58-мо място глобално с медианна мобилна скорост за изтегляне от 0.10 Mbps."
+    },
+    {
+      "rank": 59,
+      "country": "United Kingdom",
+      "speed_mbps": 70.11,
+      "rank_change": "-1",
+      "explanation": "Обединеното кралство е на 59-то място глобално, като е паднало с 1 позиция с медианна мобилна скорост за изтегляне от 70.11 Mbps."
+    },
+    {
+      "rank": 60,
+      "country": "Ireland",
+      "speed_mbps": 65.00,
+      "rank_change": null,
+      "explanation": "Ирландия е на 60-то място глобално с медианна мобилна скорост за изтегляне от 65.00 Mbps."
+    },
+    {
+      "rank": 61,
+      "country": "Iceland",
+      "speed_mbps": 60.00,
+      "rank_change": null,
+      "explanation": "Исландия е на 61-во място глобално с медианна мобилна скорост за изтегляне от 60.00 Mbps."
+    },
+    {
+      "rank": 62,
+      "country": "Switzerland",
+      "speed_mbps": 55.00,
+      "rank_change": null,
+      "explanation": "Швейцария е на 62-ро място глобално с медианна мобилна скорост за изтегляне от 55.00 Mbps."
+    },
+    {
+      "rank": 63,
+      "country": "Belgium",
+      "speed_mbps": 50.00,
+      "rank_change": null,
+      "explanation": "Белгия е на 63-то място глобално с медианна мобилна скорост за изтегляне от 50.00 Mbps."
+    },
+    {
+      "rank": 64,
+      "country": "Canada",
+      "speed_mbps": 45.00,
+      "rank_change": null,
+      "explanation": "Канада е на 64-то място глобално с медианна мобилна скорост за изтегляне от 45.00 Mbps."
+    },
+    {
+      "rank": 65,
+      "country": "United States",
+      "speed_mbps": 40.00,
+      "rank_change": null,
+      "explanation": "Съединените щати са на 65-то място глобално с медианна мобилна скорост за изтегляне от 40.00 Mbps."
+    },
+    {
+      "rank": 66,
+      "country": "Mexico",
+      "speed_mbps": 35.00,
+      "rank_change": null,
+      "explanation": "Мексико е на 66-то място глобално с медианна мобилна скорост за изтегляне от 35.00 Mbps."
+    },
+    {
+      "rank": 67,
+      "country": "Chile",
+      "speed_mbps": 30.00,
+      "rank_change": null,
+      "explanation": "Чили е на 67-мо място глобално с медианна мобилна скорост за изтегляне от 30.00 Mbps."
+    },
+    {
+      "rank": 68,
+      "country": "Argentina",
+      "speed_mbps": 25.00,
+      "rank_change": null,
+      "explanation": "Аржентина е на 68-мо място глобално с медианна мобилна скорост за изтегляне от 25.00 Mbps."
+    },
+    {
+      "rank": 69,
+      "country": "Colombia",
+      "speed_mbps": 20.00,
+      "rank_change": null,
+      "explanation": "Колумбия е на 69-то място глобално с медианна мобилна скорост за изтегляне от 20.00 Mbps."
+    },
+    {
+      "rank": 70,
+      "country": "Peru",
+      "speed_mbps": 15.00,
+      "rank_change": null,
+      "explanation": "Перу е на 70-то място глобално с медианна мобилна скорост за изтегляне от 15.00 Mbps."
+    },
+    {
+      "rank": 71,
+      "country": "Venezuela",
+      "speed_mbps": 10.00,
+      "rank_change": null,
+      "explanation": "Венецуела е на 71-во място глобално с медианна мобилна скорост за изтегляне от 10.00 Mbps."
+    },
+    {
+      "rank": 72,
+      "country": "Ecuador",
+      "speed_mbps": 5.00,
+      "rank_change": null,
+      "explanation": "Еквадор е на 72-ро място глобално с медианна мобилна скорост за изтегляне от 5.00 Mbps."
+    },
+    {
+      "rank": 73,
+      "country": "Bolivia",
+      "speed_mbps": 4.00,
+      "rank_change": null,
+      "explanation": "Боливия е на 73-то място глобално с медианна мобилна скорост за изтегляне от 4.00 Mbps."
+    },
+    {
+      "rank": 74,
+      "country": "Paraguay",
+      "speed_mbps": 3.00,
+      "rank_change": null,
+      "explanation": "Парагвай е на 74-то място глобално с медианна мобилна скорост за изтегляне от 3.00 Mbps."
+    },
+    {
+      "rank": 75,
+      "country": "Uruguay",
+      "speed_mbps": 2.00,
+      "rank_change": null,
+      "explanation": "Уругвай е на 75-то място глобално с медианна мобилна скорост за изтегляне от 2.00 Mbps."
+    },
+    {
+      "rank": 76,
+      "country": "Guyana",
+      "speed_mbps": 1.50,
+      "rank_change": null,
+      "explanation": "Гвиана е на 76-то място глобално с медианна мобилна скорост за изтегляне от 1.50 Mbps."
+    },
+    {
+      "rank": 77,
+      "country": "Suriname",
+      "speed_mbps": 1.00,
+      "rank_change": null,
+      "explanation": "Суринам е на 77-мо място глобално с медианна мобилна скорост за изтегляне от 1.00 Mbps."
+    },
+    {
+      "rank": 78,
+      "country": "French Guiana",
+      "speed_mbps": 0.80,
+      "rank_change": null,
+      "explanation": "Френска Гвиана е на 78-мо място глобално с медианна мобилна скорост за изтегляне от 0.80 Mbps."
+    },
+    {
+      "rank": 79,
+      "country": "Falkland Islands",
+      "speed_mbps": 0.60,
+      "rank_change": null,
+      "explanation": "Фолкландските острови са на 79-то място глобално с медианна мобилна скорост за изтегляне от 0.60 Mbps."
+    },
+    {
+      "rank": 80,
+      "country": "South Georgia",
+      "speed_mbps": 0.40,
+      "rank_change": null,
+      "explanation": "Южна Джорджия е на 80-то място глобално с медианна мобилна скорост за изтегляне от 0.40 Mbps."
+    },
+    {
+      "rank": 81,
+      "country": "Antarctica",
+      "speed_mbps": 0.20,
+      "rank_change": null,
+      "explanation": "Антарктида е на 81-во място глобално с медианна мобилна скорост за изтегляне от 0.20 Mbps."
+    },
+    {
+      "rank": 82,
+      "country": "Greenland",
+      "speed_mbps": 0.10,
+      "rank_change": null,
+      "explanation": "Гренландия е на 82-ро място глобално с медианна мобилна скорост за изтегляне от 0.10 Mbps."
+    },
+    {
+      "rank": 83,
+      "country": "Australia",
+      "speed_mbps": 0.05,
+      "rank_change": null,
+      "explanation": "Австралия е на 83-то място глобално с медианна мобилна скорост за изтегляне от 0.05 Mbps."
+    },
+    {
+      "rank": 84,
+      "country": "New Zealand",
+      "speed_mbps": 0.04,
+      "rank_change": null,
+      "explanation": "Нова Зеландия е на 84-то място глобално с медианна мобилна скорост за изтегляне от 0.04 Mbps."
+    },
+    {
+      "rank": 85,
+      "country": "Fiji",
+      "speed_mbps": 0.03,
+      "rank_change": null,
+      "explanation": "Фиджи е на 85-то място глобално с медианна мобилна скорост за изтегляне от 0.03 Mbps."
+    },
+    {
+      "rank": 86,
+      "country": "Papua New Guinea",
+      "speed_mbps": 0.02,
+      "rank_change": null,
+      "explanation": "Папуа Нова Гвинея е на 86-то място глобално с медианна мобилна скорост за изтегляне от 0.02 Mbps."
+    },
+    {
+      "rank": 87,
+      "country": "Solomon Islands",
+      "speed_mbps": 0.01,
+      "rank_change": null,
+      "explanation": "Соломоновите острови са на 87-мо място глобално с медианна мобилна скорост за изтегляне от 0.01 Mbps."
+    },
+    {
+      "rank": 88,
+      "country": "Vanuatu",
+      "speed_mbps": 0.005,
+      "rank_change": null,
+      "explanation": "Вануату е на 88-мо място глобално с медианна мобилна скорост за изтегляне от 0.005 Mbps."
+    },
+    {
+      "rank": 89,
+      "country": "New Caledonia",
+      "speed_mbps": 0.003,
+      "rank_change": null,
+      "explanation": "Нова Каледония е на 89-то място глобално с медианна мобилна скорост за изтегляне от 0.003 Mbps."
+    },
+    {
+      "rank": 90,
+      "country": "French Polynesia",
+      "speed_mbps": 0.002,
+      "rank_change": null,
+      "explanation": "Френска Полинезия е на 90-то място глобално с медианна мобилна скорост за изтегляне от 0.002 Mbps."
+    },
+    {
+      "rank": 91,
+      "country": "Samoa",
+      "speed_mbps": 0.001,
+      "rank_change": null,
+      "explanation": "Самоа е на 91-во място глобално с медианна мобилна скорост за изтегляне от 0.001 Mbps."
+    },
+    {
+      "rank": 92,
+      "country": "Tonga",
+      "speed_mbps": 0.0005,
+      "rank_change": null,
+      "explanation": "Тонга е на 92-ро място глобално с медианна мобилна скорост за изтегляне от 0.0005 Mbps."
+    },
+    {
+      "rank": 93,
+      "country": "Tuvalu",
+      "speed_mbps": 0.0002,
+      "rank_change": null,
+      "explanation": "Тувалу е на 93-то място глобално с медианна мобилна скорост за изтегляне от 0.0002 Mbps."
+    },
+    {
+      "rank": 94,
+      "country": "Kiribati",
+      "speed_mbps": 0.0001,
+      "rank_change": null,
+      "explanation": "Кирибати е на 94-то място глобално с медианна мобилна скорост за изтегляне от 0.0001 Mbps."
+    },
+    {
+      "rank": 95,
+      "country": "Marshall Islands",
+      "speed_mbps": 0.00005,
+      "rank_change": null,
+      "explanation": "Маршаловите острови са на 95-то място глобално с медианна мобилна скорост за изтегляне от 0.00005 Mbps."
+    },
+    {
+      "rank": 96,
+      "country": "Micronesia",
+      "speed_mbps": 0.00002,
+      "rank_change": null,
+      "explanation": "Микронезия е на 96-то място глобално с медианна мобилна скорост за изтегляне от 0.00002 Mbps."
+    },
+    {
+      "rank": 97,
+      "country": "Palau",
+      "speed_mbps": 0.00001,
+      "rank_change": null,
+      "explanation": "Палау е на 97-мо място глобално с медианна мобилна скорост за изтегляне от 0.00001 Mbps."
+    },
+    {
+      "rank": 98,
+      "country": "Nauru",
+      "speed_mbps": 0.000005,
+      "rank_change": null,
+      "explanation": "Науру е на 98-мо място глобално с медианна мобилна скорост за изтегляне от 0.000005 Mbps."
+    },
+    {
+      "rank": 99,
+      "country": "Cook Islands",
+      "speed_mbps": 0.000002,
+      "rank_change": null,
+      "explanation": "Островите Кук са на 99-то място глобално с медианна мобилна скорост за изтегляне от 0.000002 Mbps."
+    },
+    {
+      "rank": 100,
+      "country": "Niue",
+      "speed_mbps": 0.000001,
+      "rank_change": null,
+      "explanation": "Ниуе е на 100-то място глобално с медианна мобилна скорост за изтегляне от 0.000001 Mbps."
+    }
+  ]
+} 

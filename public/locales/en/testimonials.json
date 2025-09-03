@@ -1,0 +1,30 @@
+{
+  "title": "What Our Users Say",
+  "testimonials": [
+    {
+      "name": "Anna Smith",
+      "country": "UK",
+      "countryCode": "GB",
+      "avatar": "🇬🇧",
+      "text": "Best eSIM experience ever! Fast, easy, and reliable."
+    },
+    {
+      "name": "Carlos Mendez",
+      "country": "Spain",
+      "countryCode": "ES",
+      "avatar": "🇪🇸",
+      "text": "Saved me so much money on roaming. Highly recommended!"
+    },
+    {
+      "name": "Yuki Tanaka",
+      "country": "Japan",
+      "countryCode": "JP",
+      "avatar": "🇯🇵",
+      "text": "Setup was instant. Great coverage during my trip."
+    }
+  ],
+  "navigation": {
+    "previous": "Previous testimonial",
+    "next": "Next testimonial"
+  }
+} 

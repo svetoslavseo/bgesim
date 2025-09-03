@@ -1,0 +1,56 @@
+{
+  "company": {
+    "title": "Company",
+    "about": "About Us",
+    "careers": "Careers",
+    "press": "Press",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "products": {
+    "title": "Products",
+    "esim_plans": "eSIM Plans",
+    "global_coverage": "Global Coverage",
+    "data_plans": "Data Plans",
+    "voice_plans": "Voice Plans",
+    "enterprise": "Enterprise"
+  },
+  "support": {
+    "title": "Support",
+    "help_center": "Help Center",
+    "faq": "FAQ",
+    "contact_support": "Contact Support",
+    "live_chat": "Live Chat",
+    "phone_support": "Phone Support"
+  },
+  "legal": {
+    "title": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "gdpr": "GDPR",
+    "ccpa": "CCPA"
+  },
+  "social": {
+    "title": "Follow Us",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube"
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "subtitle": "Get the latest news and offers",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "unsubscribe": "Unsubscribe"
+  },
+  "description": "Travel eSIMple is a global eSIM website that helps you avoid expensive roaming charges by providing access to over 190 eSIMs worldwide at the best prices.",
+  "regions": "REGIONS",
+  "popular_destinations": "POPULAR DESTINATIONS",
+  "affiliate_disclaimer": "This page contains affiliate links, which means we may earn a commission if you purchase a product through our links. There's no extra cost to you as a customer, and the price you pay remains exactly the same.",
+  "copyright": "© 2025, Powered by Travel eSIM Global",
+  "made_with": "Made with ❤️ for travelers worldwide",
+  "back_to_top": "Back to Top"
+} 

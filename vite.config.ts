@@ -89,7 +89,8 @@ function copyDataFiles() {
 
 export default defineConfig((envConfig: any) => {
     const { mode } = envConfig;
-    const isSsr = envConfig?.isSsrBuild === true;
+    // Vite passes `ssrBuild` flag when building with `--ssr`. Use it to detect SSR build mode correctly.
+    const isSsr = envConfig?.ssrBuild === true;
     const env = loadEnv(mode, '.', '');
     return {
       plugins: [react(), copyDataFiles()],

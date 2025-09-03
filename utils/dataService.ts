@@ -1,8 +1,51 @@
 // Optimized data service with caching and lazy loading
 
+import { Plan as PlanType } from '../types';
+
+// Define a custom interface to extend the global Window object
+interface CustomWindow extends Window {
+  __PRELOADED_PLANS__?: { items: PlanType[] };
+}
+
+// Augment the global scope to include our custom global property
+declare global {
+  var plansData: { items: PlanType[] } | undefined;
+}
+
+
+// Singleton Data Service
 class DataService {
+  private plans: { items: PlanType[] } = { items: [] };
+  private isFullDataLoaded = false;
+  private lastFetchTime: number | null = null;
+  private static instance: DataService;
   private cache: Map<string, any> = new Map();
   private loadingPromises: Map<string, Promise<any>> = new Map();
+
+  private constructor() {
+    this.init();
+  }
+
+  public static getInstance(): DataService {
+    if (!DataService.instance) {
+      DataService.instance = new DataService();
+    }
+    return DataService.instance;
+  }
+
+  private init() {
+    // Check for pre-loaded data in SSR environment
+    if (typeof window !== 'undefined' && (window as CustomWindow).__PRELOADED_PLANS__) {
+      this.plans = (window as CustomWindow).__PRELOADED_PLANS__!;
+      this.isFullDataLoaded = true;
+      console.log('DataService: Initialized with pre-loaded SSR data.');
+      return;
+    }
+
+    this.fetchPlansData().catch(error => {
+      console.error('Failed to load initial plans data:', error);
+    });
+  }
 
   // Preload critical data in chunks
   async preloadCriticalData(): Promise<void> {
@@ -136,77 +179,25 @@ class DataService {
 
   private async fetchPlansData(): Promise<any> {
     console.log('DataService.fetchPlansData: Starting to fetch plans data...');
-    
-    // Check if we're in a server environment
-    if (typeof window === 'undefined') {
-      console.log('DataService.fetchPlansData: Server environment detected');
-      // Server-side: read from file system
-      try {
-        const fs = await import('fs');
-        const path = await import('path');
-        
-        // Try multiple possible paths for production
-        const possiblePaths = [
-          path.default.join(process.cwd(), 'public', 'plans.json'),
-          path.default.join(process.cwd(), 'dist', 'client', 'plans.json'),
-          path.default.join(process.cwd(), 'plans.json')
-        ];
-        
-        let data = null;
-        for (const plansPath of possiblePaths) {
-          try {
-            if (fs.default.existsSync(plansPath)) {
-              data = fs.default.readFileSync(plansPath, 'utf-8');
-              console.log(`✅ Loaded plans.json from: ${plansPath}`);
-              break;
-            }
-          } catch (pathError) {
-            console.warn(`Failed to check path: ${plansPath}`, pathError);
-            continue;
-          }
-        }
-        
-        if (data) {
-          const parsed = JSON.parse(data);
-          console.log(`DataService.fetchPlansData: Server loaded ${parsed.items?.length || 0} plans`);
-          return parsed;
-        } else {
-          console.error('Failed to find plans.json in any expected location');
-          return { items: [] };
-        }
-      } catch (error) {
-        console.error('Failed to read plans.json from filesystem:', error);
-        return { items: [] };
-      }
-    } else {
-      console.log('DataService.fetchPlansData: Client environment detected, using fetch');
-      // Client-side: use fetch with cache busting for updated data
-      try {
-        // Add timestamp to ensure we get the latest data after updates
-        const timestamp = Date.now();
-        const response = await fetch(`/plans.json?t=${timestamp}`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch plans: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log(`DataService.fetchPlansData: Client fetched ${data.items?.length || 0} plans`);
-        return data;
-      } catch (fetchError) {
-        console.error('Failed to fetch plans data:', fetchError);
-        // Fallback to cached version without timestamp
-        try {
-          const fallbackResponse = await fetch('/plans.json');
-          if (fallbackResponse.ok) {
-            const fallbackData = await fallbackResponse.json();
-            console.log('DataService.fetchPlansData: Using fallback data');
-            return fallbackData;
-          }
-        } catch (fallbackError) {
-          console.error('Fallback fetch also failed:', fallbackError);
-        }
-        return { items: [] };
-      }
+    const isServer = typeof window === 'undefined';
+
+    if (isServer && globalThis.plansData) {
+        console.log('DataService.fetchPlansData: Server environment detected, using pre-loaded data from globalThis.');
+        this.plans = globalThis.plansData;
+        this.lastFetchTime = Date.now();
+        return;
     }
+
+    console.log('DataService.fetchPlansData: Client environment detected, using fetch');
+    // Add timestamp to ensure we get the latest data after updates
+    const timestamp = Date.now();
+    const response = await fetch(`/plans.json?t=${timestamp}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch plans: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(`DataService.fetchPlansData: Client fetched ${data.items?.length || 0} plans`);
+    return data;
   }
 
   // Method to force refresh data (useful after updates)
@@ -322,7 +313,7 @@ class DataService {
 }
 
 // Export singleton instance
-export const dataService = new DataService();
+export const dataService = DataService.getInstance();
 
 // Export types for better TypeScript support
 export interface Plan {

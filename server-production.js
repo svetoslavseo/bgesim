@@ -205,6 +205,16 @@ async function createServer() {
       // Replace the placeholder with rendered content
       let html = template.replace(`<!--ssr-outlet-->`, appHtml);
 
+      // Inject preloaded data for client-side hydration
+      if (plansData) {
+        const preloadedDataScript = `
+          <script>
+            window.__PRELOADED_PLANS__ = ${JSON.stringify(plansData)};
+          </script>
+        `;
+        html = html.replace('</head>', `${preloadedDataScript}</head>`);
+      }
+
       // Handle helmet metadata injection
       if (helmet) {
         // Extract helmet content

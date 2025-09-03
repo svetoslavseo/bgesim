@@ -1,0 +1,47 @@
+[
+  {
+    "id": "sample-plan-1",
+    "country": "Bulgaria",
+    "countryCode": "BG",
+    "region": "Europe",
+    "provider": "Sample Provider",
+    "dataAmount": "1GB",
+    "validity": "7 days",
+    "price": "$5.99",
+    "currency": "USD",
+    "features": ["Data only", "No calls", "No SMS"],
+    "coverage": ["Bulgaria"],
+    "activationPolicy": "Manual",
+    "speedAfterLimit": "Throttled"
+  },
+  {
+    "id": "sample-plan-2",
+    "country": "Germany",
+    "countryCode": "DE",
+    "region": "Europe",
+    "provider": "Sample Provider",
+    "dataAmount": "3GB",
+    "validity": "15 days",
+    "price": "$12.99",
+    "currency": "USD",
+    "features": ["Data only", "No calls", "No SMS"],
+    "coverage": ["Germany"],
+    "activationPolicy": "Automatic",
+    "speedAfterLimit": "Throttled"
+  },
+  {
+    "id": "sample-plan-3",
+    "country": "United States",
+    "countryCode": "US",
+    "region": "North America",
+    "provider": "Sample Provider",
+    "dataAmount": "5GB",
+    "validity": "30 days",
+    "price": "$19.99",
+    "currency": "USD",
+    "features": ["Data only", "No calls", "No SMS"],
+    "coverage": ["United States"],
+    "activationPolicy": "Manual",
+    "speedAfterLimit": "Cut off"
+  }
+] 

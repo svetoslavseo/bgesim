@@ -145,7 +145,7 @@ export const generateOrganizationSchema = (t: any, language: string): SchemaOrga
   logo: `${BASE_URL}/esim-data/travelesim-logo.png`,
   contactPoint: {
     "@type": "ContactPoint",
-    url: 'http://support.travelesim.bg/',
+    url: 'https://support.travelesim.bg/',
     contactType: t('organization.contact_type', 'Customer Support'),
     availableLanguage: language === 'bg' ? ['Bulgarian', 'English'] : ['English', 'Bulgarian']
   },

@@ -30,13 +30,19 @@
     "update-sitemap-chinese": "node scripts/update-sitemap-chinese.cjs",
     "update-sitemap-english": "node scripts/update-sitemap-english.cjs",
     "verify-deployment": "node verify-deployment.js",
-    "prepare-deployment": "cp plans-sample.json plans.json || echo 'Using existing plans.json'"
+    "prepare-deployment": "cp plans-sample.json plans.json || echo 'Using existing plans.json'",
+    "update-saily-plans": "tsx scripts/update-saily-plans.ts",
+    "fetch-saily-data": "python3 scripts/fetch-saily-data.py",
+    "verify-plans-coverage": "tsx scripts/verify-plans-coverage.ts",
+    "test-saily-integration": "tsx scripts/test-saily-integration.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^5.16.7",
     "@tailwindcss/typography": "^0.5.16",
+    "axios": "^1.11.0",
+    "cloudscraper": "^4.6.0",
     "compression": "^1.8.1",
     "cross-env": "^10.0.0",
     "esbuild": "^0.25.8",
@@ -45,6 +51,7 @@
     "i18next": "^25.3.2",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
+    "node-cron": "^4.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
@@ -57,6 +64,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^22.14.0",
+    "@types/node-cron": "^3.0.11",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.2.0",
@@ -64,7 +72,7 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11",
     "typescript": "~5.7.2",
-    "vite": "^6.2.0",
+    "vite": "^6.3.5",
     "vite-plugin-static-copy": "^3.1.1"
   },
   "optionalDependencies": {

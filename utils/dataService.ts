@@ -100,27 +100,27 @@ class DataService {
 export const dataService = DataService.getInstance();
 
 // Export types for better TypeScript support
+// (Deprecated) Local Plan interface kept only for legacy imports; prefer types from ../types
 export interface Plan {
-  covered_countries: string[];
+  id: string;
+  identifier?: string;
+  name: string;
+  data_amount: number;
+  data_unit: string;
+  data: string;
+  validity_days: number;
+  validity: string;
   price: {
     amount_with_tax: number;
     currency: string;
+    identifier?: string;
   };
-  name: string;
-  identifier: string;
-  data_limit?: {
-    amount: number;
-    unit: string;
-    is_unlimited: boolean;
-  };
-  duration?: {
-    amount: number;
-    unit: string;
-  };
+  covered_countries: string[];
+  planType?: 'country' | 'regional' | 'global';
   region?: string;
 }
 
 export interface PlansData {
-  items: Plan[];
+  items: PlanType[];
   isSubset?: boolean;
 }

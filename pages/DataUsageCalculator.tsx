@@ -305,9 +305,9 @@ const DataUsageCalculator: React.FC<{ navigateTo: (route: string) => void }> = (
     const recommendations: RecommendedPlan[] = [];
     
     plans.forEach(plan => {
-      if (!plan.data_limit) return;
+      if (!plan.data_amount) return;
       
-      const planDataGB = plan.data_limit.amount;
+      const planDataGB = plan.data_amount;
       const priceUSD = plan.price.amount_with_tax / 100; // Convert cents to dollars
       
       let relevance = 0;
@@ -413,8 +413,8 @@ const DataUsageCalculator: React.FC<{ navigateTo: (route: string) => void }> = (
   };
 
   const getCountryFlag = (countryCode: string) => {
-    // Use the same flag source as the homepage
-    const flagUrl = `https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`;
+    // Use self-hosted flags
+    const flagUrl = `/esim-data/flags/${countryCode.toLowerCase()}.svg`;
     return (
       <img 
         src={flagUrl} 

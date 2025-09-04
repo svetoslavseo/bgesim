@@ -67,7 +67,7 @@ const TestimonialsCarousel: React.FC = () => {
               <div className="text-sm text-gray-500 flex flex-col items-center justify-center gap-2">
                 <div className="flex items-center gap-2">
                   <img 
-                    src={`https://flagcdn.com/w40/${t.countryCode.toLowerCase()}.png`} 
+                    src={`/esim-data/flags/${t.countryCode.toLowerCase()}.svg`} 
                     alt={`${t.country} flag`} 
                     className="w-6 h-auto rounded-sm shadow-sm"
                   />

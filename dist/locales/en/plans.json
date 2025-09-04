@@ -1,0 +1,31 @@
+{
+  "title": "eSIM Plans & Pricing for {{country}}",
+  "description": "Stay connected with fast 4G/5G internet, no contracts, and no roaming fees!",
+  "features": {
+    "instant_activation": "Instant Activation",
+    "wifi_hotspot": "Wi-Fi Hotspot",
+    "fast_internet": "Fast Internet"
+  },
+  "for_duration": "for {{duration}}",
+  "buy_for_price": "Buy for {{currency}}{{price}}",
+  "show_less": "Show Less",
+  "show_more_plans": "Show {{count}} More Plans",
+  "plan": {
+    "title": "Plan",
+    "data": "Data",
+    "validity": "Validity",
+    "price": "Price",
+    "currency": "Currency",
+    "features": "Features",
+    "coverage": "Coverage",
+    "activation": "Activation",
+    "support": "Support"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "starting_from": "Starting from",
+    "best_value": "Best Value",
+    "most_popular": "Most Popular",
+    "premium": "Premium"
+  }
+} 

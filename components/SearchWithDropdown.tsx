@@ -180,7 +180,7 @@ const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
               <span className="text-lg">
                 {result.type === 'country' ? (
                   <img 
-                    src={`https://flagcdn.com/w20/${result.id.toLowerCase()}.png`} 
+                    src={`/esim-data/flags/${result.id.toLowerCase()}.svg`} 
                     alt={`${result.name} flag`} 
                     className="w-5 h-auto rounded-sm"
                   />

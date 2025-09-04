@@ -1,0 +1,85 @@
+{
+  "company": {
+    "title": "Компания",
+    "about": "За нас",
+    "careers": "Кариери",
+    "press": "Медии",
+    "blog": "Блог",
+    "contact": "Контакти"
+  },
+  "products": {
+    "title": "Products",
+    "esim_plans": "eSIM Plans",
+    "global_coverage": "Global Coverage",
+    "data_plans": "Data Plans",
+    "voice_plans": "Voice Plans",
+    "enterprise": "Enterprise"
+  },
+  "support": {
+    "title": "Поддръжка",
+    "help_center": "Център за помощ",
+    "faq": "ЧЗВ",
+    "contact_support": "Свържете се с поддръжката",
+    "live_chat": "Чат на живо",
+    "phone_support": "Телефонна поддръжка"
+  },
+  "legal": {
+    "title": "Правни",
+    "terms": "Условия за ползване",
+    "privacy": "Политика за поверителност",
+    "cookies": "Политика за бисквитки",
+    "gdpr": "GDPR",
+    "ccpa": "CCPA"
+  },
+  "social": {
+    "title": "Follow Us",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube"
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "subtitle": "Get the latest news and offers",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "unsubscribe": "Unsubscribe"
+  },
+  "description": "Travel eSIMple е глобален eSIM уебсайт, който ви помага да избегнете скъпите такси за роуминг, като предоставя достъп до над 190 eSIM по света на най-добрите цени.",
+  "regions": "РЕГИОНИ",
+  "popular_destinations": "ПОПУЛЯРНИ ДЕСТИНАЦИИ",
+  "regions_list": {
+    "europe": "Европа",
+    "asia": "Азия",
+    "north_america": "Северна Америка",
+    "south_america": "Южна Америка",
+    "africa": "Африка",
+    "oceania": "Океания"
+  },
+  "popular_destinations_list": {
+    "united_states": "Съединени щати",
+    "united_kingdom": "Обединено кралство",
+    "turkey": "Турция",
+    "japan": "Япония",
+    "france": "Франция",
+    "china": "Китай",
+    "italy": "Италия",
+    "spain": "Испания",
+    "united_arab_emirates": "Обединени арабски емирства",
+    "canada": "Канада"
+  },
+  "company_links": {
+    "articles": "Статии",
+    "global_esim": "Глобален eSIM",
+    "refund_policy": "Политика за възстановяване",
+    "travel_esim_dk": "Travel eSIM DK",
+    "travel_esim_bg": "Travel eSIM BG",
+    "travel_esim_ro": "Travel eSIM RO",
+    "travel_esim_zh": "Travel eSIM ZH"
+  },
+  "affiliate_disclaimer": "Тази страница съдържа партньорски връзки, което означава, че можем да получим комисиона, ако закупите продукт чрез нашите връзки. За вас като клиент няма допълнителни разходи и цената, която плащате, остава точно същата.",
+  "copyright": "© 2025, Powered by Travel eSIM Global",
+  "made_with": "Made with ❤️ for travelers worldwide",
+  "back_to_top": "Back to Top"
+} 

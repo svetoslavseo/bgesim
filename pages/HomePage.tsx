@@ -12,6 +12,7 @@ import ESIMCompatibility from '../components/ESIMCompatibility';
 import DeviceCompatibilityModal from '../components/DeviceCompatibilityModal';
 import { dataService } from '../utils/dataService';
 import { generateOrganizationSchema } from '../utils/schemaUtils';
+import { getFlagUrl } from '../utils/flagUtils';
 
 
 interface HomePageProps {
@@ -29,7 +30,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
     const loadPlansData = async () => {
       try {
         console.log('HomePage: Loading plans data...');
-        const data = await dataService.getPlansData({ full: true });
+        const data = await dataService.getPlansData(true);
         console.log('HomePage: Plans data loaded:', data?.items?.length || 0, 'plans');
         setPlansData(data);
       } catch (error) {
@@ -541,7 +542,7 @@ const CountryCard: React.FC<{country: Country, navigateTo: (route: string) => vo
         href={`/${country.regionId}/${country.slug}`}
         className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 cursor-pointer hover:shadow-lg hover:border-blue-500 transition-all duration-300 flex items-center block"
     >
-        <img src={`https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`} alt={`${getCountryName(country.id)} flag`} className="w-10 h-auto rounded-md" />
+        <img src={getFlagUrl(countryCode)} alt={`${getCountryName(country.id)} flag`} className="w-10 h-auto rounded-md" />
         <div className="ml-4">
             <h3 className="font-semibold text-gray-900">{getCountryName(country.id)}</h3>
             <p className="text-sm text-gray-500">

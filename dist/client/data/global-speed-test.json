@@ -1,0 +1,600 @@
+{
+    "report_title": "Speedtest Global Index - Mobile Speeds Research",
+    "update_date": "May 2025",
+    "global_performance": {
+      "download_mbps": 92.82,
+      "upload_mbps": 13.72,
+      "latency_ms": 25,
+      "explanation": "The global median mobile download speed is 92.82 Mbps as of May 2025."
+    },
+    "country_rankings": [
+      {
+        "rank": 1,
+        "country": "United Arab Emirates",
+        "speed_mbps": 539.84,
+        "rank_change": null,
+        "explanation": "Ranked #1, United Arab Emirates has a median mobile download speed of 539.84 Mbps."
+      },
+      {
+        "rank": 2,
+        "country": "Qatar",
+        "speed_mbps": 529.34,
+        "rank_change": null,
+        "explanation": "Ranked #2, Qatar has a median mobile download speed of 529.34 Mbps."
+      },
+      {
+        "rank": 3,
+        "country": "Kuwait",
+        "speed_mbps": 350.89,
+        "rank_change": null,
+        "explanation": "Ranked #3, Kuwait has a median mobile download speed of 350.89 Mbps."
+      },
+      {
+        "rank": 4,
+        "country": "Bahrain",
+        "speed_mbps": 245.67,
+        "rank_change": null,
+        "explanation": "Ranked #4, Bahrain has a median mobile download speed of 245.67 Mbps."
+      },
+      {
+        "rank": 5,
+        "country": "Bulgaria",
+        "speed_mbps": 232.79,
+        "rank_change": null,
+        "explanation": "Ranked #5, Bulgaria has a median mobile download speed of 232.79 Mbps."
+      },
+      {
+        "rank": 6,
+        "country": "Brazil",
+        "speed_mbps": 222.02,
+        "rank_change": null,
+        "explanation": "Ranked #6, Brazil has a median mobile download speed of 222.02 Mbps."
+      },
+      {
+        "rank": 7,
+        "country": "China",
+        "speed_mbps": 209.31,
+        "rank_change": "+1",
+        "explanation": "Ranked #7, China has moved up 1 position with a median mobile download speed of 209.31 Mbps."
+      },
+      {
+        "rank": 8,
+        "country": "South Korea",
+        "speed_mbps": 208.07,
+        "rank_change": "-1",
+        "explanation": "Ranked #8, South Korea has moved down 1 position with a median mobile download speed of 208.07 Mbps."
+      },
+      {
+        "rank": 15,
+        "country": "Singapore",
+        "speed_mbps": 163.29,
+        "rank_change": "+1",
+        "explanation": "Ranked #15, Singapore has moved up 1 position with a median mobile download speed of 163.29 Mbps."
+      },
+      {
+        "rank": 16,
+        "country": "Malaysia",
+        "speed_mbps": 163.00,
+        "rank_change": "-1",
+        "explanation": "Ranked #16, Malaysia has moved down 1 position with a median mobile download speed of 163.00 Mbps."
+      },
+      {
+        "rank": 17,
+        "country": "Norway",
+        "speed_mbps": 160.59,
+        "rank_change": null,
+        "explanation": "Ranked #17, Norway has a median mobile download speed of 160.59 Mbps."
+      },
+      {
+        "rank": 18,
+        "country": "Georgia",
+        "speed_mbps": 148.89,
+        "rank_change": null,
+        "explanation": "Ranked #18, Georgia has a median mobile download speed of 148.89 Mbps."
+      },
+      {
+        "rank": 19,
+        "country": "Estonia",
+        "speed_mbps": 147.46,
+        "rank_change": "+3",
+        "explanation": "Ranked #19, Estonia has moved up 3 positions with a median mobile download speed of 147.46 Mbps."
+      },
+      {
+        "rank": 20,
+        "country": "Vietnam",
+        "speed_mbps": 146.64,
+        "rank_change": "+5",
+        "explanation": "Ranked #20, Vietnam has moved up 5 positions with a median mobile download speed of 146.64 Mbps."
+      },
+      {
+        "rank": 21,
+        "country": "Luxembourg",
+        "speed_mbps": 145.98,
+        "rank_change": "-2",
+        "explanation": "Ranked #21, Luxembourg has moved down 2 positions with a median mobile download speed of 145.98 Mbps."
+      },
+      {
+        "rank": 22,
+        "country": "France",
+        "speed_mbps": 143.62,
+        "rank_change": "-1",
+        "explanation": "Ranked #22, France has moved down 1 position with a median mobile download speed of 143.62 Mbps."
+      },
+      {
+        "rank": 23,
+        "country": "Finland",
+        "speed_mbps": 142.03,
+        "rank_change": "-3",
+        "explanation": "Ranked #23, Finland has moved down 3 positions with a median mobile download speed of 142.03 Mbps."
+      },
+      {
+        "rank": 24,
+        "country": "Latvia",
+        "speed_mbps": 140.26,
+        "rank_change": "-1",
+        "explanation": "Ranked #24, Latvia has moved down 1 position with a median mobile download speed of 140.26 Mbps."
+      },
+      {
+        "rank": 25,
+        "country": "Oman",
+        "speed_mbps": 138.43,
+        "rank_change": "-1",
+        "explanation": "Ranked #25, Oman has moved down 1 position with a median mobile download speed of 138.43 Mbps."
+      },
+      {
+        "rank": 27,
+        "country": "Lithuania",
+        "speed_mbps": 137.36,
+        "rank_change": null,
+        "explanation": "Ranked #27, Lithuania has a median mobile download speed of 137.36 Mbps."
+      },
+      {
+        "rank": 28,
+        "country": "Slovenia",
+        "speed_mbps": 134.85,
+        "rank_change": "+1",
+        "explanation": "Ranked #28, Slovenia has moved up 1 position with a median mobile download speed of 134.85 Mbps."
+      },
+      {
+        "rank": 29,
+        "country": "India",
+        "speed_mbps": 134.46,
+        "rank_change": "-3",
+        "explanation": "Ranked #29, India has moved down 3 positions with a median mobile download speed of 134.46 Mbps."
+      },
+      {
+        "rank": 30,
+        "country": "Austria",
+        "speed_mbps": 130.29,
+        "rank_change": "+1",
+        "explanation": "Ranked #30, Austria has moved up 1 position with a median mobile download speed of 130.29 Mbps."
+      },
+      {
+        "rank": 31,
+        "country": "Sweden",
+        "speed_mbps": 129.88,
+        "rank_change": "+4",
+        "explanation": "Ranked #31, Sweden has moved up 4 positions with a median mobile download speed of 129.88 Mbps."
+      },
+      {
+        "rank": 32,
+        "country": "Switzerland",
+        "speed_mbps": 129.77,
+        "rank_change": "-2",
+        "explanation": "Ranked #32, Switzerland has moved down 2 positions with a median mobile download speed of 129.77 Mbps."
+      },
+      {
+        "rank": 33,
+        "country": "Croatia",
+        "speed_mbps": 128.49,
+        "rank_change": "-1",
+        "explanation": "Ranked #33, Croatia has moved down 1 position with a median mobile download speed of 128.49 Mbps."
+      },
+      {
+        "rank": 34,
+        "country": "Taiwan",
+        "speed_mbps": 119.65,
+        "rank_change": null,
+        "explanation": "Ranked #34, Taiwan has a median mobile download speed of 119.65 Mbps."
+      },
+      {
+        "rank": 35,
+        "country": "Greece",
+        "speed_mbps": 117.99,
+        "rank_change": "+3",
+        "explanation": "Ranked #35, Greece has moved up 3 positions with a median mobile download speed of 117.99 Mbps."
+      },
+      {
+        "rank": 36,
+        "country": "New Zealand",
+        "speed_mbps": 116.86,
+        "rank_change": "+3",
+        "explanation": "Ranked #36, New Zealand has moved up 3 positions with a median mobile download speed of 116.86 Mbps."
+      },
+      {
+        "rank": 37,
+        "country": "Australia",
+        "speed_mbps": 115.66,
+        "rank_change": "-1",
+        "explanation": "Ranked #37, Australia has moved down 1 position with a median mobile download speed of 115.66 Mbps."
+      },
+      {
+        "rank": 38,
+        "country": "Cyprus",
+        "speed_mbps": 113.58,
+        "rank_change": "-1",
+        "explanation": "Ranked #38, Cyprus has moved down 1 position with a median mobile download speed of 113.58 Mbps."
+      },
+      {
+        "rank": 39,
+        "country": "Belgium",
+        "speed_mbps": 173.13,
+        "rank_change": "+1",
+        "explanation": "Ranked #39, Belgium has moved up 1 position with a median mobile download speed of 173.13 Mbps."
+      },
+      {
+        "rank": 40,
+        "country": "Netherlands",
+        "speed_mbps": 180.25,
+        "rank_change": "+2",
+        "explanation": "Ranked #40, Netherlands has moved up 2 positions with a median mobile download speed of 180.25 Mbps."
+      },
+      {
+        "rank": 45,
+        "country": "Montenegro",
+        "speed_mbps": 97.58,
+        "rank_change": "+1",
+        "explanation": "Ranked #45, Montenegro has moved up 1 position with a median mobile download speed of 97.58 Mbps."
+      },
+      {
+        "rank": 46,
+        "country": "Kosovo",
+        "speed_mbps": 93.58,
+        "rank_change": null,
+        "explanation": "Ranked #46, Kosovo has a median mobile download speed of 93.58 Mbps."
+      },
+      {
+        "rank": 47,
+        "country": "Albania",
+        "speed_mbps": 93.57,
+        "rank_change": "+2",
+        "explanation": "Ranked #47, Albania has moved up 2 positions with a median mobile download speed of 93.57 Mbps."
+      },
+      {
+        "rank": 48,
+        "country": "Italy",
+        "speed_mbps": 89.51,
+        "rank_change": "+2",
+        "explanation": "Ranked #48, Italy has moved up 2 positions with a median mobile download speed of 89.51 Mbps."
+      },
+      {
+        "rank": 49,
+        "country": "Hong Kong (SAR)",
+        "speed_mbps": 87.84,
+        "rank_change": "-1",
+        "explanation": "Ranked #49, Hong Kong (SAR) has moved down 1 position with a median mobile download speed of 87.84 Mbps."
+      },
+      {
+        "rank": 50,
+        "country": "Kazakhstan",
+        "speed_mbps": 84.80,
+        "rank_change": "+1",
+        "explanation": "Ranked #50, Kazakhstan has moved up 1 position with a median mobile download speed of 84.80 Mbps."
+      },
+      {
+        "rank": 51,
+        "country": "Tunisia",
+        "speed_mbps": 80.84,
+        "rank_change": "-4",
+        "explanation": "Ranked #51, Tunisia has moved down 4 positions with a median mobile download speed of 80.84 Mbps."
+      },
+      {
+        "rank": 52,
+        "country": "Chile",
+        "speed_mbps": 79.95,
+        "rank_change": "+4",
+        "explanation": "Ranked #52, Chile has moved up 4 positions with a median mobile download speed of 79.95 Mbps."
+      },
+      {
+        "rank": 53,
+        "country": "Romania",
+        "speed_mbps": 78.05,
+        "rank_change": "-1",
+        "explanation": "Ranked #53, Romania has moved down 1 position with a median mobile download speed of 78.05 Mbps."
+      },
+      {
+        "rank": 54,
+        "country": "Hungary",
+        "speed_mbps": 76.86,
+        "rank_change": "+3",
+        "explanation": "Ranked #54, Hungary has moved up 3 positions with a median mobile download speed of 76.86 Mbps."
+      },
+      {
+        "rank": 55,
+        "country": "Germany",
+        "speed_mbps": 75.67,
+        "rank_change": "-2",
+        "explanation": "Ranked #55, Germany has moved down 2 positions with a median mobile download speed of 75.67 Mbps."
+      },
+      {
+        "rank": 58,
+        "country": "Türkiye",
+        "speed_mbps": 70.18,
+        "rank_change": "+1",
+        "explanation": "Ranked #58, Türkiye has moved up 1 position with a median mobile download speed of 70.18 Mbps."
+      },
+      {
+        "rank": 59,
+        "country": "United Kingdom",
+        "speed_mbps": 70.11,
+        "rank_change": "-1",
+        "explanation": "Ranked #59, United Kingdom has moved down 1 position with a median mobile download speed of 70.11 Mbps."
+      },
+      {
+        "rank": 60,
+        "country": "Serbia",
+        "speed_mbps": 69.68,
+        "rank_change": null,
+        "explanation": "Ranked #60, Serbia has a median mobile download speed of 69.68 Mbps."
+      },
+      {
+        "rank": 61,
+        "country": "Morocco",
+        "speed_mbps": 66.60,
+        "rank_change": "+1",
+        "explanation": "Ranked #61, Morocco has moved up 1 position with a median mobile download speed of 66.60 Mbps."
+      },
+      {
+        "rank": 62,
+        "country": "Ireland",
+        "speed_mbps": 63.05,
+        "rank_change": "+3",
+        "explanation": "Ranked #62, Ireland has moved up 3 positions with a median mobile download speed of 63.05 Mbps."
+      },
+      {
+        "rank": 63,
+        "country": "Japan",
+        "speed_mbps": 62.83,
+        "rank_change": null,
+        "explanation": "Ranked #63, Japan has a median mobile download speed of 62.83 Mbps."
+      },
+      {
+        "rank": 64,
+        "country": "South Africa",
+        "speed_mbps": 61.96,
+        "rank_change": "+2",
+        "explanation": "Ranked #64, South Africa has moved up 2 positions with a median mobile download speed of 61.96 Mbps."
+      },
+      {
+        "rank": 65,
+        "country": "Argentina",
+        "speed_mbps": 61.66,
+        "rank_change": "-4",
+        "explanation": "Ranked #65, Argentina has moved down 4 positions with a median mobile download speed of 61.66 Mbps."
+      },
+      {
+        "rank": 66,
+        "country": "Israel",
+        "speed_mbps": 61.65,
+        "rank_change": "-2",
+        "explanation": "Ranked #66, Israel has moved down 2 positions with a median mobile download speed of 61.65 Mbps."
+      },
+      {
+        "rank": 67,
+        "country": "Iran",
+        "speed_mbps": 59.89,
+        "rank_change": "+2",
+        "explanation": "Ranked #67, Iran has moved up 2 positions with a median mobile download speed of 59.89 Mbps."
+      },
+      {
+        "rank": 68,
+        "country": "Philippines",
+        "speed_mbps": 59.47,
+        "rank_change": "-1",
+        "explanation": "Ranked #68, Philippines has moved down 1 position with a median mobile download speed of 59.47 Mbps."
+      },
+      {
+        "rank": 69,
+        "country": "Iraq",
+        "speed_mbps": 57.08,
+        "rank_change": "+2",
+        "explanation": "Ranked #69, Iraq has moved up 2 positions with a median mobile download speed of 57.08 Mbps."
+      },
+      {
+        "rank": 70,
+        "country": "Guatemala",
+        "speed_mbps": 55.96,
+        "rank_change": "-2",
+        "explanation": "Ranked #70, Guatemala has moved down 2 positions with a median mobile download speed of 55.96 Mbps."
+      },
+      {
+        "rank": 71,
+        "country": "Uzbekistan",
+        "speed_mbps": 55.34,
+        "rank_change": "+1",
+        "explanation": "Ranked #71, Uzbekistan has moved up 1 position with a median mobile download speed of 55.34 Mbps."
+      },
+      {
+        "rank": 72,
+        "country": "Moldova",
+        "speed_mbps": 53.99,
+        "rank_change": "-2",
+        "explanation": "Ranked #72, Moldova has moved down 2 positions with a median mobile download speed of 53.99 Mbps."
+      },
+      {
+        "rank": 73,
+        "country": "Costa Rica",
+        "speed_mbps": 52.85,
+        "rank_change": null,
+        "explanation": "Ranked #73, Costa Rica has a median mobile download speed of 52.85 Mbps."
+      },
+      {
+        "rank": 74,
+        "country": "Kyrgyzstan",
+        "speed_mbps": 52.25,
+        "rank_change": "+2",
+        "explanation": "Ranked #74, Kyrgyzstan has moved up 2 positions with a median mobile download speed of 52.25 Mbps."
+      },
+      {
+        "rank": 75,
+        "country": "Ukraine",
+        "speed_mbps": 51.20,
+        "rank_change": null,
+        "explanation": "Ranked #75, Ukraine has a median mobile download speed of 51.20 Mbps."
+      },
+      {
+        "rank": 76,
+        "country": "Cambodia",
+        "speed_mbps": 48.29,
+        "rank_change": "+1",
+        "explanation": "Ranked #76, Cambodia has moved up 1 position with a median mobile download speed of 48.29 Mbps."
+      },
+      {
+        "rank": 77,
+        "country": "Mexico",
+        "speed_mbps": 47.41,
+        "rank_change": "+3",
+        "explanation": "Ranked #77, Mexico has moved up 3 positions with a median mobile download speed of 47.41 Mbps."
+      },
+      {
+        "rank": 78,
+        "country": "Jordan",
+        "speed_mbps": 47.33,
+        "rank_change": "+3",
+        "explanation": "Ranked #78, Jordan has moved up 3 positions with a median mobile download speed of 47.33 Mbps."
+      },
+      {
+        "rank": 79,
+        "country": "Lebanon",
+        "speed_mbps": 47.16,
+        "rank_change": null,
+        "explanation": "Ranked #79, Lebanon has a median mobile download speed of 47.16 Mbps."
+      },
+      {
+        "rank": 80,
+        "country": "Nigeria",
+        "speed_mbps": 46.07,
+        "rank_change": "-2",
+        "explanation": "Ranked #80, Nigeria has moved down 2 positions with a median mobile download speed of 46.07 Mbps."
+      },
+      {
+        "rank": 81,
+        "country": "Armenia",
+        "speed_mbps": 45.39,
+        "rank_change": "+3",
+        "explanation": "Ranked #81, Armenia has moved up 3 positions with a median mobile download speed of 45.39 Mbps."
+      },
+      {
+        "rank": 82,
+        "country": "Honduras",
+        "speed_mbps": 44.00,
+        "rank_change": null,
+        "explanation": "Ranked #82, Honduras has a median mobile download speed of 44.00 Mbps."
+      },
+      {
+        "rank": 83,
+        "country": "Laos",
+        "speed_mbps": 41.65,
+        "rank_change": null,
+        "explanation": "Ranked #83, Laos has a median mobile download speed of 41.65 Mbps."
+      },
+      {
+        "rank": 89,
+        "country": "Bangladesh",
+        "speed_mbps": 36.63,
+        "rank_change": "+1",
+        "explanation": "Ranked #89, Bangladesh has moved up 1 position with a median mobile download speed of 36.63 Mbps."
+      },
+      {
+        "rank": 90,
+        "country": "Ecuador",
+        "speed_mbps": 35.79,
+        "rank_change": "-1",
+        "explanation": "Ranked #90, Ecuador has moved down 1 position with a median mobile download speed of 35.79 Mbps."
+      },
+      {
+        "rank": 91,
+        "country": "Algeria",
+        "speed_mbps": 35.33,
+        "rank_change": "+1",
+        "explanation": "Ranked #91, Algeria has moved up 1 position with a median mobile download speed of 35.33 Mbps."
+      },
+      {
+        "rank": 92,
+        "country": "Peru",
+        "speed_mbps": 33.39,
+        "rank_change": "+1",
+        "explanation": "Ranked #92, Peru has moved up 1 position with a median mobile download speed of 33.39 Mbps."
+      },
+      {
+        "rank": 93,
+        "country": "Colombia",
+        "speed_mbps": 32.29,
+        "rank_change": "+2",
+        "explanation": "Ranked #93, Colombia has moved up 2 positions with a median mobile download speed of 32.29 Mbps."
+      },
+      {
+        "rank": 94,
+        "country": "Bosnia and Herzegovina",
+        "speed_mbps": 31.60,
+        "rank_change": null,
+        "explanation": "Ranked #94, Bosnia and Herzegovina has a median mobile download speed of 31.60 Mbps."
+      },
+      {
+        "rank": 95,
+        "country": "Panama",
+        "speed_mbps": 31.10,
+        "rank_change": "+1",
+        "explanation": "Ranked #95, Panama has moved up 1 position with a median mobile download speed of 31.10 Mbps."
+      },
+      {
+        "rank": 96,
+        "country": "Pakistan",
+        "speed_mbps": 26.43,
+        "rank_change": "+1",
+        "explanation": "Ranked #96, Pakistan has moved up 1 position with a median mobile download speed of 26.43 Mbps."
+      },
+      {
+        "rank": 97,
+        "country": "Venezuela",
+        "speed_mbps": 22.45,
+        "rank_change": "+1",
+        "explanation": "Ranked #97, Venezuela has moved up 1 position with a median mobile download speed of 22.45 Mbps."
+      },
+      {
+        "rank": 98,
+        "country": "Paraguay",
+        "speed_mbps": 22.35,
+        "rank_change": null,
+        "explanation": "Ranked #98, Paraguay has a median mobile download speed of 22.35 Mbps."
+      },
+      {
+        "rank": 99,
+        "country": "Syria",
+        "speed_mbps": 21.01,
+        "rank_change": "+2",
+        "explanation": "Ranked #99, Syria has moved up 2 positions with a median mobile download speed of 21.01 Mbps."
+      },
+      {
+        "rank": 100,
+        "country": "Libya",
+        "speed_mbps": 20.54,
+        "rank_change": "-1",
+        "explanation": "Ranked #100, Libya has moved down 1 position with a median mobile download speed of 20.54 Mbps."
+      },
+      {
+        "rank": 102,
+        "country": "Belarus",
+        "speed_mbps": 18.03,
+        "rank_change": "+1",
+        "explanation": "Ranked #102, Belarus has moved up 1 position with a median mobile download speed of 18.03 Mbps."
+      },
+      {
+        "rank": 103,
+        "country": "Bolivia",
+        "speed_mbps": 13.45,
+        "rank_change": "+1",
+        "explanation": "Ranked #103, Bolivia has moved up 1 position with a median mobile download speed of 13.45 Mbps."
+      }
+    ]
+  }

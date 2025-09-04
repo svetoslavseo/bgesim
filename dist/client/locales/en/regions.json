@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "International eSIM | Travel with Global eSIM Plans",
+    "description": "Stay connected worldwide with our comprehensive global coverage plans. Choose from 200+ countries across all continents with instant activation and no roaming fees.",
+    "keywords": "global eSIM, international eSIM, travel eSIM, worldwide coverage, international roaming, travel connectivity, global mobile data",
+    "og_title": "International eSIM | Travel with Global eSIM Plans",
+    "og_description": "Stay connected worldwide with our comprehensive global coverage plans. Choose from 200+ countries across all continents.",
+    "twitter_title": "International eSIM | Travel with Global eSIM Plans",
+    "twitter_description": "Stay connected worldwide with our comprehensive global coverage plans. Choose from 200+ countries across all continents.",
+    "title_template": "{{region}} eSIM - Prepaid Travel eSIM - Travel eSIMple",
+    "description_template": "Get affordable eSIM data plans for {{region}}. Instant activation, no hidden fees. Stay connected while traveling in {{region}}.",
+    "keywords_template": "{{region}} eSIM, {{region}} travel eSIM, {{region}} mobile data, {{region}} international roaming, {{region}} travel connectivity",
+    "og_title_template": "{{region}} eSIM - Instant Activation, No Roaming Fees",
+    "og_description_template": "Get affordable eSIM data plans for {{region}}. Instant activation, no hidden fees.",
+    "twitter_title_template": "{{region}} eSIM - Instant Activation, No Roaming Fees",
+    "twitter_description_template": "Get affordable eSIM data plans for {{region}}. Instant activation, no hidden fees."
+  },
+  "hero": {
+    "title": "Global eSIM Coverage",
+    "description": "Stay connected across {{regions}} regions with {{countries}} countries worldwide"
+  },
+  "stats": {
+    "regions": "Regions",
+    "countries": "Countries",
+    "avg_countries_per_region": "Avg. Countries/Region"
+  },
+  "explore": {
+    "title": "Explore Our Regions",
+    "description": "Choose from our comprehensive coverage across all major continents and regions"
+  },
+  "features": {
+    "title": "Why Choose Our Regional Coverage?",
+    "description": "Comprehensive connectivity solutions for every traveler",
+    "global_coverage": {
+      "title": "Global Coverage",
+      "description": "Connect in over 200 countries across all continents"
+    },
+    "trusted": {
+      "title": "Trusted by Millions",
+      "description": "Join 60M+ users who trust our eSIM solutions"
+    },
+    "expertise": {
+      "title": "Regional Expertise",
+      "description": "Optimized plans for each region's unique needs"
+    },
+    "value": {
+      "title": "Best Value",
+      "description": "Competitive pricing starting from $4.99"
+    }
+  },
+  "how_to_choose": {
+    "title": "How to Choose Your Region",
+    "description": "Find the perfect eSIM plan for your travel destination"
+  },
+  "steps": {
+    "select_region": {
+      "title": "Select Your Region",
+      "description": "Choose the continent or region where you'll be traveling"
+    },
+    "browse_countries": {
+      "title": "Browse Countries",
+      "description": "Explore all available countries within your chosen region"
+    },
+    "choose_plan": {
+      "title": "Choose Your Plan",
+      "description": "Select the perfect data plan for your needs and budget"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  },
+  "countries_section": {
+    "title": "All Countries in {{region}}",
+    "description": "Browse all available countries and their eSIM plans. Click on any country to view detailed plans and pricing."
+  },
+  "global_plans": {
+    "title": "Global eSIM Plans",
+    "description": "Stay connected worldwide with our comprehensive global coverage plans",
+    "view_all": "View All Plans"
+  },
+  "plan_card": {
+    "popular": "Popular",
+    "global_coverage": "Global coverage",
+    "instant_activation": "Instant activation",
+    "no_roaming_fees": "No roaming fees",
+    "select_plan": "Select Plan",
+    "data": "data",
+    "starting_price": "Starting Price",
+    "global_plan": "Global Plan",
+    "global_country": "Global"
+  },
+  "loading": {
+    "global_plans": "Loading global plans..."
+  },
+  "errors": {
+    "no_global_plans": "No global plans available at the moment."
+  },
+  "coverage": {
+    "high": "High",
+    "label": "Coverage"
+  }
+} 

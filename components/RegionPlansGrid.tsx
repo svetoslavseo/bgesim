@@ -75,12 +75,13 @@ const RegionPlansGrid: React.FC<RegionPlansGridProps> = ({ plans, regionName }) 
                   e.preventDefault();
                   const planData = {
                     country: regionName || 'this region',
-                    flag: 'https://flagcdn.com/globe.svg',
+                    flag: '/esim-data/flags/globe.svg',
                     data: plan.data,
                     validity: plan.validity,
                     price: plan.price.amount_with_tax / 100,
                     currency: formatCurrency(plan.price.currency),
-                    identifier: plan.identifier
+                    identifier: plan.identifier, // Use the plan UUID from saily_plans.json
+                    priceIdentifier: (plan.price as any)?.identifier
                   } as any;
                   const encodedPlan = encodeURIComponent(JSON.stringify(planData));
                   window.location.href = `/checkout?plan=${encodedPlan}`;

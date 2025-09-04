@@ -12,6 +12,7 @@ interface Plan {
   price: number;
   currency: string;
   identifier?: string;
+  priceIdentifier?: string;
 }
 
 const CheckoutPage = () => {
@@ -52,7 +53,7 @@ const CheckoutPage = () => {
 
   const [plan, setPlan] = useState<Plan>({
     country: 'Austria',
-    flag: 'https://flagcdn.com/at.svg',
+    flag: '/esim-data/flags/at.svg',
     data: '1GB',
     validity: '7 days',
     price: 3.99,
@@ -122,51 +123,85 @@ const CheckoutPage = () => {
   };
 
   useEffect(() => {
-    // Get plan data from URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const planData = urlParams.get('plan');
-    
-    if (planData) {
-      try {
-        const decodedPlan = JSON.parse(decodeURIComponent(planData));
-        
-        // Validate the plan data
-        if (decodedPlan && typeof decodedPlan === 'object') {
-          // Ensure price is a number
-          if (typeof decodedPlan.price === 'object' && decodedPlan.price.amount_with_tax) {
-            decodedPlan.price = decodedPlan.price.amount_with_tax / 100;
+    const init = async () => {
+      // Get plan data from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const planData = urlParams.get('plan');
+      
+      if (planData) {
+        try {
+          const decodedPlan = JSON.parse(decodeURIComponent(planData));
+          
+          // Validate the plan data
+          if (decodedPlan && typeof decodedPlan === 'object') {
+            // Ensure price is a number
+            if (typeof decodedPlan.price === 'object' && decodedPlan.price.amount_with_tax) {
+              decodedPlan.price = decodedPlan.price.amount_with_tax / 100;
+            }
+            
+            console.log('DEBUG: decodedPlan in checkout:', decodedPlan);
+            console.log('DEBUG: decodedPlan.identifier:', decodedPlan.identifier);
+            console.log('DEBUG: decodedPlan.priceIdentifier:', decodedPlan.priceIdentifier);
+            
+            // Backfill priceIdentifier from saily_plans.json if missing
+            if (!decodedPlan.priceIdentifier && decodedPlan.identifier) {
+              try {
+                const resp = await fetch('/saily_plans.json');
+                if (resp.ok) {
+                  const data = await resp.json();
+                  const items = Array.isArray(data?.items) ? data.items : [];
+                  const matched = items.find((it: any) => it?.identifier === decodedPlan.identifier);
+                  const priceId = matched?.price?.identifier;
+                  if (priceId) {
+                    console.log('DEBUG: Backfilled priceIdentifier from saily_plans.json:', priceId);
+                    decodedPlan.priceIdentifier = priceId;
+                  } else {
+                    console.warn('WARN: Could not backfill priceIdentifier for identifier:', decodedPlan.identifier);
+                  }
+                } else {
+                  console.warn('WARN: Failed to fetch saily_plans.json for backfill');
+                }
+              } catch (fetchErr) {
+                console.error('Error backfilling priceIdentifier:', fetchErr);
+              }
+            }
+            
+            setPlan(decodedPlan);
+          } else {
+            setError(t('errors.invalid_plan_data'));
           }
-          setPlan(decodedPlan);
-        } else {
-          setError(t('errors.invalid_plan_data'));
+        } catch (error) {
+          console.error('Error parsing plan data:', error);
+          setError(t('errors.unable_to_load_plan'));
         }
-      } catch (error) {
-        console.error('Error parsing plan data:', error);
-        setError(t('errors.unable_to_load_plan'));
+      } else {
+        setError(t('errors.no_plan_provided'));
       }
-    } else {
-      setError(t('errors.no_plan_provided'));
-    }
-    
-    setIsLoading(false);
+      
+      setIsLoading(false);
+    };
+    void init();
   }, []);
 
   const handleProceedToPayment = () => {
-    if (!plan.identifier) {
+    const planIdForCheckout = plan.priceIdentifier;
+    if (!planIdForCheckout) {
       setError(t('errors.no_plan_identifier'));
       return;
     }
 
     try {
-      // Construct the Saily checkout URL with plan identifier and dynamic parameters
-      // Use Chinese checkout URL if user is on Chinese version of the site
+      console.log('DEBUG: plan in handleProceedToPayment:', plan);
+      console.log('DEBUG: plan.identifier (unused for checkout):', plan.identifier);
+      console.log('DEBUG: plan.priceIdentifier (used):', plan.priceIdentifier);
+      console.log('DEBUG: planIdForCheckout:', planIdForCheckout);
+      
       const sailyCheckoutUrl = isChinese 
-        ? `https://saily.com/zh/checkout/?planId=${plan.identifier}&aff_transaction_id={transaction_id}&aff_offer_id={offer_id}&aff_id={aff_id}`
-        : `https://saily.com/checkout/?planId=${plan.identifier}&aff_transaction_id={transaction_id}&aff_offer_id={offer_id}&aff_id={aff_id}`;
-      
-      // Add the Saily checkout URL as a 'url' parameter to the go.saily.site URL
+        ? `https://saily.com/zh/checkout/?planId=${planIdForCheckout}&aff_transaction_id={transaction_id}&aff_offer_id={offer_id}&aff_id={aff_id}`
+        : `https://saily.com/checkout/?planId=${planIdForCheckout}&aff_transaction_id={transaction_id}&aff_offer_id={offer_id}&aff_id={aff_id}`;
       const finalUrl = `https://go.saily.site/aff_c?offer_id=101&aff_id=8080&url=${encodeURIComponent(sailyCheckoutUrl)}`;
-      
+      console.log('DEBUG: sailyCheckoutUrl:', sailyCheckoutUrl);
+      console.log('DEBUG: finalUrl:', finalUrl);
       window.location.href = finalUrl;
     } catch (error) {
       console.error('Error redirecting to payment:', error);

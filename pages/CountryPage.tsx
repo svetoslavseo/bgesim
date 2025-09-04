@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import StableSkeleton from '../components/StableSkeleton';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { dataService } from '../utils/dataService';
+import { sailyPlansService } from '../utils/sailyPlansService';
 // Remove static import to reduce bundle size
 // import plansData from '../src/data/plans.json';
 import PlanSelector from '../components/PlanSelector';
@@ -29,6 +30,7 @@ import { FaBolt, FaGlobe, FaMoneyBillWave, FaRegComments } from 'react-icons/fa'
 import DeviceCompatibilityModal from '../components/DeviceCompatibilityModal';
 import { Country } from '../types';
 import i18n from '../i18n';
+import { getFlagUrl, getGlobalFlagUrl } from '../utils/flagUtils';
 
 // Lazy load heavy components that are below the fold
 const Faq = lazy(() => import('../components/Faq'));
@@ -41,6 +43,7 @@ const TestimonialsCarousel = lazy(() => import('../components/TestimonialsCarous
 const CountryContentSection = lazy(() => import('../components/CountryContentSection'));
 const StickyCTA = lazy(() => import('../components/StickyCTA'));
 const CountryPlansGrid = lazy(() => import('../components/CountryPlansGrid'));
+const SailyPlansSection = lazy(() => import('../components/SailyPlansSection'));
 
 interface CountryPageProps {
   countryId: string;
@@ -110,9 +113,10 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
                 } else if (i18n.language === 'bg') {
                   fileName = 'global-speed-test-bg.json';
                 }
-                const [plansData, speedTestDataResponse] = await Promise.all([
-                    // Force full dataset for country pages so plan filtering is reliable
-                    dataService.getPlansData({ full: true }),
+                
+                const [normalizedPlansData, speedTestDataResponse] = await Promise.all([
+                    // Use the enhanced Saily plans service that combines local and Saily plans
+                    sailyPlansService.getNormalizedPlansData(),
                     fetch(`/data/${fileName}`)
                 ]);
                 
@@ -127,16 +131,34 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
                     }
                 }
                 
-                console.log('CountryPage: Plans loaded:', plansData?.items?.length || 0, 'plans');
+                console.log('CountryPage: Enhanced plans loaded:', normalizedPlansData?.items?.length || 0, 'total plans');
+                const sailyPlans = normalizedPlansData?.items?.filter(p => p.source === 'saily') || [];
+                const localPlans = normalizedPlansData?.items?.filter(p => p.source === 'local') || [];
+                console.log('CountryPage: Breakdown -', sailyPlans.length, 'Saily plans,', localPlans.length, 'local plans');
+                
+                // Debug: Check if price.identifier is preserved
+                const samplePlan = sailyPlans.find(p => p.covered_countries?.includes(countryISO));
+                if (samplePlan) {
+                    console.log('DEBUG: Sample plan for', countryISO, ':', samplePlan);
+                    console.log('DEBUG: Sample plan price:', samplePlan.price);
+                    console.log('DEBUG: Sample plan price.identifier:', (samplePlan.price as any)?.identifier);
+                }
+                
                 console.log('CountryPage: Speed data loaded:', !!speedTestData);
                 
-                // We already requested full data, so just use it
-                setPlansData(plansData);
+                setPlansData(normalizedPlansData);
                 setGlobalSpeedTestData(speedTestData);
             } catch (error) {
                 console.error('Error loading data:', error);
-                // Set empty fallbacks to prevent layout shifts but ensure loading stops
-                setPlansData({ items: [] });
+                // Fallback to original data service if enhanced service fails
+                try {
+                    const fallbackPlansData = await dataService.getPlansData(true);
+                    console.log('CountryPage: Using fallback plans data:', fallbackPlansData?.items?.length || 0, 'plans');
+                    setPlansData(fallbackPlansData);
+                } catch (fallbackError) {
+                    console.error('CountryPage: Fallback also failed:', fallbackError);
+                    setPlansData({ items: [] });
+                }
                 setGlobalSpeedTestData(null);
             } finally {
                 console.log('CountryPage: Setting loading to false');
@@ -344,25 +366,52 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
         }
     }
 
-    // Deduplicate plans: for each combination of data_limit and duration, keep the cheapest price version
-    const dedupedPlansMap: { [key: string]: any } = {};
-    countryPlansRaw.forEach((plan: any) => {
-        const key = `${plan.data_limit.amount}-${plan.data_limit.unit}-${plan.duration.amount}-${plan.duration.unit}`;
-        if (!dedupedPlansMap[key] || plan.price.amount_with_tax < dedupedPlansMap[key].price.amount_with_tax) {
-            dedupedPlansMap[key] = plan;
+    // Smart-deduplicate exact duplicates while preserving different coverage types
+    const dedupMap: { [key: string]: any } = {};
+    countryPlansRaw.forEach((p: any) => {
+        // derive coverage type for keying
+        let pt: 'country' | 'regional' | 'global' = 'country';
+        const n = Array.isArray(p.covered_countries) ? p.covered_countries.length : 0;
+        if (n >= 50) {
+            pt = 'global';
+        } else if (n > 1) {
+            pt = 'regional';
+        } else {
+            pt = 'country';
+        }
+        
+        // Only include country-specific plans in the country page UI
+        // Only single-country plans for this destination
+        if (pt !== 'country') {
+            return;
+        }
+        if (!Array.isArray(p.covered_countries) || p.covered_countries.length !== 1) {
+            return;
+        }
+        if (p.covered_countries[0] !== countryISO) {
+            return;
+        }
+        
+        const coverageTag = pt === 'country'
+            ? (p.covered_countries?.[0] || 'NA')
+            : (pt === 'regional' ? (p.region || 'multi') : 'global');
+        const key = `${pt}|${coverageTag}|${p.data_amount}-${p.data_unit}-${p.validity_days}|${p.price?.amount_with_tax}`;
+        const existing = dedupMap[key];
+        if (!existing || (p.price?.amount_with_tax ?? Infinity) < (existing.price?.amount_with_tax ?? Infinity)) {
+            dedupMap[key] = p;
         }
     });
-    const dedupedCountryPlansRaw = Object.values(dedupedPlansMap);
-    
-    console.log('CountryPage: Deduplicated plans:', dedupedCountryPlansRaw.length);
+    const allCountryPlansRaw = Object.values(dedupMap);
 
-    const countryPlans: Plan[] = dedupedCountryPlansRaw.map((plan: any) => {
+    console.log('CountryPage: Total plans after smart-dedup:', allCountryPlansRaw.length);
+
+    const countryPlans: Plan[] = allCountryPlansRaw.map((plan: any) => {
         // Determine plan type based on coverage and region
         let planType: 'country' | 'regional' | 'global' = 'country';
         
-        if (plan.region === 'GLB' || plan.covered_countries.length >= 50) {
+        if (Array.isArray(plan.covered_countries) && plan.covered_countries.length >= 50) {
             planType = 'global';
-        } else if (plan.region || plan.covered_countries.length > 5) {
+        } else if (Array.isArray(plan.covered_countries) && plan.covered_countries.length > 1) {
             planType = 'regional';
         } else {
             planType = 'country';
@@ -371,17 +420,17 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
         return {
             id: plan.identifier,
             name: plan.name,
-            data_amount: plan.data_limit.amount,
-            data_unit: plan.data_limit.unit,
-            validity_days: plan.duration.amount,
+            data_amount: plan.data_amount,
+            data_unit: plan.data_unit,
+            validity_days: plan.validity_days,
             price: {
                 amount_with_tax: plan.price.amount_with_tax,
                 currency: plan.price.currency
             },
             covered_countries: plan.covered_countries,
-            identifier: plan.price.identifier,
-            data: plan.data_limit.is_unlimited ? 'Unlimited' : `${plan.data_limit.amount} ${plan.data_limit.unit}`,
-            validity: `${plan.duration.amount} ${plan.duration.unit}${plan.duration.amount > 1 ? 's' : ''}`,
+            identifier: plan.identifier,
+            data: plan.data,
+            validity: plan.validity,
             planType: planType, // Add plan type for labeling
             region: plan.region, // Keep original region info
         };
@@ -442,16 +491,32 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
       }
       
       if (selectedPlan) {
+        console.log('DEBUG: selectedPlan in handleBuyClick:', selectedPlan);
+        console.log('DEBUG: selectedPlan.price:', selectedPlan.price);
+        console.log('DEBUG: selectedPlan.price.identifier:', (selectedPlan.price as any)?.identifier);
+        console.log('DEBUG: typeof selectedPlan.price:', typeof selectedPlan.price);
+        console.log('DEBUG: Object.keys(selectedPlan.price):', Object.keys(selectedPlan.price || {}));
+        
+        const priceIdentifier = selectedPlan.price && typeof selectedPlan.price === 'object' && 'identifier' in selectedPlan.price 
+          ? (selectedPlan.price as any).identifier 
+          : undefined;
+        
+        console.log('DEBUG: Extracted priceIdentifier:', priceIdentifier);
+        console.log('DEBUG: selectedPlan.identifier (plan UUID):', selectedPlan.identifier);
+        
         // Prepare plan data for checkout
         const planData = {
           country: getCountryName(country.id, country.name),
-          flag: `https://flagcdn.com/${countryISO.toLowerCase()}.svg`,
+          flag: getFlagUrl(countryISO),
           data: selectedPlan.data,
           validity: selectedPlan.validity,
           price: selectedPlan.price.amount_with_tax / 100,
           currency: formatCurrency(selectedPlan.currency || selectedPlan.price.currency || 'USD'),
-          identifier: selectedPlan.identifier
+          identifier: selectedPlan.identifier, // Use the plan UUID from saily_plans.json
+          priceIdentifier: priceIdentifier // Keep price identifier for reference
         };
+        
+        console.log('DEBUG: planData being sent to checkout:', planData);
         
         // Navigate to checkout with plan data
         const encodedPlan = encodeURIComponent(JSON.stringify(planData));
@@ -598,7 +663,7 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
                         }}
                       >
                         <img
-                          src={`https://flagcdn.com/w80/${countryISO.toLowerCase()}.png`}
+                          src={getFlagUrl(countryISO)}
                           alt={`${getCountryName(country.id, country.name)} flag`}
                           loading="eager"
                           width="56"
@@ -658,8 +723,21 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
             </div>
             {/* All plans grid below hero/selector */}
             <Suspense fallback={<ComponentLoader />}>
-                <CountryPlansGrid plans={countryPlans.filter(plan => plan.data_unit !== 'Unlimited')} countryName={getCountryName(country.id, country.name)} />
+                <CountryPlansGrid plans={countryPlans} countryName={getCountryName(country.id, country.name)} />
             </Suspense>
+
+            {/* Enhanced Saily Plans Section */}
+            <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
+                <Suspense fallback={<ComponentLoader />}>
+                    <SailyPlansSection 
+                        countryCode={countryISO}
+                        title={c('all_available_plans_for', { country: getCountryName(country.id, country.name) })}
+                        maxPlans={9}
+                        showSource={true}
+                        className="mb-8"
+                    />
+                </Suspense>
+            </div>
 
             <div className="max-w-5xl mx-auto mt-20 md:mt-32 space-y-20 md:space-y-28">
                 <CountryComparisonTable countryName={getCountryName(country.id, country.name)} />

@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { REGIONS, COUNTRIES, MAIN_NAV_COUNTRIES } from '../constants';
+import { getFlagUrl } from '../utils/flagUtils';
 import { useTranslation } from 'react-i18next';
 // Remove the direct import to reduce bundle size
 // import Flag from 'react-world-flags';
@@ -139,14 +140,14 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
                             }}
                             className="flex items-center space-x-2 text-gray-700 hover:text-brand-accent whitespace-nowrap font-medium"
                           >
-                            <img 
-                              src={`https://flagcdn.com/w20/${country.id.toLowerCase()}.png`} 
-                              alt={`${getCountryName(country.id, country.name)} flag`} 
-                              className="w-5 h-auto rounded-sm"
-                              width="20"
-                              height="15"
-                              loading="lazy"
-                            />
+                                                      <img 
+                            src={getFlagUrl(country.id)} 
+                            alt={`${getCountryName(country.id, country.name)} flag`} 
+                            className="w-5 h-auto rounded-sm"
+                            width="20"
+                            height="15"
+                            loading="lazy"
+                          />
                             <span>{getCountryName(country.id, country.name)}</span>
                           </a>
                         ))}
@@ -166,7 +167,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
                             className="flex items-center space-x-2 text-gray-700 hover:text-brand-accent whitespace-nowrap"
                           >
                             <img 
-                              src={`https://flagcdn.com/w20/${country.id.toLowerCase()}.png`} 
+                              src={`/esim-data/flags/${country.id.toLowerCase()}.svg`} 
                               alt={`${getCountryName(country.id, country.name)} flag`} 
                               className="w-5 h-auto rounded-sm"
                               width="20"
@@ -305,7 +306,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
                         className="flex items-center space-x-2 text-gray-300 hover:text-brand-accent py-3 px-3 rounded-lg hover:bg-gray-800 transition-colors"
                       >
                         <img 
-                          src={`https://flagcdn.com/w20/${country.id.toLowerCase()}.png`} 
+                          src={`/esim-data/flags/${country.id.toLowerCase()}.svg`} 
                           alt={`${getCountryName(country.id, country.name)} flag`} 
                           className="w-5 h-auto rounded-sm"
                         />
@@ -354,7 +355,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
                                 className="flex items-center space-x-2 text-gray-300 hover:text-brand-accent py-2 px-3 rounded-lg hover:bg-gray-800 transition-colors"
                               >
                                 <img 
-                                  src={`https://flagcdn.com/w20/${country.id.toLowerCase()}.png`} 
+                                  src={`/esim-data/flags/${country.id.toLowerCase()}.svg`} 
                                   alt={`${getCountryName(country.id, country.name)} flag`} 
                                   className="w-5 h-auto rounded-sm"
                                 />

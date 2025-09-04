@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import i18n from '../i18n';
 import { dataService } from '../utils/dataService';
+import { sailyPlansService } from '../utils/sailyPlansService';
 import Breadcrumbs from '../components/Breadcrumbs';
 import HowToGetESIM from '../components/HowToGetESIM';
 import PlanSelector from '../components/PlanSelector';
@@ -26,6 +27,7 @@ import StableSkeleton from '../components/StableSkeleton';
 // Lazy load heavy components that are below the fold
 const DestinationSelector = lazy(() => import('../components/DestinationSelector'));
 const ESIMCompatibility = lazy(() => import('../components/ESIMCompatibility'));
+const SailyPlansSection = lazy(() => import('../components/SailyPlansSection'));
 
 interface RegionPageProps {
   regionId: string;
@@ -88,15 +90,26 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
   useEffect(() => {
     const loadData = async () => {
       try {
-        // Use dataService to ensure consistent data loading with full dataset
-        console.log('RegionPage: Loading plans data...');
-        const plansResponse = await dataService.getPlansData({ full: true });
-        console.log('RegionPage: Plans data loaded:', plansResponse?.items?.length || 0, 'plans');
-        setPlansData(plansResponse);
+        console.log('RegionPage: Loading enhanced plans data...');
+        const normalizedPlansData = await sailyPlansService.getNormalizedPlansData();
+        
+        const sailyPlans = normalizedPlansData?.items?.filter(p => p.source === 'saily') || [];
+        const localPlans = normalizedPlansData?.items?.filter(p => p.source === 'local') || [];
+        console.log('RegionPage: Enhanced plans loaded:', normalizedPlansData?.items?.length || 0, 'total plans');
+        console.log('RegionPage: Breakdown -', sailyPlans.length, 'Saily plans,', localPlans.length, 'local plans');
+        
+        setPlansData(normalizedPlansData);
       } catch (error) {
-        console.error('RegionPage: Error loading data:', error);
-        // Fallback to empty data structure to prevent hydration mismatch
-        setPlansData({ items: [] });
+        console.error('RegionPage: Error loading enhanced data:', error);
+        // Fallback to original data service
+        try {
+          const fallbackPlansData = await dataService.getPlansData(true);
+          console.log('RegionPage: Using fallback plans data:', fallbackPlansData?.items?.length || 0, 'plans');
+          setPlansData(fallbackPlansData);
+        } catch (fallbackError) {
+          console.error('RegionPage: Fallback also failed:', fallbackError);
+          setPlansData({ items: [] });
+        }
       } finally {
         setLoading(false);
       }
@@ -159,21 +172,17 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
   // Filter plans for this region with memoization for better performance
   const regionPlansRaw = useMemo(() => {
     return (effectivePlansData?.items || []).filter((plan: any) => {
-      const covered = plan.covered_countries || [];
-      
-      // Include plans that cover at least one country in this region
-      const coversRegionCountry = covered.some((code: string) => regionCountryCodes.includes(code));
-      if (!coversRegionCountry) return false;
-      
-      // For regional display, prefer:
-      // 1. Plans explicitly marked for this region
-      // 2. Multi-country plans that cover multiple countries in the region
-      // 3. Individual country plans if they're the only option
-      if (allowedRegionCode && plan.region === allowedRegionCode) {
-        return true; // Explicitly regional plans
-      }
-      
-      // Include country-specific plans for comprehensive coverage
+      const covered: string[] = Array.isArray(plan.covered_countries) ? plan.covered_countries : [];
+      const n = covered.length;
+      const inRegionCount = covered.filter((code: string) => regionCountryCodes.includes(code)).length;
+
+      // Show only REGIONAL plans for this region: multi-country, not global, and covering at least two countries in this region
+      if (n <= 1 || n >= 50) return false;
+      if (inRegionCount < 2) return false;
+
+      // Accept explicitly tagged plans for this region as well
+      if (allowedRegionCode && plan.region === allowedRegionCode) return true;
+
       return true;
     });
   }, [effectivePlansData, regionCountryCodes, allowedRegionCode]);
@@ -187,25 +196,30 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
   const countryPlansInRegion = regionPlansRaw.filter((p: any) => p.region !== allowedRegionCode);
   console.log('RegionPage: Explicit regional plans:', explicitRegionalPlans.length, 'Country plans in region:', countryPlansInRegion.length);
 
-  // Deduplicate plans (same data amount & duration) keeping the lowest price – mirrors CountryPage logic
-  const dedupedPlansMap: { [key: string]: any } = {};
-  regionPlansRaw.forEach((plan: any) => {
-    const key = `${plan.data_limit.amount}-${plan.data_limit.unit}-${plan.duration.amount}-${plan.duration.unit}`;
-    if (!dedupedPlansMap[key] || plan.price.amount_with_tax < dedupedPlansMap[key].price.amount_with_tax) {
-      dedupedPlansMap[key] = plan;
-    }
-  });
-  const dedupedRegionPlansRaw = Object.values(dedupedPlansMap);
+  // Smart-deduplicate exact duplicates for region view while preserving coverage types
+     const regionDedupMap: { [key: string]: any } = {};
+   regionPlansRaw.forEach((p: any) => {
+     // Only dedup among REGIONAL plans (n>1 and n<50)
+     const n = Array.isArray(p.covered_countries) ? p.covered_countries.length : 0;
+     if (n <= 1 || n >= 50) return;
+     const coverageTag = p.region || 'multi';
+     const key = `regional|${coverageTag}|${p.data_amount}-${p.data_unit}-${p.validity_days}|${p.price?.amount_with_tax}`;
+     const existing = regionDedupMap[key];
+     if (!existing || (p.price?.amount_with_tax ?? Infinity) < (existing.price?.amount_with_tax ?? Infinity)) {
+       regionDedupMap[key] = p;
+     }
+   });
+  const allRegionPlansRaw = Object.values(regionDedupMap);
 
   // Transform into objects expected by UI components
-  const regionPlans = dedupedRegionPlansRaw.length > 0
-    ? dedupedRegionPlansRaw.map((plan: any) => {
+  const regionPlans = allRegionPlansRaw.length > 0
+    ? allRegionPlansRaw.map((plan: any) => {
         // Determine plan type based on coverage and region
         let planType: 'country' | 'regional' | 'global' = 'country';
         
-        if (plan.region === 'GLB' || plan.covered_countries.length >= 50) {
+        if (Array.isArray(plan.covered_countries) && plan.covered_countries.length >= 50) {
             planType = 'global';
-        } else if (plan.region || plan.covered_countries.length > 5) {
+        } else if (Array.isArray(plan.covered_countries) && plan.covered_countries.length > 1) {
             planType = 'regional';
         } else {
             planType = 'country';
@@ -214,19 +228,19 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
         return {
             id: plan.identifier,
             name: plan.name,
-            data_amount: plan.data_limit.amount,
-            data_unit: plan.data_limit.unit,
-            validity_days: plan.duration.amount,
+            data_amount: plan.data_amount,
+            data_unit: plan.data_unit,
+            validity_days: plan.validity_days,
             price: {
                 amount_with_tax: plan.price.amount_with_tax,
                 currency: plan.price.currency,
             },
             covered_countries: plan.covered_countries,
-            identifier: plan.price.identifier,
-            data: plan.data_limit.is_unlimited ? 'Unlimited' : `${plan.data_limit.amount} ${plan.data_limit.unit}`,
-            validity: `${plan.duration.amount} ${plan.duration.unit}${plan.duration.amount > 1 ? 's' : ''}`,
-            planType: planType,
-            region: plan.region,
+            identifier: plan.identifier,
+            data: plan.data,
+            validity: plan.validity,
+            planType: planType, // Add plan type for labeling
+            region: plan.region, // Keep original region info
         };
     })
     : (isSSR ? fallbackPlansData.items.map((plan: any) => {
@@ -244,17 +258,17 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
         return {
             id: plan.identifier,
             name: plan.name,
-            data_amount: plan.data_limit.amount,
-            data_unit: plan.data_limit.unit,
-            validity_days: plan.duration.amount,
+            data_amount: plan.data_amount,
+            data_unit: plan.data_unit,
+            validity_days: plan.validity_days,
             price: {
                 amount_with_tax: plan.price.amount_with_tax,
                 currency: plan.price.currency,
             },
             covered_countries: plan.covered_countries,
-            identifier: plan.price.identifier,
-            data: plan.data_limit.is_unlimited ? 'Unlimited' : `${plan.data_limit.amount} ${plan.data_limit.unit}`,
-            validity: `${plan.duration.amount} ${plan.duration.unit}${plan.duration.amount > 1 ? 's' : ''}`,
+            identifier: plan.identifier,
+            data: plan.data,
+            validity: plan.validity,
             planType: planType,
             region: plan.region,
         };
@@ -376,7 +390,7 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
           lowPrice || '0',
           highPrice || '0',
           offers.length,
-          offers.map(o => o['@id'])
+          offers.map((o: any) => o['@id'])
         )
       ]
     };
@@ -488,12 +502,13 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
     if (selectedPlanState) {
       const planData = {
         country: region.name,
-        flag: 'https://flagcdn.com/globe.svg',
+        flag: '/esim-data/flags/globe.svg',
         data: selectedPlanState.data,
         validity: selectedPlanState.validity,
         price: selectedPlanState.price.amount_with_tax / 100,
         currency: formatCurrency(selectedPlanState.price.currency || 'USD'),
-        identifier: selectedPlanState.identifier,
+        identifier: selectedPlanState.identifier, // Use the plan UUID from saily_plans.json
+        priceIdentifier: (selectedPlanState.price as any)?.identifier,
       } as any;
       const encodedPlan = encodeURIComponent(JSON.stringify(planData));
       navigateTo(`/checkout?plan=${encodedPlan}`);
@@ -588,7 +603,20 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
         </div>
 
         {/* All plans grid below hero/selector */}
-        <RegionPlansGrid plans={regionPlans.filter((p: any) => p.data_unit !== 'Unlimited')} regionName={translatedRegionName} />
+        <RegionPlansGrid plans={regionPlans} regionName={translatedRegionName} />
+
+        {/* Enhanced Saily Plans Section */}
+        <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
+          <Suspense fallback={<div className="animate-pulse p-4"><div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div><div className="h-4 bg-gray-200 rounded w-1/2"></div></div>}>
+            <SailyPlansSection 
+              regionName={region?.name || translatedRegionName}
+              title={`All Available Plans for ${translatedRegionName}`}
+              maxPlans={12}
+              showSource={true}
+              className="mb-8"
+            />
+          </Suspense>
+        </div>
 
         {/* Countries Grid Section */}
         <div className="bg-gray-50 py-16 md:py-24">
@@ -681,7 +709,7 @@ const CountryCard: React.FC<CountryCardProps> = ({ country, price }) => {
       <div className="flex-shrink-0">
         <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm border border-gray-200 group-hover:shadow-md transition-shadow duration-300">
           <img 
-            src={`https://flagcdn.com/w80/${country.id.toLowerCase()}.png`} 
+            src={`/esim-data/flags/${country.id.toLowerCase()}.svg`} 
             alt={`${getCountryName(country.id)} flag`} 
             className="w-full h-full object-cover"
             loading="lazy"

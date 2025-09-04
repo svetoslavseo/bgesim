@@ -67,10 +67,22 @@ const formatPricePerGBDisplay = (plan: any): string => {
     return pricePerGB.toFixed(2);
 };
 
+// Derive an effective plan type when not explicitly provided
+const getEffectivePlanType = (plan: any): 'global' | 'regional' | 'country' => {
+    if (Array.isArray(plan?.covered_countries)) {
+        const n = plan.covered_countries.length;
+        if (n > 50) return 'global';
+        if (n > 1) return 'regional';
+        if (n === 1) return 'country';
+    }
+    if (typeof plan?.planType === 'string') return plan.planType;
+    if (typeof plan?.region === 'string' && plan.region.toLowerCase() === 'global') return 'global';
+    return 'country';
+};
 
 
 const PlanSelector: React.FC<PlanSelectorProps> = ({ plans, selectedPlan, onSelectPlan, countryName = 'Andorra', bestValuePlanId, onUpsellChange, onBuyNow, onCheckCompatibility }) => {
-    const { t } = useTranslation('countries');
+    const { t } = useTranslation(['countries', 'plans']);
     const { i18n } = useI18n();
     const [upsellChecked, setUpsellChecked] = useState(false);
     const [hoveredTooltip, setHoveredTooltip] = useState<string | null>(null);
@@ -240,7 +252,12 @@ const PlanSelector: React.FC<PlanSelectorProps> = ({ plans, selectedPlan, onSele
                     return (
                         <div
                             key={plan.id}
-                            onClick={() => onSelectPlan(plan)}
+                            onClick={() => {
+                                console.log('DEBUG: Plan clicked in PlanSelector:', plan);
+                                console.log('DEBUG: plan.price:', plan.price);
+                                console.log('DEBUG: plan.price.identifier:', (plan.price as any)?.identifier);
+                                onSelectPlan(plan);
+                            }}
                             className={`relative flex items-center p-4 sm:p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
                                 isSelected 
                                     ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-indigo-50 shadow-lg ring-4 ring-blue-200' 
@@ -276,33 +293,36 @@ const PlanSelector: React.FC<PlanSelectorProps> = ({ plans, selectedPlan, onSele
                                             </span>
                                             <div className="flex items-center gap-2 justify-end">
                                                 {/* Plan Type Label */}
-                                                {plan.planType && (
-                                                    <div className="relative">
-                                                        <span className={`inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-xs font-medium ${
-                                                            plan.planType === 'global' 
-                                                                ? 'bg-purple-100 text-purple-700'
-                                                                : plan.planType === 'regional'
-                                                                ? 'bg-blue-100 text-blue-700'
-                                                                : 'bg-green-100 text-green-700'
-                                                        }`}>
-                                                            {plan.planType === 'global' ? t('global') : 
-                                                             plan.planType === 'regional' ? t('regional') : 
-                                                             t('country')}
-                                                            <MdInfo 
-                                                                className="w-4 h-4 cursor-help"
-                                                                onMouseEnter={() => setHoveredTooltip(`${plan.planType}-${plan.id}`)}
-                                                                onMouseLeave={() => setHoveredTooltip(null)}
-                                                            />
-                                                        </span>
-                                                        {/* Tooltip */}
-                                                        {hoveredTooltip === `${plan.planType}-${plan.id}` && (
-                                                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-10">
-                                                                {getPlanTypeTooltip(plan.planType)}
-                                                                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                )}
+                                                {(() => {
+                                                    const effectiveType = getEffectivePlanType(plan);
+                                                    return (
+                                                        <div className="mt-2">
+                                                            <span className={`inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-xs font-medium ${
+                                                                effectiveType === 'global'
+                                                                    ? 'bg-purple-100 text-purple-700'
+                                                                    : effectiveType === 'regional'
+                                                                    ? 'bg-blue-100 text-blue-700'
+                                                                    : 'bg-green-100 text-green-700'
+                                                            }`}>
+                                                                {effectiveType === 'global' ? t('global') : 
+                                                                 effectiveType === 'regional' ? t('regional') : 
+                                                                 t('country')}
+                                                                <MdInfo 
+                                                                    className="w-4 h-4 cursor-help"
+                                                                    onMouseEnter={() => setHoveredTooltip(`${effectiveType}-${plan.id}`)}
+                                                                    onMouseLeave={() => setHoveredTooltip(null)}
+                                                                />
+                                                            </span>
+                                                            {/* Tooltip */}
+                                                            {hoveredTooltip === `${effectiveType}-${plan.id}` && (
+                                                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-10">
+                                                                    {getPlanTypeTooltip(effectiveType)}
+                                                                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    );
+                                                })()}
                                                 {plan.data === 'Unlimited' ? (
                                                     <span className="bg-yellow-100 text-black px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-xs font-medium">
                                                         {t('unlimited_data')}
@@ -317,20 +337,14 @@ const PlanSelector: React.FC<PlanSelectorProps> = ({ plans, selectedPlan, onSele
                                     </div>
                                 </div>
                             
-                            {/* Best Value Badge */}
-                            {isBestValue && (
-                                <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full flex items-center gap-1.5 sm:gap-2 shadow-lg">
-                                    <MdStar className="w-3 h-3 sm:w-4 sm:h-4" />
-                                    {t('best_value')}
-                                </div>
-                            )}
+                            {/* Best Value Badge removed */}
                             
                             {/* Most Popular Badge */}
                             {isMostPopular && !isBestValue && (
                                 <div className="absolute -top-2 sm:-top-3 -right-2 sm:-right-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black text-xs sm:text-sm font-bold px-3 sm:px-4 py-1 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 shadow-lg">
                                     <MdStar className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
-                                    <span className="hidden sm:inline">Most Popular</span>
-                                    <span className="sm:hidden">Popular</span>
+                                    <span className="hidden sm:inline">{t('plans:pricing.most_popular')}</span>
+                                    <span className="sm:hidden">{t('plans:pricing.most_popular')}</span>
                                 </div>
                             )}
                         </div>
@@ -356,7 +370,12 @@ const PlanSelector: React.FC<PlanSelectorProps> = ({ plans, selectedPlan, onSele
                     className="w-full font-bold py-4 sm:py-5 px-6 sm:px-8 rounded-2xl text-base sm:text-lg mb-6 transition-all duration-200 bg-gradient-to-r from-gray-900 to-black text-white hover:from-black hover:to-gray-800 shadow-lg hover:shadow-xl transform hover:scale-105"
                     onClick={() => {
                         if (onBuyNow) {
-                            onBuyNow(selectedPlan);
+                            const enriched = {
+                                ...selectedPlan,
+                                identifier: (selectedPlan as any)?.identifier, // Use the plan UUID from saily_plans.json
+                                priceIdentifier: (selectedPlan as any)?.price?.identifier
+                            } as any;
+                            onBuyNow(enriched);
                         }
                     }}
                 >

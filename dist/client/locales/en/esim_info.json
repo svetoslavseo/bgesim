@@ -1,0 +1,24 @@
+{
+  "about_esim_title": "About eSIM for {{country}}",
+  "about_esim_description": "Stay connected on your travels in {{country}} with a convenient eSIM. Enjoy high-speed mobile data without the hassle of physical SIM cards or expensive roaming fees. Explore {{country}} with seamless internet access.",
+  "network_performance": {
+    "title": "Network Performance",
+    "global_rank": "Global Rank",
+    "median_speed": "Median Speed",
+    "source": "Source",
+    "speedtest_global_index": "Speedtest Global Index"
+  },
+  "network_analysis": {
+    "title": "Network Performance Analysis",
+    "source": "Source",
+    "opensignal_index": "OpenSignal Global Network Excellence Index"
+  },
+  "loading": {
+    "title": "Loading Network Data",
+    "description": "Loading network performance data for this country..."
+  },
+  "error": {
+    "title": "Network Data Unavailable",
+    "description": "Network performance data is not available for this country at the moment."
+  }
+} 

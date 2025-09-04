@@ -7,6 +7,7 @@ import { AUTHOR_INFO, COUNTRIES, REGIONS } from '../constants';
 import { generatePersonSchema, generateOrganizationSchema, BASE_URL as SCHEMA_BASE_URL } from '../utils/schemaUtils';
 import { Region, Country } from '../types';
 import { dataService } from '../utils/dataService';
+import { getFlagUrl } from '../utils/flagUtils';
 
 interface AuthorPageProps {
     navigateTo: (route: string) => void;
@@ -23,7 +24,7 @@ const AuthorPage: React.FC<AuthorPageProps> = ({ navigateTo }) => {
         const loadData = async () => {
             try {
                 console.log('AuthorPage: Loading plans data...');
-                const plansResponse = await dataService.getPlansData({ full: true });
+                const plansResponse = await dataService.getPlansData(true);
                 console.log('AuthorPage: Plans data loaded:', plansResponse?.items?.length || 0, 'plans');
                 setPlansData(plansResponse);
             } catch (error) {
@@ -215,7 +216,7 @@ const CountryCard: React.FC<{country: Country, navigateTo: (route: string) => vo
         href={`/${country.regionId}/${country.slug}`}
         className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 cursor-pointer hover:shadow-lg hover:border-blue-500 transition-all duration-300 flex items-center block"
     >
-        <img src={`https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`} alt={`${country.name} flag`} className="w-10 h-auto rounded-md" />
+                          <img src={getFlagUrl(countryCode)} alt={`${country.name} flag`} className="w-10 h-auto rounded-md" />
         <div className="ml-4">
             <h3 className="font-semibold text-gray-900">{country.name}</h3>
             <p className="text-sm text-gray-500">

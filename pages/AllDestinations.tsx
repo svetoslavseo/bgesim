@@ -4,7 +4,8 @@ import { COUNTRIES, REGIONS } from '../constants';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import i18n from '../i18n';
-import { dataService } from '../utils/dataService';
+import { sailyPlansService } from '../utils/sailyPlansService';
+import { getFlagUrl } from '../utils/flagUtils';
 // Remove react-world-flags import to fix loading issue
 // import WorldFlag from 'react-world-flags';
 
@@ -75,7 +76,7 @@ const CountryCard: React.FC<{country: Country, navigateTo: (route: string) => vo
         href={`/${country.regionId}/${country.slug}`}
         className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 cursor-pointer hover:shadow-lg hover:border-blue-500 transition-all duration-300 flex items-center block"
     >
-        <img src={`https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`} alt={`${getCountryName(country.id)} flag`} className="w-10 h-auto rounded-md" />
+                    <img src={getFlagUrl(countryCode)} alt={`${getCountryName(country.id)} flag`} className="w-10 h-auto rounded-md" />
         <div className="ml-4">
             <h3 className="font-semibold text-gray-900">{getCountryName(country.id)}</h3>
             <p className="text-sm text-gray-500">
@@ -122,16 +123,21 @@ const AllDestinations: React.FC<AllDestinationsProps> = ({ navigateTo }) => {
     fetchCountries();
   }, []);
 
-  // Load plans data
+  // Load enhanced plans data
   useEffect(() => {
     const loadPlansData = async () => {
       try {
-        console.log('AllDestinations: Loading plans data...');
-        const data = await dataService.getPlansData({ full: true });
-        console.log('AllDestinations: Plans data loaded:', data?.items?.length || 0, 'plans');
+        console.log('AllDestinations: Loading enhanced plans data...');
+        const data = await sailyPlansService.getNormalizedPlansData();
+        console.log('AllDestinations: Enhanced plans data loaded:', data?.items?.length || 0, 'plans');
+        
+        const sailyPlans = data?.items?.filter(p => p.source === 'saily') || [];
+        const localPlans = data?.items?.filter(p => p.source === 'local') || [];
+        console.log('AllDestinations: Breakdown -', sailyPlans.length, 'Saily plans,', localPlans.length, 'local plans');
+        
         setPlansData(data);
       } catch (error) {
-        console.error('AllDestinations: Failed to load plans data:', error);
+        console.error('AllDestinations: Failed to load enhanced plans data:', error);
         setPlansData({ items: [] });
       }
     };

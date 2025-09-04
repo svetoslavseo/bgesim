@@ -78,7 +78,7 @@ const DestinationSelector: React.FC<DestinationSelectorProps> = ({ navigateTo })
                     >
                       <div className="w-16 h-12 mx-auto mb-3 rounded-xl overflow-hidden shadow-md group-hover:scale-110 transition-transform duration-300">
                         <img 
-                          src={`https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`} 
+                          src={`/esim-data/flags/${countryCode.toLowerCase()}.svg`} 
                           alt={`${getCountryName(dest.id)} flag`} 
                           className="w-full h-full object-cover"
                           loading="lazy"

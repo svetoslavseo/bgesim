@@ -59,6 +59,7 @@ export interface Plan {
   price: {
     amount_with_tax: number;
     currency: string;
+    identifier?: string;
   };
   covered_countries: string[];
   identifier?: string;

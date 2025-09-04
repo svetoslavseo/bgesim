@@ -1,0 +1,212 @@
+{
+  "terms": {
+    "title": "Terms and Conditions",
+    "last_updated": "Last updated",
+    "last_updated_date": "December 2024",
+    "introduction": {
+      "title": "1. Introduction",
+      "welcome": "Welcome to Travel eSIMple. We are a promotional partner of Saily Inc., a global provider of eSIM services. Travel eSIMple does not operate as a telecom service provider and does not offer or manage eSIM data services directly. By using this website and engaging with the services we promote, you agree to these Terms & Conditions.",
+      "services": "All eSIM services, including payment processing, service activation, network coverage, billing, and customer support are operated and controlled by Saily Inc. or their partners."
+    },
+    "affiliate_disclaimer": {
+      "title": "2. Affiliate Disclaimer",
+      "description": "Travel eSIMple operates as an independent affiliate and marketing platform. We help users discover, compare, and access eSIM data plans powered by Saily.",
+      "points": {
+        "0": "We do not sell, manage, or control the eSIM technology or service.",
+        "1": "All purchases, activations, and support are handled through Saily.",
+        "2": "We are not liable for any network performance issues, delays, usage costs, billing errors, or roaming fees."
+      }
+    },
+    "service_provider": {
+      "title": "3. Who Provides the Service",
+      "description": "eSIM services purchased through Travel eSIMple are provided by:",
+      "saily_info": {
+        "name": "Saily Inc.",
+        "address": "330 N Wabash Ave, Chicago, IL 60611, United States",
+        "registration": "A corporation registered in the State of Delaware, USA."
+      },
+      "partner_info": "In some countries, the service may be delivered via Saily's technology partner 1GLOBAL, based in the United Kingdom.",
+      "referral": "Please refer to the Saily Terms of Service and Privacy Policy for full details about your contractual relationship with the service provider."
+    },
+    "responsibilities": {
+      "title": "4. Your Responsibilities",
+      "description": "When using Travel eSIMple:",
+      "points": [
+        "You agree that all purchases are made directly with Saily and that Travel eSIMple does not offer technical support or issue refunds.",
+        "You are responsible for checking if your device is unlocked and eSIM-compatible before purchasing a plan.",
+        "You understand that roaming charges, network restrictions, or usage limitations are set and governed by Saily and/or its partners."
+      ]
+    },
+    "no_liability": {
+      "title": "5. No Liability for Service Issues",
+      "description": "Travel eSIMple is not responsible for:",
+      "points": [
+        "Failed or delayed eSIM activations",
+        "Service interruptions or lack of coverage",
+        "Extra data usage charges (including roaming)",
+        "Refund requests or billing disputes",
+        "Performance or security of the app or eSIM installation process"
+      ],
+      "support": "All service-related matters must be addressed directly with Saily via their official support channels."
+    },
+    "payments_refunds": {
+      "title": "6. Payments and Refunds",
+      "description": "Payments for data plans are made through Saily's secure checkout system. Any issues related to:",
+      "points": {
+        "0": "Payment processing",
+        "1": "Auto-renewals or subscriptions",
+        "2": "Refunds or cancellations"
+      },
+      "support_note": "must be resolved directly with Saily support at support@saily.com.",
+      "disclaimer": "Travel eSIMple does not process or store any payment information and cannot issue refunds under any circumstance."
+    },
+    "intellectual_property": {
+      "title": "7. Intellectual Property",
+      "description": "All product names, logos, and trademarks are the property of their respective owners, including Saily and its technology partners. Travel eSIMple branding and content are the intellectual property of Travel eSIMple and cannot be reproduced without permission."
+    },
+    "governing_law": {
+      "title": "8. Governing Law",
+      "description": "These Terms are governed by the laws of the United Kingdom. However, as the services are provided by Saily, any contractual or legal claims about the service will be governed by Saily's applicable jurisdiction, typically the State of Delaware, USA."
+    },
+    "changes_terms": {
+      "title": "9. Changes to These Terms",
+      "description": "We may update these Terms from time to time to reflect changes in how we operate or changes in our partnership with Saily. Continued use of our site after such changes will constitute your acceptance."
+    },
+    "contact_us": {
+      "title": "10. Contact Us",
+      "travel_esimple_note": "For questions related to Travel eSIMple, contact:",
+      "travel_esimple": {
+            "email": "hello@traveleSIMple.bg",
+    "website": "https://traveleSIMple.bg"
+      },
+      "saily_note": "For support related to your data plan, eSIM installation, or billing:",
+      "saily": {
+        "email": "support@saily.com",
+        "website": "https://web.saily.com"
+      }
+    }
+  },
+  "refund": {
+    "title": "Refund Policy",
+    "last_updated": "Last Updated",
+    "last_updated_date": "December 2024",
+    "introduction": {
+      "description": "This website serves as a platform that provides eSIM products and services from Saily, a leading eSIM provider. All purchases made through this website are fulfilled by Saily, and their refund policy applies to all transactions.",
+      "important_note": "Important Note: While we facilitate the purchase process, all refunds are processed according to Saily's refund policy, as they are the actual service provider for the eSIM products you purchase."
+    },
+    "non_activated": {
+      "title": "Refunds for Non-Activated Data Plans",
+      "description": "If the eSIM you have purchased has not been installed or the Data Plan has not been activated, you may request a full refund within 30 days of the purchase."
+    },
+    "minimally_used": {
+      "title": "Refunds for Minimally Used Data Plans or Activated Data Plans",
+      "description": "If you have installed the eSIM and activated the Data Plan, Saily will consider it as used, therefore, a full refund cannot be guaranteed. That being said, a partial or a full refund may be considered under the following conditions:",
+      "conditions": [
+        "You were unable to use much of the data due to quality issues related to Saily.",
+        "The Data Plan has been activated, but the data remains mostly unused (>99% of the Data Plan left)."
+      ],
+      "terms_reference": "For more information about your eligibility, please refer to Saily's Terms of Service section 2.3."
+    },
+    "how_to_request": {
+      "title": "How to Request a Refund",
+      "description": "If you wish to receive a refund, the fastest and most direct way to begin is to submit a refund request through our website. We will then coordinate with Saily to process your refund according to their policy.",
+      "contact_info": "Contact Us: Please use our contact form or customer support channels to initiate your refund request. We're here to help facilitate the process with Saily. You can also contact Saily's support team directly for immediate assistance."
+    },
+    "additional_info": {
+      "title": "Additional Information",
+      "description": "As an affiliate partner of Saily, we are committed to providing you with the best possible service and support. While we cannot guarantee refunds (as this is determined by Saily's policy), we will do everything we can to assist you throughout the refund process.",
+      "support_note": "For questions about specific refund cases or to check the status of your refund request, please don't hesitate to contact our customer support team."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated",
+    "last_updated_date": "December 2024",
+    "introduction": {
+      "welcome": "Welcome to Travel eSIMple. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website or use our services.",
+      "note_label": "Please note",
+      "note_content": "Travel eSIMple is a partner of Saily Inc. We help users discover and access eSIM services, but we do not directly provide telecommunications services ourselves. All eSIM-related services are delivered by Saily or their licensed partners. When using our services, your personal data may be processed by us and shared with Saily and other relevant third parties in accordance with this Privacy Policy."
+    },
+    "who_we_are": {
+      "title": "1. Who We Are",
+      "description": "Travel eSIMple is a brand that partners with Saily Inc., a U.S.-based provider of eSIM services. Our role is to help users easily compare and access eSIM plans across destinations. We act as a facilitator and marketing partner for Saily and are not a telecom provider.",
+      "saily_info": "Saily Inc. (330 N Wabash Ave, Chicago, IL 60611, USA) is the data controller for the provision and operation of the eSIM service. Travel eSIMple may collect limited personal data to support your interactions with our site and your usage journey, but the core service, billing, and technical delivery are managed by Saily."
+    },
+    "data_collection": {
+      "title": "2. What Data We Collect",
+      "description": "We may collect and process:",
+      "points": {
+        "contact": "Contact data: Name, email address (when you sign up or contact us).",
+        "usage": "Usage data: IP address, browser type, country, session time, and site behavior for analytics and support.",
+        "transaction": "Transaction data: Purchase history and plan details (via Saily's secure systems).",
+        "device": "Device information: Type, OS, and unique identifiers for usability tracking.",
+        "marketing": "Marketing preferences: Your opt-in status for our email communications."
+      },
+      "saily_note": "Saily may require additional personal data, such as identity verification (passport, ID) for regulatory reasons, and they handle such data under their own privacy policy."
+    },
+    "data_usage": {
+      "title": "3. How Your Data is Used",
+      "description": "We and our partner Saily use your data to:",
+      "points": {
+        "0": "Facilitate access to eSIM plans and services.",
+        "1": "Process transactions and payments (handled by Saily).",
+        "2": "Support customer service and troubleshoot issues.",
+        "3": "Send updates or promotional emails if you opt-in.",
+        "4": "Improve the functionality of our website and services."
+      }
+    },
+    "data_sharing": {
+      "title": "4. Who We Share Data With",
+      "description": "Your data may be shared with:",
+      "points": {
+        "saily": "Saily Inc. – to fulfil the eSIM service and manage your account.",
+        "1global": "1GLOBAL Software – Saily's core technology provider for eSIM delivery.",
+        "third_party": "Third-party service providers – for email marketing, analytics (e.g., Google Analytics, Firebase), customer support (e.g., Zendesk), or payment processing (e.g., Stripe, PayPal).",
+        "law_enforcement": "Law enforcement or regulatory bodies, where required by law."
+      },
+      "note": "When purchasing or using a data plan, your data may be shared with Saily, who acts as the principal service provider. Please refer to their Privacy Policy for additional details on how they handle your information."
+    },
+    "your_rights": {
+      "title": "5. Your Rights",
+      "description": "Depending on your jurisdiction, you may have the right to:",
+      "points": {
+        "0": "Access your data.",
+        "1": "Request correction or deletion.",
+        "2": "Withdraw consent.",
+        "3": "Object to processing.",
+        "4": "Request data portability."
+      },
+      "contact_info": "You can make a request by contacting us at support@traveleSIMple.bg. For requests related to eSIM service delivery, please contact Saily at privacy@saily.com."
+    },
+    "data_security": {
+      "title": "6. Data Security",
+      "description": "We and Saily implement robust security measures to safeguard your personal data, including encryption, secure servers, and access controls. However, no online platform is 100% secure, and we encourage users to exercise caution."
+    },
+    "data_retention": {
+      "title": "7. Data Retention",
+      "description": "We retain your personal data only as long as necessary for the purposes described or as required by law. Saily may retain eSIM usage data for longer periods to meet legal, regulatory, or support obligations."
+    },
+    "cookies": {
+      "title": "8. Cookies",
+      "description": "Our website uses cookies to improve your experience, analyze traffic, and personalise content. You can control cookie usage via your browser settings. For more information, see our Cookie Policy."
+    },
+    "children_data": {
+      "title": "9. Children's Data",
+      "description": "Our services are not directed at users under 18. If we become aware that we have collected data from a minor, we will delete it promptly."
+    },
+    "changes_policy": {
+      "title": "10. Changes to This Policy",
+      "description": "We may update this Privacy Policy from time to time. Material changes will be notified via our website or email. Continued use of our site and services constitutes acceptance of the updated policy."
+    },
+    "contact_us": {
+      "title": "11. Contact Us",
+      "description": "If you have any questions about this Privacy Policy or wish to exercise your rights, contact:",
+      "travel_esimple": {
+            "email": "support@traveleSIMple.bg",
+    "website": "https://traveleSIMple.bg"
+      },
+      "saily_note": "For questions regarding the eSIM service directly, please contact:",
+      "saily_email": "privacy@saily.com"
+    }
+  }
+} 

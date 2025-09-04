@@ -33,6 +33,20 @@ function copyDataFiles() {
       } else {
         console.warn('⚠️ plans.json not found in root directory');
       }
+
+      // Copy Saily data so it is accessible on client and SSR
+      if (fs.existsSync('saily_plans.json')) {
+        fs.copyFileSync('saily_plans.json', 'dist/client/saily_plans.json');
+        fs.copyFileSync('saily_plans.json', 'public/saily_plans.json');
+        console.log('✅ Copied saily_plans.json to dist/client/ and public/');
+      } else {
+        console.warn('⚠️ saily_plans.json not found in root directory');
+      }
+      if (fs.existsSync('saily_metadata.json')) {
+        fs.copyFileSync('saily_metadata.json', 'dist/client/saily_metadata.json');
+        fs.copyFileSync('saily_metadata.json', 'public/saily_metadata.json');
+        console.log('✅ Copied saily_metadata.json to dist/client/ and public/');
+      }
       
       // Copy locales folder to dist/client for SSR translation loading
       const copyDirectory = (src: string, dest: string) => {

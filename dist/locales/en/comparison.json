@@ -1,0 +1,42 @@
+{
+  "title": "eSIM vs Roaming vs Local SIM – What's Best?",
+  "description": "Compare the different ways to stay connected while traveling in {{country}}. See which option is best for your needs.",
+  "table": {
+    "feature": "Feature",
+    "esim_for": "eSIM for {{country}}",
+    "international_roaming": "International Roaming",
+    "local_sim": "Local SIM in {{country}}"
+  },
+  "features": {
+    "activation": "Activation",
+    "cost": "Cost",
+    "data_speeds": "Data Speeds",
+    "phone_number": "Phone Number",
+    "setup": "Setup",
+    "best_for": "Best For"
+  },
+  "esim": {
+    "activation": "Instant via email",
+    "cost": "Affordable, prepaid",
+    "data_speeds": "4G/5G",
+    "phone_number": "Keep home number",
+    "setup": "Scan QR code",
+    "best_for": "Convenience, flexibility"
+  },
+  "roaming": {
+    "activation": "Automatic but costly",
+    "cost": "Expensive, daily fees",
+    "data_speeds": "Varies by provider",
+    "phone_number": "Keep home number",
+    "setup": "No setup needed",
+    "best_for": "Short trips, emergency use"
+  },
+  "local_sim": {
+    "activation": "Buy in-store",
+    "cost": "Varies, requires registration",
+    "data_speeds": "4G/5G",
+    "phone_number": "New {{country}} number",
+    "setup": "Airport/store purchase",
+    "best_for": "Long-term stays"
+  }
+} 

@@ -1,0 +1,28 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8fafc"/>
+  <rect x="50" y="50" width="700" height="500" fill="white" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+  
+  <!-- Header -->
+  <rect x="70" y="70" width="660" height="60" fill="#3b82f6" rx="4"/>
+  <text x="400" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">EID Number Guide</text>
+  
+  <!-- Phone illustration -->
+  <rect x="150" y="200" width="120" height="200" fill="#1f2937" rx="20"/>
+  <rect x="160" y="210" width="100" height="180" fill="#374151" rx="10"/>
+  <rect x="170" y="220" width="80" height="120" fill="#6b7280" rx="5"/>
+  <text x="210" y="360" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">iPhone</text>
+  
+  <!-- EID text -->
+  <text x="350" y="250" fill="#1f2937" font-family="Arial, sans-serif" font-size="18" font-weight="bold">EID Number:</text>
+  <text x="350" y="280" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">32-digit identifier</text>
+  <text x="350" y="310" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">for eSIM activation</text>
+  
+  <!-- Steps -->
+  <text x="350" y="360" fill="#1f2937" font-family="Arial, sans-serif" font-size="16" font-weight="bold">How to find:</text>
+  <text x="350" y="385" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">1. Settings → General</text>
+  <text x="350" y="405" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">2. About → EID</text>
+  <text x="350" y="425" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">3. Or dial *#06#</text>
+  
+  <!-- Footer -->
+  <text x="400" y="550" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="12">Essential for eSIM setup and activation</text>
+</svg>

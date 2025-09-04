@@ -8,7 +8,7 @@ import i18n from '../i18n';
 // Remove react-world-flags import to fix loading issue
 // import WorldFlag from 'react-world-flags';
 import { FaGlobe, FaUsers, FaMapMarkedAlt, FaStar, FaCheck } from 'react-icons/fa';
-import { dataService } from '../utils/dataService';
+import { sailyPlansService } from '../utils/sailyPlansService';
 
 interface RegionWithStats extends Region {
   countryCount: number;
@@ -191,12 +191,13 @@ const GlobalPlanCard: React.FC<GlobalPlanCardProps> = ({
           // Create plan data for checkout
           const planData = {
             country: t('plan_card.global_country'),
-            flag: `https://flagcdn.com/globe.svg`,
+            flag: `/esim-data/flags/globe.svg`,
             data: data,
             validity: duration,
             price: parseFloat(price),
             currency: 'USD',
-            identifier: plan.identifier
+            identifier: plan.identifier, // Use the plan UUID from saily_plans.json
+            priceIdentifier: plan.price?.identifier
           };
           const encodedPlan = encodeURIComponent(JSON.stringify(planData));
           window.location.href = `/checkout?plan=${encodedPlan}`;
@@ -218,16 +219,21 @@ const RegionsPage: React.FC<RegionsPageProps> = ({ navigateTo = () => {} }) => {
   const [plansData, setPlansData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
-  // Load real plans data from API
+  // Load enhanced plans data from Saily service
   useEffect(() => {
     const loadPlansData = async () => {
       try {
-        console.log('RegionsPage: Loading plans data...');
-        const data = await dataService.getPlansData({ full: true });
-        console.log('RegionsPage: Plans data loaded:', data?.items?.length || 0, 'plans');
+        console.log('RegionsPage: Loading enhanced plans data...');
+        const data = await sailyPlansService.getNormalizedPlansData();
+        console.log('RegionsPage: Enhanced plans data loaded:', data?.items?.length || 0, 'plans');
+        
+        const sailyPlans = data?.items?.filter(p => p.source === 'saily') || [];
+        const localPlans = data?.items?.filter(p => p.source === 'local') || [];
+        console.log('RegionsPage: Breakdown -', sailyPlans.length, 'Saily plans,', localPlans.length, 'local plans');
+        
         setPlansData(data);
       } catch (error) {
-        console.error('RegionsPage: Failed to load plans data:', error);
+        console.error('RegionsPage: Failed to load enhanced plans data:', error);
         setPlansData({ items: [] });
       } finally {
         setLoading(false);
@@ -249,12 +255,12 @@ const RegionsPage: React.FC<RegionsPageProps> = ({ navigateTo = () => {} }) => {
 
     // Sort by duration and then by data amount
     return globalPlans.sort((a: any, b: any) => {
-      const aDuration = a.duration?.amount || 0;
-      const bDuration = b.duration?.amount || 0;
+      const aDuration = a.validity_days || 0;
+      const bDuration = b.validity_days || 0;
       if (aDuration !== bDuration) return aDuration - bDuration;
       
-      const aData = a.data_limit?.amount || 0;
-      const bData = b.data_limit?.amount || 0;
+      const aData = a.data_amount || 0;
+      const bData = b.data_amount || 0;
       return aData - bData;
     }).slice(0, 5); // Show top 5 global plans
   };

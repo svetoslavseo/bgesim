@@ -28,29 +28,28 @@ const CountryPlansGrid: React.FC<CountryPlansGridProps> = ({ plans, countryName 
   const translateValidity = (validityStr: string | undefined) => {
     if (!validityStr) return '';
     
-    // Check if the current language is Bulgarian
-    const currentLang = i18n.language;
-    if (currentLang === 'bg') {
-      // Translate common validity patterns to Bulgarian
-      if (validityStr.includes('7 days')) {
-        return '7 дни';
-      } else if (validityStr.includes('15 days')) {
-        return '15 дни';
-      } else if (validityStr.includes('30 days')) {
-        return '30 дни';
-      } else if (validityStr.includes('1 day')) {
-        return '1 ден';
-      } else if (validityStr.includes('days')) {
-        // Generic pattern: replace "days" with "дни"
-        return validityStr.replace('days', 'дни');
-      } else if (validityStr.includes('day')) {
-        // Generic pattern: replace "day" with "ден"
-        return validityStr.replace('day', 'ден');
-      }
+    if (i18n.language === 'bg') {
+      if (validityStr.includes('7 days')) return '7 дни';
+      if (validityStr.includes('15 days')) return '15 дни';
+      if (validityStr.includes('30 days')) return '30 дни';
+      if (validityStr.includes('1 day')) return '1 ден';
+      if (validityStr.includes('days')) return validityStr.replace('days', 'дни');
+      if (validityStr.includes('day')) return validityStr.replace('day', 'ден');
     }
-    
-    // Return original text for other languages
     return validityStr;
+  };
+
+  // Derive an effective plan type when not explicitly provided
+  const getEffectivePlanType = (plan: any): 'global' | 'regional' | 'country' => {
+    if (Array.isArray(plan?.covered_countries)) {
+      const n = plan.covered_countries.length;
+      if (n > 50) return 'global';
+      if (n > 1) return 'regional';
+      if (n === 1) return 'country';
+    }
+    if (typeof plan?.planType === 'string') return plan.planType;
+    if (typeof plan?.region === 'string' && plan.region.toLowerCase() === 'global') return 'global';
+    return 'country';
   };
 
   // Helper to get plan type tooltip text
@@ -86,33 +85,36 @@ const CountryPlansGrid: React.FC<CountryPlansGridProps> = ({ plans, countryName 
               <div className="flex items-center justify-center gap-2 mb-2">
                 <div className="text-gray-500 font-medium">{t('for_duration', { duration: translateValidity(plan.validity) })}</div>
                 {/* Plan Type Label */}
-                {plan.planType && (
-                  <div className="relative">
-                    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
-                      plan.planType === 'global' 
-                        ? 'bg-purple-100 text-purple-700'
-                        : plan.planType === 'regional'
-                        ? 'bg-blue-100 text-blue-700'
-                        : 'bg-green-100 text-green-700'
-                    }`}>
-                      {plan.planType === 'global' ? t('global') : 
-                       plan.planType === 'regional' ? t('regional') : 
-                       t('country')}
-                      <MdInfo 
-                        className="w-3 h-3 cursor-help"
-                        onMouseEnter={() => setHoveredTooltip(`${plan.planType}-${plan.id}`)}
-                        onMouseLeave={() => setHoveredTooltip(null)}
-                      />
-                    </span>
-                    {/* Tooltip */}
-                    {hoveredTooltip === `${plan.planType}-${plan.id}` && (
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-10">
-                        {getPlanTypeTooltip(plan.planType)}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-                      </div>
-                    )}
-                  </div>
-                )}
+                {(() => {
+                  const effectiveType = getEffectivePlanType(plan);
+                  return (
+                    <div className="relative">
+                      <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
+                        effectiveType === 'global' 
+                          ? 'bg-purple-100 text-purple-700'
+                          : effectiveType === 'regional'
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'bg-green-100 text-green-700'
+                      }`}>
+                        {effectiveType === 'global' ? t('global') : 
+                         effectiveType === 'regional' ? t('regional') : 
+                         t('country')}
+                        <MdInfo 
+                          className="w-3 h-3 cursor-help"
+                          onMouseEnter={() => setHoveredTooltip(`${effectiveType}-${plan.id}`)}
+                          onMouseLeave={() => setHoveredTooltip(null)}
+                        />
+                      </span>
+                      {/* Tooltip */}
+                      {hoveredTooltip === `${effectiveType}-${plan.id}` && (
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-10">
+                          {getPlanTypeTooltip(effectiveType)}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
               </div>
               <a
                 href="#"
@@ -124,12 +126,13 @@ const CountryPlansGrid: React.FC<CountryPlansGridProps> = ({ plans, countryName 
                   const countryCode = (countryObj?.countryCode || countryObj?.id || 'globe').toLowerCase();
                   const planData = {
                     country: countryName || 'this country',
-                    flag: `https://flagcdn.com/${countryCode}.svg`,
+                    flag: `/esim-data/flags/${countryCode.toLowerCase()}.svg`,
                     data: plan.data,
                     validity: plan.validity,
                     price: plan.price.amount_with_tax / 100,
                     currency: formatCurrency(plan.price.currency),
-                    identifier: plan.identifier
+                    identifier: plan.identifier, // Use the plan UUID from saily_plans.json
+                    priceIdentifier: (plan.price as any)?.identifier
                   };
                   const encodedPlan = encodeURIComponent(JSON.stringify(planData));
                   window.location.href = `/checkout?plan=${encodedPlan}`;

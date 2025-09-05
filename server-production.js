@@ -171,10 +171,21 @@ async function createServer() {
         render = module.render;
       } else {
         // Production: load pre-built files
-        template = fs.readFileSync(path.resolve(__dirname, 'dist/client/index.html'), 'utf-8');
+        const templatePath = path.resolve(__dirname, 'dist/client/index.html');
+        console.log(`📄 Loading template from: ${templatePath}`);
+        template = fs.readFileSync(templatePath, 'utf-8');
+        console.log(`📄 Template loaded. Length: ${template.length}, contains SSR placeholder: ${template.includes('<!--ssr-outlet-->')}`);
+        console.log(`📄 Template first 300 chars: ${template.substring(0, 300)}...`);
         try {
           console.log('📦 Loading production entry-server module...');
-          const module = await import('./dist/server/entry-server.js');
+          // Try the stable path first, then fall back to the hashed version
+          let module;
+          try {
+            module = await import('./dist/server/entry-server.js');
+          } catch (e) {
+            console.log('📦 Stable entry-server.js not found, trying hashed version...');
+            module = await import('./dist/server/assets/js/entry-server-DX5UNrNp.js');
+          }
           render = module.render;
           console.log('✅ Production entry-server loaded successfully');
         } catch (importError) {
@@ -196,14 +207,18 @@ async function createServer() {
         appHtml = renderResult.appHtml;
         helmet = renderResult.helmet;
         console.log(`✅ Render completed. HTML length: ${appHtml ? appHtml.length : 0}`);
+        console.log(`📝 First 200 chars of rendered HTML: ${appHtml ? appHtml.substring(0, 200) : 'none'}...`);
       } catch (renderError) {
         console.error('❌ Render function failed:', renderError);
+        console.error('❌ Error stack:', renderError.stack);
         appHtml = '<div style="display:none;">Error loading page</div>';
         helmet = null;
       }
 
       // Replace the placeholder with rendered content
+      console.log(`🔄 Template contains SSR placeholder: ${template.includes('<!--ssr-outlet-->')}`);
       let html = template.replace(`<!--ssr-outlet-->`, appHtml);
+      console.log(`✅ Template replacement completed. Final HTML length: ${html.length}`);
 
       // Inject preloaded data for client-side hydration
       if (plansData) {

@@ -145,9 +145,9 @@ export default defineConfig((envConfig: any) => {
             format: 'es',
             ...(isSsr ? {
               // For SSR bundle, use stable file names so server-production.js can import it.
-              entryFileNames: 'entry-server.js',
-              chunkFileNames: 'chunks/[name].js',
-              assetFileNames: 'assets/[name][extname]'
+              entryFileNames: '[name].js',
+              chunkFileNames: '[name].js',
+              assetFileNames: '[name][extname]'
             } : {
               // Client bundle: Enhanced code-splitting for better performance
               manualChunks: (id) => {
@@ -247,8 +247,8 @@ export default defineConfig((envConfig: any) => {
               }
               return `assets/[name]-[hash][extname]`;
             },
-            chunkFileNames: isSsr ? 'chunks/[name].js' : 'assets/js/[name]-[hash].js',
-            entryFileNames: isSsr ? 'entry-server.js' : 'assets/js/[name]-[hash].js'
+            chunkFileNames: isSsr ? '[name].js' : 'assets/js/[name]-[hash].js',
+            entryFileNames: isSsr ? '[name].js' : 'assets/js/[name]-[hash].js'
           },
           // Prevent large chunks
           maxParallelFileOps: 5,

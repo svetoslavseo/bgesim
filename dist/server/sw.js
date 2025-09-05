@@ -110,14 +110,25 @@ self.addEventListener('fetch', (event) => {
     url.pathname.includes('/esim-data/') ||
     url.pathname.includes('.png') ||
     url.pathname.includes('.jpg') ||
-    url.pathname.includes('.svg')
+    url.pathname.includes('.svg') ||
+    url.pathname.includes('.woff') ||
+    url.pathname.includes('.woff2') ||
+    url.pathname.includes('.ttf') ||
+    url.pathname.includes('.eot') ||
+    url.hostname.includes('fonts.gstatic.com') ||
+    url.hostname.includes('fonts.googleapis.com')
   ) {
     event.respondWith(
       caches.match(request).then((cachedResponse) => {
         if (cachedResponse) {
           return cachedResponse;
         }
-        return fetch(request).then((response) => {
+        // For cross-origin font requests, create a new request with mode: 'cors'
+        const fetchRequest = url.hostname.includes('fonts.gstatic.com') || url.hostname.includes('fonts.googleapis.com') 
+          ? new Request(request.url, { mode: 'cors', credentials: 'omit' })
+          : request;
+          
+        return fetch(fetchRequest).then((response) => {
           // Cache successful responses
           if (response.status === 200) {
             return caches.open(CACHE_NAME).then((cache) => {
@@ -131,6 +142,10 @@ self.addEventListener('fetch', (event) => {
           return response;
         }).catch(error => {
           console.error('Service Worker: Failed to fetch static asset:', error);
+          // For font requests, fail silently rather than showing error
+          if (url.pathname.includes('.woff') || url.pathname.includes('.ttf') || url.hostname.includes('fonts.g')) {
+            return new Response('', { status: 200 });
+          }
           return new Response('Asset not available', {
             status: 503,
             statusText: 'Service Unavailable'

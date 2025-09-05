@@ -134,7 +134,7 @@ const DestinationSelector: React.FC<DestinationSelectorProps> = ({ navigateTo })
                 <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 border border-gray-100">
                   <div className="relative">
                     <img 
-                      src="/where-now-nomad.png" 
+                      src="/esim-data/where-now-nomad.png" 
                       alt="Digital nomad working remotely with mobile internet"
                       className="w-full h-64 sm:h-80 lg:h-96 object-cover"
                       loading="lazy"

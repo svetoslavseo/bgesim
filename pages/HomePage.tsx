@@ -130,7 +130,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
                                     <p className="text-gray-300 text-sm mb-2">{t('saily_trusted')}</p>
                                     <div className="flex justify-center lg:justify-start items-center">
                                         <img 
-                                            src="/saily-trustpilot-rating.png" 
+                                            src="/esim-data/saily-trustpilot-rating.png" 
                                             alt="Trustpilot Rating" 
                                             className="h-8 filter brightness-110"
                                             loading="eager"
@@ -150,7 +150,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
                                 <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 border border-gray-200">
                                     <div className="relative">
                                         <img 
-                                            src="/where-now-nomad.png" 
+                                            src="/esim-data/where-now-nomad.png" 
                                             alt="Digital nomad working remotely with eSIM connectivity"
                                             className="w-full h-64 sm:h-80 lg:h-96 object-cover"
                                             loading="eager"
@@ -180,7 +180,12 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
                                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                                 </svg>
-                                                <span className="text-sm font-medium">{t('get_started_now') || 'Get Started Now'}</span>
+                                                <a 
+                                                    href="/all-destinations"
+                                                    className="text-sm font-medium hover:underline cursor-pointer"
+                                                >
+                                                    {t('get_started_now') || 'Get Started Now'}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -216,6 +221,16 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
                         <h3 className="mt-4 font-semibold text-lg">{t('what_is_esim.instant_connectivity.title')}</h3>
                         <p className="mt-1 text-gray-600">{t('what_is_esim.instant_connectivity.description')}</p>
                     </div>
+                </div>
+                
+                {/* CTA Button */}
+                <div className="mt-8">
+                    <a 
+                        href="/what-is-esim"
+                        className="inline-block bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                    >
+                        Прочети повече
+                    </a>
                 </div>
             </div>
         </section>

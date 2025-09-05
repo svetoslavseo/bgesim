@@ -3,7 +3,7 @@
     "message": "Loading checkout information..."
   },
   "navigation": {
-    "back": "Назад"
+    "back": "Back"
   },
   "error": {
     "title": "Checkout Error",
@@ -17,19 +17,19 @@
     "unable_to_proceed_payment": "Unable to proceed with payment. Please try again."
   },
   "summary": {
-    "title": "Поръчка",
-    "esim_for": "eSIM за {{country}}",
-    "data": "Мобилни данни",
-    "validity": "Валидност",
-    "total": "Тотал"
+    "title": "Checkout Summary",
+    "esim_for": "eSIM for {{country}}",
+    "data": "Data",
+    "validity": "Validity",
+    "total": "Total"
   },
   "security": {
     "ssl_encrypted": "Secure SSL encrypted payment"
   },
   "payment": {
-    "continue": "Продължи",
+    "continue": "Continue",
     "methods": {
-      "title": "Методи на плащане",
+      "title": "Payment Methods",
       "international": "International Payment Methods",
       "chinese": "Chinese Payment Methods",
       "wechat_pay": "WeChat Pay",
@@ -52,4 +52,4 @@
     "chinese_support": "Chinese Customer Support",
     "chinese_hours": "Business Hours: 9:00-18:00 (Beijing Time)"
   }
-}
+} 

@@ -48,6 +48,22 @@ function copyDataFiles() {
         console.log('✅ Copied saily_metadata.json to dist/client/ and public/');
       }
       
+      // Copy where-now-nomad.png to dist for proper serving
+      if (fs.existsSync('public/where-now-nomad.png')) {
+        fs.copyFileSync('public/where-now-nomad.png', 'dist/where-now-nomad.png');
+        console.log('✅ Copied where-now-nomad.png to dist/');
+      } else {
+        console.warn('⚠️ where-now-nomad.png not found in public/ directory');
+      }
+      
+      // Copy where-now-nomad.png to dist/esim-data for proper serving
+      if (fs.existsSync('public/esim-data/where-now-nomad.png')) {
+        fs.copyFileSync('public/esim-data/where-now-nomad.png', 'dist/esim-data/where-now-nomad.png');
+        console.log('✅ Copied where-now-nomad.png to dist/esim-data/');
+      } else {
+        console.warn('⚠️ where-now-nomad.png not found in public/esim-data/ directory');
+      }
+      
       // Copy locales folder to dist/client for SSR translation loading
       const copyDirectory = (src: string, dest: string) => {
         if (fs.existsSync(src)) {

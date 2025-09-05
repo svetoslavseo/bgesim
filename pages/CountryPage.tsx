@@ -92,6 +92,12 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
     // Define country and countryISO early, before any hooks that use them
     const country = COUNTRIES.find(c => c.id === countryId);
     const countryISO = country?.countryCode || country?.id.toUpperCase() || 'US';
+    
+    // Validate country exists
+    if (!country) {
+        console.error('Country not found:', countryId);
+        return <NotFoundPage navigateTo={navigateTo} />;
+    }
 
     // Scroll effect for sticky CTA
     useEffect(() => {
@@ -726,18 +732,6 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
                 <CountryPlansGrid plans={countryPlans} countryName={getCountryName(country.id, country.name)} />
             </Suspense>
 
-            {/* Enhanced Saily Plans Section */}
-            <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-                <Suspense fallback={<ComponentLoader />}>
-                    <SailyPlansSection 
-                        countryCode={countryISO}
-                        title={c('all_available_plans_for', { country: getCountryName(country.id, country.name) })}
-                        maxPlans={9}
-                        showSource={true}
-                        className="mb-8"
-                    />
-                </Suspense>
-            </div>
 
             <div className="max-w-5xl mx-auto mt-20 md:mt-32 space-y-20 md:space-y-28">
                 <CountryComparisonTable countryName={getCountryName(country.id, country.name)} />

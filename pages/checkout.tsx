@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PaymentMethods from '../components/PaymentMethods';
 import { useTranslation } from 'react-i18next';
 import { useChineseContext, formatChineseCurrency } from '../utils/chineseUtils';
+import { getFlagProps } from '../utils/flagUtils';
 import { FiArrowRight } from 'react-icons/fi';
 
 interface Plan {
@@ -263,18 +264,25 @@ const CheckoutPage = () => {
           {/* Plan Summary */}
           <div className="bg-gray-50 rounded-lg p-4 mb-6">
             <div className="flex items-center space-x-3 mb-3">
-              {!flagError ? (
-                <img 
-                  src={plan.flag} 
-                  alt={`${getTranslatedName(plan.country)} flag`}
-                  className="w-8 h-8 rounded"
-                  onError={() => setFlagError(true)}
-                />
-              ) : (
-                <div className="w-8 h-8 bg-gray-300 rounded flex items-center justify-center">
-                  <span className="text-gray-600 text-xs">🏳️</span>
-                </div>
-              )}
+              {(() => {
+                // Extract country code from flag URL or use a fallback
+                const countryCode = plan.flag?.includes('/esim-data/flags/') 
+                  ? plan.flag.split('/esim-data/flags/')[1]?.split('.')[0]?.toUpperCase()
+                  : 'GL';
+                
+                const flagProps = getFlagProps(
+                  countryCode, 
+                  getTranslatedName(plan.country), 
+                  "w-12 h-12 rounded"
+                );
+                
+                return (
+                  <img 
+                    {...flagProps}
+                    onError={() => setFlagError(true)}
+                  />
+                );
+              })()}
               <h2 className="text-lg font-semibold text-gray-900">
                 {t('summary.esim_for', { country: getTranslatedName(plan.country) })}
               </h2>
@@ -331,7 +339,28 @@ const CheckoutPage = () => {
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
         <div className="max-w-xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between text-sm mb-2">
-            <span className="text-gray-600">{t('summary.total')}:</span>
+            <div className="flex items-center space-x-2">
+              {(() => {
+                // Extract country code from flag URL or use a fallback
+                const countryCode = plan.flag?.includes('/esim-data/flags/') 
+                  ? plan.flag.split('/esim-data/flags/')[1]?.split('.')[0]?.toUpperCase()
+                  : 'GL';
+                
+                const flagProps = getFlagProps(
+                  countryCode, 
+                  getTranslatedName(plan.country), 
+                  "w-7 h-7 rounded"
+                );
+                
+                return (
+                  <img 
+                    {...flagProps}
+                    onError={() => setFlagError(true)}
+                  />
+                );
+              })()}
+              <span className="text-gray-600">{t('summary.total')}:</span>
+            </div>
             <span className="font-bold text-gray-900">{formatPrice(plan.price, plan.currency)}</span>
           </div>
           <button

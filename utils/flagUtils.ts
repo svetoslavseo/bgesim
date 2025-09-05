@@ -58,6 +58,11 @@ export const getFlagProps = (
     if (!target.src.includes('flagcdn.com')) {
       target.src = `https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`;
     }
+  },
+  onLoad: (e: any) => {
+    // Ensure the image is visible when loaded
+    const target = e.target as HTMLImageElement;
+    target.style.opacity = '1';
   }
 });
 
@@ -66,4 +71,42 @@ export const getFlagProps = (
  */
 export const getGlobalFlagUrl = (): string => {
   return '/esim-data/flags/globe.svg';
+};
+
+/**
+ * Check if a flag file exists by attempting to load it
+ * @param countryCode - ISO 3166-1 alpha-2 country code
+ * @returns Promise that resolves to true if flag exists, false otherwise
+ */
+export const checkFlagExists = async (countryCode: string): Promise<boolean> => {
+  if (!countryCode) return false;
+  
+  try {
+    const response = await fetch(getFlagUrl(countryCode), { method: 'HEAD' });
+    return response.ok;
+  } catch {
+    return false;
+  }
+};
+
+/**
+ * Get flag URL with validation and fallback
+ * @param countryCode - ISO 3166-1 alpha-2 country code
+ * @param format - Flag format ('svg' or 'png'), defaults to 'svg'
+ * @returns Promise that resolves to the best available flag URL
+ */
+export const getValidatedFlagUrl = async (countryCode: string, format: 'svg' | 'png' = 'svg'): Promise<string> => {
+  if (!countryCode) {
+    return '/esim-data/flags/globe.svg';
+  }
+  
+  const localUrl = getFlagUrl(countryCode, format);
+  const exists = await checkFlagExists(countryCode);
+  
+  if (exists) {
+    return localUrl;
+  }
+  
+  // Fallback to external provider
+  return `https://flagcdn.com/w80/${countryCode.toLowerCase()}.png`;
 }; 

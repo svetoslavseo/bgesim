@@ -18,6 +18,7 @@ import i18n from '../i18n';
 import { dataService } from '../utils/dataService';
 import { sailyPlansService } from '../utils/sailyPlansService';
 import Breadcrumbs from '../components/Breadcrumbs';
+import NotFoundPage from './NotFoundPage';
 import HowToGetESIM from '../components/HowToGetESIM';
 import PlanSelector from '../components/PlanSelector';
 import RegionPlansGrid from '../components/RegionPlansGrid';
@@ -70,6 +71,12 @@ const RegionPage: React.FC<RegionPageProps> = ({ regionId, navigateTo = () => {}
     COUNTRIES.filter(c => c.regionId === regionId),
     [regionId]
   );
+  
+  // Validate region exists
+  if (!region) {
+    console.error('Region not found:', regionId);
+    return <NotFoundPage navigateTo={navigateTo} />;
+  }
 
   // Helper function to get translated region name with fallback
   const getRegionName = (regionId: string) => {

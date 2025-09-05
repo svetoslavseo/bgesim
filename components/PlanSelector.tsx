@@ -412,7 +412,7 @@ const PlanSelector: React.FC<PlanSelectorProps> = ({ plans, selectedPlan, onSele
                 <div className="flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm text-gray-700 gap-4 sm:gap-6">
                     <div className="flex items-center justify-center">
                         <img 
-                            src="/saily-trustpilot-rating.png" 
+                            src="/esim-data/saily-trustpilot-rating.png" 
                             alt="Trustpilot Rating" 
                             className="h-6 sm:h-8"
                         />

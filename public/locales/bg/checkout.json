@@ -17,7 +17,7 @@
     "unable_to_proceed_payment": "Unable to proceed with payment. Please try again."
   },
   "summary": {
-    "title": "Checkout Summary",
+    "title": "Поръчка",
     "esim_for": "eSIM за {{country}}",
     "data": "Мобилни данни",
     "validity": "Валидност",

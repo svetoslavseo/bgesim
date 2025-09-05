@@ -1,0 +1,9 @@
+{
+  "blog": {
+    "title": "Travel eSIMple Blog",
+    "subtitle": "Stories, tips, and guides for international travel and staying connected",
+    "read_more": "Read more →"
+  },
+  "why_use_esim": "Why use eSIM in {{country}}?",
+  "esim_benefits": "eSIMs offer instant activation, no physical SIM cards needed, and keep your home number active while using local data rates."
+} 

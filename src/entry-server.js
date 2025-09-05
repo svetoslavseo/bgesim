@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { HelmetProvider } from 'react-helmet-async';
-import App from '../App';
-import { dataService } from '../utils/dataService';
-import i18n from '../i18n';
+import * as HelmetAsync from 'react-helmet-async';
+const { HelmetProvider } = HelmetAsync;
+import App from '../App.tsx';
+import { LanguageProvider } from '../contexts/LanguageContext.tsx';
+import { dataService } from '../utils/dataService.ts';
+import i18n from '../i18n.ts';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -13,19 +15,35 @@ const __dirname = path.dirname(__filename);
 
 // Pre-load all translations for SSR
 const loadTranslationsSync = (lang) => {
-  const namespaces = ['common', 'navigation', 'home', 'countries', 'faq', 'footer', 'about', 'legal', 'compatibility', 'calculator', 'what_is_esim', 'testimonials', 'checkout', 'cta', 'comparison', 'author', 'content', 'plans', 'esim_info', 'how_it_works', 'author_page', 'regions'];
+  const namespaces = ['common', 'navigation', 'home', 'countries', 'faq', 'footer', 'about', 'legal', 'compatibility', 'calculator', 'what_is_esim', 'testimonials', 'checkout', 'cta', 'comparison', 'author', 'content', 'plans', 'esim_info', 'how_it_works', 'author_page', 'regions', 'articles'];
   const translations = {};
   
   for (const ns of namespaces) {
     try {
-      // Correctly locate the locales folder within the build output directory
-      const filePath = path.resolve(__dirname, `../client/locales/${lang}/${ns}.json`);
+      // Try multiple robust paths for locales (dev + prod)
+      const possiblePaths = [
+        // Project-root based
+        path.resolve(process.cwd(), `public/locales/${lang}/${ns}.json`),
+        path.resolve(process.cwd(), `dist/client/locales/${lang}/${ns}.json`),
+        // Relative to this file (src/)
+        path.resolve(__dirname, `../public/locales/${lang}/${ns}.json`),
+        path.resolve(__dirname, `../dist/client/locales/${lang}/${ns}.json`)
+      ];
       
-      if (fs.existsSync(filePath)) {
+      let filePath = null;
+      for (const testPath of possiblePaths) {
+        if (fs.existsSync(testPath)) {
+          filePath = testPath;
+          break;
+        }
+      }
+      
+      if (filePath) {
         const data = fs.readFileSync(filePath, 'utf-8');
         translations[ns] = JSON.parse(data);
+        console.log(`✅ Loaded translation: ${lang}/${ns}.json from ${filePath}`);
       } else {
-        console.warn(`⚠️ Translation file not found at production path: ${filePath}`);
+        console.warn(`⚠️ Translation file not found for ${lang}/${ns}.json in any of the expected paths`);
         translations[ns] = {}; // Provide an empty fallback
       }
     } catch (error) {
@@ -38,6 +56,8 @@ const loadTranslationsSync = (lang) => {
 };
 
 export async function render(url) {
+  console.log(`🔄 Starting SSR render for URL: ${url}`);
+  
   // Build fresh mocks for DOM globals on every SSR request
   globalThis.window = {
     location: { 
@@ -111,11 +131,9 @@ export async function render(url) {
 
   // Add timeout to prevent hanging requests
   const renderWithTimeout = async () => {
-    console.log(`🔄 Starting SSR render for URL: ${url}`);
-    
     // Initialize language based on URL for SSR
     const getLanguageFromPath = (pathname) => {
-      return pathname.startsWith('/zh') ? 'zh' : 'en';
+      return pathname.startsWith('/en') ? 'en' : 'bg';
     };
     
     const detectedLanguage = getLanguageFromPath(url);
@@ -126,10 +144,14 @@ export async function render(url) {
       console.log('📚 Loading translations for SSR...');
       const translations = loadTranslationsSync(detectedLanguage);
       
-      // Reinitialize i18n with the loaded translations to ensure they're available
+      // Reset i18n instance to ensure clean state
+      i18n.off('initialized');
+      i18n.off('loaded');
+      
+      // Initialize i18n with minimal configuration for SSR
       await i18n.init({
         lng: detectedLanguage,
-        fallbackLng: 'en',
+        fallbackLng: 'bg',
         debug: false,
         interpolation: {
           escapeValue: false,
@@ -138,37 +160,36 @@ export async function render(url) {
           [detectedLanguage]: translations
         },
         ns: Object.keys(translations),
-        defaultNS: 'common'
+        defaultNS: 'common',
+        initImmediate: false,
+        react: { useSuspense: false },
+        // Disable backend for SSR to use loaded resources
+        backend: undefined,
+        detection: undefined
       });
+      
+      // Ensure i18n is ready before proceeding
+      await i18n.loadLanguages(detectedLanguage);
+      
+      // Force change language to ensure it's set
+      await i18n.changeLanguage(detectedLanguage);
       
       console.log(`✅ Language set to: ${detectedLanguage}`);
       console.log('✅ All translations loaded successfully');
-      
-      // Verify that translations are working
-      const testTranslation = i18n.t('esim_for_country', { ns: 'countries', country: 'Test' });
-      console.log(`🧪 Test translation: ${testTranslation}`);
-      
-      // Test region translation specifically
-      const regionTest = i18n.t('regions.europe', { ns: 'countries' });
-      console.log(`🧪 Region test translation: ${regionTest}`);
-      
-      // Test meta translation
-      const metaTest = i18n.t('meta.title_fallback', { ns: 'countries', country: 'Spain' });
-      console.log(`🧪 Meta test translation: ${metaTest}`);
+      console.log(`✅ Available namespaces: ${Object.keys(translations).join(', ')}`);
       
     } catch (error) {
       console.error('❌ Failed to load translations for SSR:', error);
+      // Continue with empty translations rather than failing
     }
     
     // Preload data for SSR
-    if (typeof window === 'undefined') {
-      try {
-        console.log('📊 Preloading data for SSR...');
-        await dataService.getPlansData();
-        console.log('✅ Data preloaded successfully');
-      } catch (error) {
-        console.error('❌ Failed to preload data for SSR:', error);
-      }
+    try {
+      console.log('📊 Preloading data for SSR...');
+      await dataService.getPlansData();
+      console.log('✅ Data preloaded successfully');
+    } catch (error) {
+      console.error('❌ Failed to preload data for SSR:', error);
     }
 
     const helmetContext = {};
@@ -180,9 +201,13 @@ export async function render(url) {
     
     console.log('🎨 Rendering React app...');
     const appElement = React.createElement(
-      HelmetProvider, 
-      { context: helmetContext }, 
-      React.createElement(App)
+      HelmetProvider,
+      { context: helmetContext },
+      React.createElement(
+        LanguageProvider,
+        null,
+        React.createElement(App)
+      )
     );
     
     const appHtml = ReactDOMServer.renderToString(appElement);

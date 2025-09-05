@@ -1,0 +1,63 @@
+{
+  "title": "Най-добрите eSIM пакети за {{country}}",
+  "description": "Останете свързани с бърз 4G/5G интернет, без договори и без такси за роуминг!",
+  "features": {
+    "instant_activation": "Незабавна активация",
+    "wifi_hotspot": "Wi-Fi точка за достъп",
+    "fast_internet": "Бърз интернет"
+  },
+  "for_duration": "за {{duration}}",
+  "buy_for_price": "Купете за {{currency}}{{price}}",
+  "show_less": "Покажи по-малко",
+  "show_more_plans": "Покажи Всички",
+  "plan": {
+    "title": "План",
+    "data": "Данни",
+    "validity": "Валидност",
+    "price": "Цена",
+    "currency": "Валута",
+    "features": "Функции",
+    "coverage": "Покритие",
+    "activation": "Активация",
+    "support": "Поддръжка"
+  },
+  "pricing": {
+    "title": "Ценообразуване",
+    "starting_from": "Започва от",
+    "best_value": "Най-добра стойност",
+    "most_popular": "Най-популярен",
+    "premium": "Премиум"
+  },
+  "coverage": {
+    "country": "За държава",
+    "regional": "За регион",
+    "global": "Глобален"
+  },
+  "plan_types": {
+    "country_description": "Плановете за държава работят специално в тази дестинация",
+    "regional_description": "Регионалните планове работят в множество държави в определен регион",
+    "global_description": "Глобалните планове работят в над 50 държави по света"
+  },
+  "data_units": {
+    "gb": "GB",
+    "mb": "MB",
+    "unlimited": "Неограничени"
+  },
+  "duration": {
+    "days": "дни",
+    "day": "ден",
+    "months": "месеца",
+    "month": "месец",
+    "years": "години",
+    "year": "година"
+  },
+  "actions": {
+    "buy_for": "Купете за",
+    "select_plan": "Изберете план",
+    "view_details": "Вижте детайли",
+    "compare_plans": "Сравнете планове"
+  },
+  "global": "Глобален",
+  "regional": "Регионален",
+  "country": "За държава"
+} 

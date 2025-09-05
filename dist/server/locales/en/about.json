@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Stay Connected,",
+    "highlight": "Anywhere.",
+    "subtitle": "We believe travel should be about freedom, not finding Wi-Fi. We're here to make global connectivity simple, affordable, and instant with eSIMs. No more plastic, no more fees, just pure connection."
+  },
+  "saily": {
+    "title": "Meet Saily, Our Trusted Partner",
+    "subtitle": "We've teamed up with Saily to bring you flawless, affordable connectivity in over 200 destinations. Here's why we trust them to keep you connected on your travels.",
+    "built_for_travelers": {
+      "title": "Built for Travelers",
+      "description": "Saily is a global eSIM service designed for travelers. It offers flexible data plans, a super quick setup, and 24/7 chat support to ensure you always have smooth, reliable internet."
+    },
+    "backed_by_best": {
+      "title": "Backed by the Best",
+      "description": "Saily is owned by Nord Security, the digital security experts behind NordVPN and NordPass. Your connection isn't just simple-it's also incredibly secure."
+    },
+    "visit_website": "Visit Saily's Website"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To help you travel stress-free with simple, affordable eSIMs. Ditch the roaming fees and stay connected anytime, anywhere. Your adventure is the priority."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "To be the obvious choice for travelers who want freedom and convenience. With eSIM tech, we're making every journey easier and more connected."
+  },
+  "why_stick_with_us": {
+    "title": "Why Stick With Us?",
+    "global_coverage": {
+      "title": "Global Coverage",
+      "description": "Instant connection in over 190 countries. Your phone just works."
+    },
+    "simple_instant": {
+      "title": "Simple & Instant",
+      "description": "Get your eSIM in minutes. Scan a QR code and you're online."
+    },
+    "fair_prices": {
+      "title": "Fair Prices",
+      "description": "No hidden fees, no roaming charges. Just transparent, affordable data."
+    }
+  },
+  "cta": {
+    "title": "Ready to Roam Free?",
+    "subtitle": "Explore plans for your next destination and experience connectivity the way it should be.",
+    "button": "Find Your eSIM"
+  }
+} 

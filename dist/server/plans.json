@@ -1,0 +1,412 @@
+{
+  "items": [
+    {
+      "id": "bg-1gb-7d",
+      "identifier": "bg-1gb-7d",
+      "name": "Bulgaria 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 199,
+        "currency": "USD"
+      },
+      "covered_countries": ["BG"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "bg-3gb-15d",
+      "identifier": "bg-3gb-15d",
+      "name": "Bulgaria 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 1299,
+        "currency": "USD"
+      },
+      "covered_countries": ["BG"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "bg-5gb-30d",
+      "identifier": "bg-5gb-30d",
+      "name": "Bulgaria 5GB - 30 Days",
+      "data_amount": 5,
+      "data_unit": "GB",
+      "data": "5GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 699,
+        "currency": "USD"
+      },
+      "covered_countries": ["BG"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "de-1gb-7d",
+      "identifier": "de-1gb-7d",
+      "name": "Germany 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 699,
+        "currency": "USD"
+      },
+      "covered_countries": ["DE"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "de-3gb-15d",
+      "identifier": "de-3gb-15d",
+      "name": "Germany 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 1399,
+        "currency": "USD"
+      },
+      "covered_countries": ["DE"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "de-5gb-30d",
+      "identifier": "de-5gb-30d",
+      "name": "Germany 5GB - 30 Days",
+      "data_amount": 5,
+      "data_unit": "GB",
+      "data": "5GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 2199,
+        "currency": "USD"
+      },
+      "covered_countries": ["DE"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "us-1gb-7d",
+      "identifier": "us-1gb-7d",
+      "name": "United States 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 799,
+        "currency": "USD"
+      },
+      "covered_countries": ["US"],
+      "region": "North America",
+      "planType": "country"
+    },
+    {
+      "id": "us-3gb-15d",
+      "identifier": "us-3gb-15d",
+      "name": "United States 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 1599,
+        "currency": "USD"
+      },
+      "covered_countries": ["US"],
+      "region": "North America",
+      "planType": "country"
+    },
+    {
+      "id": "us-5gb-30d",
+      "identifier": "us-5gb-30d",
+      "name": "United States 5GB - 30 Days",
+      "data_amount": 5,
+      "data_unit": "GB",
+      "data": "5GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 2499,
+        "currency": "USD"
+      },
+      "covered_countries": ["US"],
+      "region": "North America",
+      "planType": "country"
+    },
+    {
+      "id": "fr-1gb-7d",
+      "identifier": "fr-1gb-7d",
+      "name": "France 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 699,
+        "currency": "USD"
+      },
+      "covered_countries": ["FR"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "fr-3gb-15d",
+      "identifier": "fr-3gb-15d",
+      "name": "France 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 1399,
+        "currency": "USD"
+      },
+      "covered_countries": ["FR"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "fr-5gb-30d",
+      "identifier": "fr-5gb-30d",
+      "name": "France 5GB - 30 Days",
+      "data_amount": 5,
+      "data_unit": "GB",
+      "data": "5GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 2199,
+        "currency": "USD"
+      },
+      "covered_countries": ["FR"],
+      "region": "Europe",
+      "planType": "country"
+    },
+    {
+      "id": "jp-1gb-7d",
+      "identifier": "jp-1gb-7d",
+      "name": "Japan 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 899,
+        "currency": "USD"
+      },
+      "covered_countries": ["JP"],
+      "region": "Asia",
+      "planType": "country"
+    },
+    {
+      "id": "jp-3gb-15d",
+      "identifier": "jp-3gb-15d",
+      "name": "Japan 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 1799,
+        "currency": "USD"
+      },
+      "covered_countries": ["JP"],
+      "region": "Asia",
+      "planType": "country"
+    },
+    {
+      "id": "jp-5gb-30d",
+      "identifier": "jp-5gb-30d",
+      "name": "Japan 5GB - 30 Days",
+      "data_amount": 5,
+      "data_unit": "GB",
+      "data": "5GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 2799,
+        "currency": "USD"
+      },
+      "covered_countries": ["JP"],
+      "region": "Asia",
+      "planType": "country"
+    },
+    {
+      "id": "eu-regional-1gb-7d",
+      "identifier": "eu-regional-1gb-7d",
+      "name": "Europe Regional 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 999,
+        "currency": "USD"
+      },
+      "covered_countries": ["DE", "FR", "IT", "ES", "NL", "BE", "AT", "CH", "PT", "IE", "BG", "RO", "GR", "HR", "SI", "SK", "CZ", "HU", "PL", "LT", "LV", "EE", "FI", "SE", "DK", "NO"],
+      "region": "Europe",
+      "planType": "regional"
+    },
+    {
+      "id": "eu-regional-3gb-15d",
+      "identifier": "eu-regional-3gb-15d",
+      "name": "Europe Regional 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 1999,
+        "currency": "USD"
+      },
+      "covered_countries": ["DE", "FR", "IT", "ES", "NL", "BE", "AT", "CH", "PT", "IE", "BG", "RO", "GR", "HR", "SI", "SK", "CZ", "HU", "PL", "LT", "LV", "EE", "FI", "SE", "DK", "NO"],
+      "region": "Europe",
+      "planType": "regional"
+    },
+    {
+      "id": "eu-regional-5gb-30d",
+      "identifier": "eu-regional-5gb-30d",
+      "name": "Europe Regional 5GB - 30 Days",
+      "data_amount": 5,
+      "data_unit": "GB",
+      "data": "5GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 3499,
+        "currency": "USD"
+      },
+      "covered_countries": ["DE", "FR", "IT", "ES", "NL", "BE", "AT", "CH", "PT", "IE", "BG", "RO", "GR", "HR", "SI", "SK", "CZ", "HU", "PL", "LT", "LV", "EE", "FI", "SE", "DK", "NO"],
+      "region": "Europe",
+      "planType": "regional"
+    },
+    {
+      "id": "asia-regional-1gb-7d",
+      "identifier": "asia-regional-1gb-7d",
+      "name": "Asia Regional 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 1199,
+        "currency": "USD"
+      },
+      "covered_countries": ["JP", "KR", "TH", "SG", "MY", "VN", "PH", "ID", "TW", "HK", "MO", "IN"],
+      "region": "Asia",
+      "planType": "regional"
+    },
+    {
+      "id": "asia-regional-3gb-15d",
+      "identifier": "asia-regional-3gb-15d",
+      "name": "Asia Regional 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 2399,
+        "currency": "USD"
+      },
+      "covered_countries": ["JP", "KR", "TH", "SG", "MY", "VN", "PH", "ID", "TW", "HK", "MO", "IN"],
+      "region": "Asia",
+      "planType": "regional"
+    },
+    {
+      "id": "global-1gb-7d",
+      "identifier": "global-1gb-7d",
+      "name": "Global 1GB - 7 Days",
+      "data_amount": 1,
+      "data_unit": "GB",
+      "data": "1GB",
+      "validity_days": 7,
+      "validity": "7 days",
+      "price": {
+        "amount_with_tax": 1999,
+        "currency": "USD"
+      },
+      "covered_countries": ["US", "CA", "MX", "DE", "FR", "IT", "ES", "NL", "BE", "AT", "CH", "PT", "IE", "BG", "RO", "GR", "HR", "SI", "SK", "CZ", "HU", "PL", "LT", "LV", "EE", "FI", "SE", "DK", "NO", "GB", "JP", "KR", "TH", "SG", "MY", "VN", "PH", "ID", "TW", "HK", "MO", "IN", "AU", "NZ", "ZA", "BR", "AR", "CL", "CO", "PE", "EG", "TR", "AE", "SA"],
+      "region": "GLB",
+      "planType": "global"
+    },
+    {
+      "id": "global-3gb-15d",
+      "identifier": "global-3gb-15d",
+      "name": "Global 3GB - 15 Days",
+      "data_amount": 3,
+      "data_unit": "GB",
+      "data": "3GB",
+      "validity_days": 15,
+      "validity": "15 days",
+      "price": {
+        "amount_with_tax": 3999,
+        "currency": "USD"
+      },
+      "covered_countries": ["US", "CA", "MX", "DE", "FR", "IT", "ES", "NL", "BE", "AT", "CH", "PT", "IE", "BG", "RO", "GR", "HR", "SI", "SK", "CZ", "HU", "PL", "LT", "LV", "EE", "FI", "SE", "DK", "NO", "GB", "JP", "KR", "TH", "SG", "MY", "VN", "PH", "ID", "TW", "HK", "MO", "IN", "AU", "NZ", "ZA", "BR", "AR", "CL", "CO", "PE", "EG", "TR", "AE", "SA"],
+      "region": "GLB",
+      "planType": "global"
+    },
+    {
+      "id": "global-5gb-30d",
+      "identifier": "global-5gb-30d",
+      "name": "Global 5GB - 30 Days",
+      "data_amount": 5,
+      "data_unit": "GB",
+      "data": "5GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 5999,
+        "currency": "USD"
+      },
+      "covered_countries": ["US", "CA", "MX", "DE", "FR", "IT", "ES", "NL", "BE", "AT", "CH", "PT", "IE", "BG", "RO", "GR", "HR", "SI", "SK", "CZ", "HU", "PL", "LT", "LV", "EE", "FI", "SE", "DK", "NO", "GB", "JP", "KR", "TH", "SG", "MY", "VN", "PH", "ID", "TW", "HK", "MO", "IN", "AU", "NZ", "ZA", "BR", "AR", "CL", "CO", "PE", "EG", "TR", "AE", "SA"],
+      "region": "GLB",
+      "planType": "global"
+    },
+    {
+      "id": "global-10gb-30d",
+      "identifier": "global-10gb-30d",
+      "name": "Global 10GB - 30 Days",
+      "data_amount": 10,
+      "data_unit": "GB",
+      "data": "10GB",
+      "validity_days": 30,
+      "validity": "30 days",
+      "price": {
+        "amount_with_tax": 9999,
+        "currency": "USD"
+      },
+      "covered_countries": ["US", "CA", "MX", "DE", "FR", "IT", "ES", "NL", "BE", "AT", "CH", "PT", "IE", "BG", "RO", "GR", "HR", "SI", "SK", "CZ", "HU", "PL", "LT", "LV", "EE", "FI", "SE", "DK", "NO", "GB", "JP", "KR", "TH", "SG", "MY", "VN", "PH", "ID", "TW", "HK", "MO", "IN", "AU", "NZ", "ZA", "BR", "AR", "CL", "CO", "PE", "EG", "TR", "AE", "SA"],
+      "region": "GLB",
+      "planType": "global"
+    }
+  ]
+} 

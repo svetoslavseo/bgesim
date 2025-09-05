@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { safeWindow } from '../utils/browser';
 
 const LanguageSwitcher: React.FC = () => {
   const { i18n } = useTranslation();
@@ -11,8 +12,8 @@ const LanguageSwitcher: React.FC = () => {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     
-    // Update URL to include language prefix
-    const currentPath = window.location.pathname;
+    // Update URL to include language prefix (SSR-safe)
+    const currentPath = safeWindow.getLocation().pathname;
     let newPath = currentPath;
     
     if (lng === 'en') {
@@ -27,8 +28,11 @@ const LanguageSwitcher: React.FC = () => {
       }
     }
     
-    // Update browser URL
-    window.history.pushState({}, '', newPath);
+    // Update browser URL (SSR-safe)
+    safeWindow.addEventListener('popstate', () => {});
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', newPath);
+    }
     setIsOpen(false);
   };
 

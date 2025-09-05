@@ -218,117 +218,24 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
 
     // Remove SSR plan fallbacks: we only show plans from plans.json
 
-    // Create intelligent fallback speedtest data
-    const createFallbackSpeedTestData = (countryName: string) => {
-      // Try to find the country in the actual speedtest data
-      const actualSpeedTestData = {
-        "country_rankings": [
-          {
-            "rank": 77,
-            "country": "Mexico",
-            "speed_mbps": 47.41,
-            "explanation": "Ranked #77, Mexico has moved up 3 positions with a median mobile download speed of 47.41 Mbps."
-          },
-          {
-            "rank": 103,
-            "country": "Bolivia", 
-            "speed_mbps": 13.45,
-            "explanation": "Ranked #103, Bolivia has moved up 1 position with a median mobile download speed of 13.45 Mbps."
-          },
-          {
-            "rank": 101,
-            "country": "Andorra",
-            "speed_mbps": 95.5,
-            "explanation": "Ranked #101, Andorra has a median mobile download speed of 95.5 Mbps."
-          },
-          {
-            "rank": 1,
-            "country": "United Arab Emirates",
-            "speed_mbps": 539.84,
-            "explanation": "Ranked #1, United Arab Emirates has a median mobile download speed of 539.84 Mbps."
-          },
-          {
-            "rank": 2,
-            "country": "Qatar",
-            "speed_mbps": 529.34,
-            "explanation": "Ranked #2, Qatar has a median mobile download speed of 529.34 Mbps."
-          },
-          {
-            "rank": 6,
-            "country": "Brazil",
-            "speed_mbps": 222.02,
-            "explanation": "Ranked #6, Brazil has a median mobile download speed of 222.02 Mbps."
-          },
-          {
-            "rank": 7,
-            "country": "China",
-            "speed_mbps": 209.31,
-            "explanation": "Ranked #7, China has moved up 1 position with a median mobile download speed of 209.31 Mbps."
-          },
-          {
-            "rank": 8,
-            "country": "South Korea",
-            "speed_mbps": 208.07,
-            "explanation": "Ranked #8, South Korea has moved down 1 position with a median mobile download speed of 208.07 Mbps."
-          },
-          {
-            "rank": 15,
-            "country": "Singapore",
-            "speed_mbps": 163.29,
-            "explanation": "Ranked #15, Singapore has moved up 1 position with a median mobile download speed of 163.29 Mbps."
-          },
-          {
-            "rank": 16,
-            "country": "Malaysia",
-            "speed_mbps": 163.00,
-            "explanation": "Ranked #16, Malaysia has moved down 1 position with a median mobile download speed of 163.00 Mbps."
-          },
-          {
-            "rank": 17,
-            "country": "Norway",
-            "speed_mbps": 160.59,
-            "explanation": "Ranked #17, Norway has a median mobile download speed of 160.59 Mbps."
-          },
-          {
-            "rank": 18,
-            "country": "Georgia",
-            "speed_mbps": 148.89,
-            "explanation": "Ranked #18, Georgia has a median mobile download speed of 148.89 Mbps."
-          },
-          {
-            "rank": 19,
-            "country": "Estonia",
-            "speed_mbps": 147.46,
-            "explanation": "Ranked #19, Estonia has moved up 3 positions with a median mobile download speed of 147.46 Mbps."
-          }
-        ]
-      };
-      
-      // Try to find the country in the actual data
-      const countryEntry = actualSpeedTestData.country_rankings.find(
-        (entry: any) => entry.country.toLowerCase() === countryName.toLowerCase()
-      );
-      
-      if (countryEntry) {
-        return {
-          country_rankings: [countryEntry]
-        };
-      }
-      
-      // Fallback to generic data
+    // Create localized fallback Speedtest data for SSR
+    const createFallbackSpeedTestData = (countryDisplayName: string, lang: string) => {
+      const explanation = lang === 'bg'
+        ? `${countryDisplayName} е на 101-во място глобално с медианна мобилна скорост за изтегляне от 95.5 Mbps.`
+        : `Ranked #101, ${countryDisplayName} has a median mobile download speed of 95.5 Mbps.`;
       return {
         country_rankings: [
           {
             rank: 101,
-            country: countryName,
+            country: countryDisplayName,
             speed_mbps: 95.5,
-            explanation: `Ranked #101, ${countryName} has a median mobile download speed of 95.5 Mbps.`
+            explanation
           }
         ]
       };
     };
 
-    const fallbackSpeedTestData = createFallbackSpeedTestData(country?.name || 'Unknown');
+    const fallbackSpeedTestData = createFallbackSpeedTestData(getCountryName(country.id, country.name), i18n.language);
     const effectiveSpeedTestData = isSSR ? fallbackSpeedTestData : globalSpeedTestData;
 
     if (!country) {
@@ -454,8 +361,12 @@ const CountryPage: React.FC<CountryPageProps> = ({ countryId, navigateTo = () =>
 
     // Generate dynamic bullet points
     // Retrieve Speedtest explanation text (if available)
-    const speedtestEntry = effectiveSpeedTestData?.country_rankings?.find((r: any) =>
-      r.country.toLowerCase() === country.name.toLowerCase());
+    const englishCountryName = country.name.toLowerCase();
+    const localizedCountryName = getCountryName(country.id, country.name).toLowerCase();
+    const speedtestEntry = effectiveSpeedTestData?.country_rankings?.find((r: any) => {
+      const entryName = String(r.country || '').toLowerCase();
+      return entryName === englishCountryName || entryName === localizedCountryName;
+    });
     const speedtestExplanation: string | null = speedtestEntry?.explanation ?? null;
 
     const bulletPoints: string[] = [

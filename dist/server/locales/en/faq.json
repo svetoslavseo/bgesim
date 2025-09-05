@@ -1,0 +1,83 @@
+{
+  "what_is_esim": {
+    "question": "What is an eSIM and what does it do?",
+    "answer": "An eSIM is a virtual SIM card built into your device. It lets you access mobile networks so you can call, text, and use mobile data-just like a traditional SIM card. Instead of inserting it physically, you simply activate a plan digitally from a provider. <a href=\"/en/what-is-esim\" class=\"text-blue-600 hover:text-blue-800 underline\">Read more about eSIM technology</a>."
+  },
+  "how_to_get_esim": {
+    "question": "How do I get an eSIM?",
+    "answer": "You can purchase an eSIM online from a trusted provider. For example, Travel eSIMple offers coverage in over 200 destinations. Just pick your destination, choose a plan, and activate it before or during your trip."
+  },
+  "esim_vs_regular": {
+    "question": "Is an eSIM better than a regular SIM card?",
+    "answer": "Generally, yes. Since eSIMs are integrated into your phone, there's no need to insert or remove anything. They're ideal for switching networks or using mobile data abroad. Phones with eSIM support often have more space for other features-like bigger batteries."
+  },
+  "device_compatibility": {
+    "question": "Will an eSIM for {{country}} work on my phone or tablet?",
+    "answer": "Yes, as long as your device supports eSIM. Not sure if it does? Check out our list of eSIM-ready phones and tablets."
+  },
+  "data_plan_cost": {
+    "question": "How much does a data plan for {{country}} cost?",
+    "answer": "Prices vary depending on the data allowance and duration. <a href=\"/\" class=\"text-blue-600 hover:text-blue-800 underline\">Travel eSIMple</a> offers plans starting from {lowest-price}."
+  },
+  "esim_downsides": {
+    "question": "Are there any downsides to using an eSIM app?",
+    "answer": "The main drawback is that setup requires a working internet connection. Also, not every phone supports eSIM, and not all carriers work with all devices. Check if your phone is compatible before purchasing from Travel eSIMple."
+  },
+
+  "esim_safety": {
+    "question": "Are eSIM apps safe to use?",
+    "answer": "Yes, using the app itself is safe. The risks come from online activity, not the eSIM. With Travel eSIMple, security features are built in to help protect your connection while browsing."
+  },
+  "esim_not_working": {
+    "question": "Why isn't my eSIM working?",
+    "answer": "Try the following steps:\n\n• Confirm your phone supports eSIM (see our compatibility list).\n• Restart your device.\n• Check your settings-make sure the eSIM profile is active and data roaming is on."
+  },
+  "mobile_carriers": {
+    "question": "Which mobile carriers support eSIM in {{region}}?",
+    "answer": "Major {{region}} providers support eSIM, but their plans can be expensive. Travel eSIMple offers a more affordable prepaid option with easy setup and reliable coverage."
+  },
+  "esim_adoption": {
+    "question": "Why aren't eSIM apps more widely used yet?",
+    "answer": "eSIM technology is still catching on. Many newer phones support it, but some users find digital setup unfamiliar. That's why Travel eSIMple keeps things simple-activation takes just a few taps."
+  },
+  "battery_usage": {
+    "question": "Does using an eSIM use more battery?",
+    "answer": "No. Battery use depends more on network conditions than whether you're using a physical SIM or an eSIM. An eSIM won't drain your battery any faster."
+  },
+  "phone_number": {
+    "question": "Will I keep my phone number if I use an eSIM app?",
+    "answer": "Yes, in most cases. Travel eSIMple works alongside your current SIM, so you can keep your original number while using your eSIM for mobile data."
+  },
+  "setup_esim": {
+    "question": "How do I set up an eSIM for {{country}}?",
+    "answer": "It's easy with the Travel eSIMple app:\n\n• Download the app.\n• Scan the QR code you receive via email.\n• Follow the instructions to activate your plan."
+  },
+  "esim_phone_number": {
+    "question": "Does a Travel eSIMple eSIM come with a phone number?",
+    "answer": "No, Travel eSIMple's eSIM is for data only. You keep using your existing phone number for calls and texts while the eSIM gives you internet access."
+  },
+  "unlimited_data": {
+    "question": "Can I get unlimited data with an eSIM?",
+    "answer": "Yes, Travel eSIMple offers unlimited data plans for {{country}}. Check the available options on the website."
+  },
+  "language_support": {
+    "question": "Is the Travel eSIMple app available in my language?",
+    "answer": "Yes, the Travel eSIMple app supports multiple languages including English, Chinese, and many others. You can change the language in the app settings."
+  },
+  "regions": {
+    "europe": "Europe",
+    "asia": "Asia", 
+    "north_america": "North America",
+    "south_america": "South America",
+    "africa": "Africa",
+    "oceania": "Oceania"
+  },
+  "carriers": {
+    "europe": "Major European providers like Vodafone, Orange, and Deutsche Telekom support eSIM, but their plans can be expensive. Travel eSIMple offers a more affordable prepaid option with easy setup and reliable coverage.",
+    "asia": "Major Asian providers like NTT Docomo, SoftBank, and China Mobile support eSIM, but their plans can be costly. Travel eSIMple offers a more affordable prepaid option with easy setup and reliable coverage.",
+    "north_america": "Major U.S. providers like AT&T, Verizon, and T-Mobile support eSIM, but their plans can be pricey. Travel eSIMple offers a cheaper prepaid option with easy setup and reliable coverage.",
+    "south_america": "Major South American providers like Claro, Movistar, and TIM support eSIM, but their plans can be expensive. Travel eSIMple offers a more affordable prepaid option with easy setup and reliable coverage.",
+    "africa": "Major African providers like MTN, Vodacom, and Safaricom support eSIM, but their plans can be costly. Travel eSIMple offers a more affordable prepaid option with easy setup and reliable coverage.",
+    "oceania": "Major Oceanian providers like Telstra, Optus, and Spark support eSIM, but their plans can be expensive. Travel eSIMple offers a more affordable prepaid option with easy setup and reliable coverage."
+  }
+} 

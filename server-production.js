@@ -37,8 +37,8 @@ async function createServer() {
     // HSTS (HTTP Strict Transport Security)
     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
     
-    // Content Security Policy
-    res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://picsum.photos; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';");
+    // Content Security Policy - Updated to fix font and analytics issues
+    res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com data:; img-src 'self' data: https: https://picsum.photos https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';");
     
     // X-Content-Type-Options
     res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -248,13 +248,22 @@ async function createServer() {
             html = html.replace(/<title>.*?<\/title>/, '');
           }
           
-          // Inject helmet content before </head> using precise substring method
-          const headEndIndex = html.indexOf('</head>');
-          if (headEndIndex !== -1) {
-            const beforeHead = html.substring(0, headEndIndex);
-            const afterHead = html.substring(headEndIndex);
-            html = beforeHead + helmetHtml + '\n' + afterHead;
-          }
+                // Inject helmet content before </head> using precise substring method
+      const headEndIndex = html.indexOf('</head>');
+      if (headEndIndex !== -1) {
+        const beforeHead = html.substring(0, headEndIndex);
+        const afterHead = html.substring(headEndIndex);
+        
+        // Inject initial language script for client-side hydration
+        const detectedLanguage = url.startsWith('/en') ? 'en' : 'bg';
+        const languageScript = `
+          <script>
+            window.__INITIAL_LANGUAGE__ = '${detectedLanguage}';
+          </script>
+        `;
+        
+        html = beforeHead + helmetHtml + '\n' + languageScript + afterHead;
+      }
           
           // Remove any Helmet-generated tags that might have been rendered **inside the body**
           // while keeping the ones we just placed in <head>.

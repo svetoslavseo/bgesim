@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "title": "Help Center - Travel eSIMple",
+    "description": "Get help with your eSIM setup, troubleshooting, and frequently asked questions. Find answers to common issues and contact our support team.",
+    "keywords": "help center, eSIM support, troubleshooting, FAQ, customer support, travel esim help"
+  },
+  "hero": {
+    "title": "How can we help you?",
+    "search_placeholder": "Type a topic, question or issue here",
+    "search_button": "Search"
+  },
+  "categories": {
+    "title": "Choose main category",
+    "getting_started": {
+      "title": "Getting Started with Travel eSIMple",
+      "description": "Learn how to set up and activate your eSIM"
+    },
+    "plans_payments": {
+      "title": "Plans and Payments",
+      "description": "Information about data plans and payment methods"
+    },
+    "troubleshooting": {
+      "title": "Troubleshooting",
+      "description": "Common issues and their solutions"
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Frequently asked questions and answers"
+    }
+  },
+  "recent_activity": {
+    "title": "Recent activity",
+    "see_more": "See more"
+  },
+  "articles": {
+    "about_travel_esimple": "About Travel eSIMple",
+    "using_esim": "Using eSIM",
+    "plans": "Plans",
+    "find_answer": "Find an answer"
+  },
+  "navigation": {
+    "destinations": "Destinations",
+    "what_is_esim": "What is an eSIM",
+    "about_us": "About Us",
+    "submit_request": "Submit a request"
+  },
+  "feedback": {
+    "was_helpful": "Was this article helpful?",
+    "yes": "Yes",
+    "no": "No",
+    "thank_you_positive": "Thank you for your feedback!",
+    "thank_you_negative": "Thank you for your feedback!",
+    "positive_message": "We're glad this article was helpful!",
+    "negative_message": "We'll use your feedback to improve this article.",
+    "change_feedback": "Change my feedback",
+    "help_improve": "Your feedback helps us improve our help articles. If you need additional assistance, please contact our support team."
+  }
+}

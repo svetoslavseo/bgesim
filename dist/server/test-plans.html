@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plans Test</title>
+</head>
+<body>
+    <h1>Plans Data Test</h1>
+    <div id="result"></div>
+    
+    <script>
+        async function testPlans() {
+            try {
+                const response = await fetch('/plans.json');
+                const text = await response.text();
+                console.log('Raw response:', text);
+                
+                const plans = JSON.parse(text);
+                console.log('Parsed plans:', plans);
+                
+                document.getElementById('result').innerHTML = `
+                    <p>Status: ${response.status}</p>
+                    <p>Plans loaded: ${plans.length}</p>
+                    <p>Spain plans: ${plans.filter(p => p.countryCode === 'ES').length}</p>
+                    <pre>${JSON.stringify(plans, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = `
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        }
+        
+        testPlans();
+    </script>
+</body>
+</html>

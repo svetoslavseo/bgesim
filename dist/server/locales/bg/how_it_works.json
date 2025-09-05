@@ -1,0 +1,30 @@
+{
+  "title": "How It Works in 3 Easy Steps",
+  "steps": {
+    "choose_plan": {
+      "title": "1. Choose Your Plan",
+      "description": "Select the data package that fits your travel needs and complete your purchase."
+    },
+    "install_qr": {
+      "title": "2. Install via QR Code",
+      "description": "We'll instantly email you a QR code. Scan it with your phone's camera to install your eSIM."
+    },
+    "activate": {
+      "title": "3. Activate on Arrival",
+      "description": "Once you land, turn on your eSIM in your phone's settings and you're instantly connected."
+    }
+  },
+  "features": {
+    "instant": "Instant",
+    "easy": "Easy",
+    "secure": "Secure",
+    "reliable": "Reliable",
+    "affordable": "Affordable"
+  },
+  "benefits": {
+    "no_physical_sim": "No Physical SIM",
+    "instant_activation": "Instant Activation",
+    "global_coverage": "Global Coverage",
+    "cost_effective": "Cost Effective"
+  }
+} 

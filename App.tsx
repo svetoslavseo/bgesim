@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { dataService, type PlansData } from './utils/dataService';
 import { useTranslation } from 'react-i18next';
 
 // Critical pages loaded immediately for SEO and performance
@@ -8,29 +7,57 @@ import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
 import RegionPage from './pages/RegionPage';
 
-// Lazy load non-critical pages to improve initial bundle size
-const RegionsPage = lazy(() => import('./pages/RegionsPage'));
-const AllDestinations = lazy(() => import('./pages/AllDestinations'));
-const AuthorPage = lazy(() => import('./pages/AuthorPage'));
-const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
-const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
-const AboutUs = lazy(() => import('./pages/AboutUs'));
-const CheckoutPage = lazy(() => import('./pages/checkout'));
-const ESIMCompatibilityPage = lazy(() => import('./pages/ESIMCompatibilityPage'));
-const DataUsageCalculator = lazy(() => import('./pages/DataUsageCalculator'));
-const WhatIsESIM = lazy(() => import('./pages/WhatIsESIM'));
-const ArticlesPage = lazy(() => import('./pages/articles/ArticlesPage'));
-const ESIMAdoptionTrends = lazy(() => import('./pages/articles/ESIMAdoptionTrends'));
-const WhatsAppInChina = lazy(() => import('./pages/articles/WhatsAppInChina'));
-const TestLanguagePage = lazy(() => import('./pages/TestLanguagePage'));
-const HelpCenter = lazy(() => import('./pages/HelpCenter'));
-const SailyDataPlanManagement = lazy(() => import('./pages/articles/SailyDataPlanManagement'));
-const PlansAndPayments = lazy(() => import('./pages/PlansAndPayments'));
-const ESIMvsSIMBg = lazy(() => import('./pages/articles/ESIMvsSIMBg'));
-const EIDBgArticle = lazy(() => import('./pages/articles/EIDBgArticle'));
-const RoamingInSerbia = lazy(() => import('./pages/articles/RoamingInSerbia'));
+// Direct imports for SSR - these will be used server-side
+import RegionsPageDirect from './pages/RegionsPage';
+import AllDestinationsDirect from './pages/AllDestinations';
+import AuthorPageDirect from './pages/AuthorPage';
+import TermsAndConditionsDirect from './pages/TermsAndConditions';
+import NotFoundPageDirect from './pages/NotFoundPage';
+import PrivacyPolicyDirect from './pages/PrivacyPolicy';
+import RefundPolicyDirect from './pages/RefundPolicy';
+import AboutUsDirect from './pages/AboutUs';
+import CheckoutPageDirect from './pages/checkout';
+import ESIMCompatibilityPageDirect from './pages/ESIMCompatibilityPage';
+import DataUsageCalculatorDirect from './pages/DataUsageCalculator';
+import WhatIsESIMDirect from './pages/WhatIsESIM';
+import ArticlesPageDirect from './pages/articles/ArticlesPage';
+import ESIMAdoptionTrendsDirect from './pages/articles/ESIMAdoptionTrends';
+import WhatsAppInChinaDirect from './pages/articles/WhatsAppInChina';
+import TestLanguagePageDirect from './pages/TestLanguagePage';
+import HelpCenterDirect from './pages/HelpCenter';
+import SailyDataPlanManagementDirect from './pages/articles/SailyDataPlanManagement';
+import PlansAndPaymentsDirect from './pages/PlansAndPayments';
+import ESIMvsSIMBgDirect from './pages/articles/ESIMvsSIMBg';
+import EIDBgArticleDirect from './pages/articles/EIDBgArticle';
+import RoamingInSerbiaDirect from './pages/articles/RoamingInSerbia';
+
+// For SSR, we need to avoid lazy loading completely
+// We'll use a different approach - check if we're in SSR environment
+const isSSR = typeof window === 'undefined';
+
+// Conditional loading - direct imports for SSR, lazy loading for client
+const RegionsPage = isSSR ? RegionsPageDirect : lazy(() => import('./pages/RegionsPage'));
+const AllDestinations = isSSR ? AllDestinationsDirect : lazy(() => import('./pages/AllDestinations'));
+const AuthorPage = isSSR ? AuthorPageDirect : lazy(() => import('./pages/AuthorPage'));
+const TermsAndConditions = isSSR ? TermsAndConditionsDirect : lazy(() => import('./pages/TermsAndConditions'));
+const NotFoundPage = isSSR ? NotFoundPageDirect : lazy(() => import('./pages/NotFoundPage'));
+const PrivacyPolicy = isSSR ? PrivacyPolicyDirect : lazy(() => import('./pages/PrivacyPolicy'));
+const RefundPolicy = isSSR ? RefundPolicyDirect : lazy(() => import('./pages/RefundPolicy'));
+const AboutUs = isSSR ? AboutUsDirect : lazy(() => import('./pages/AboutUs'));
+const CheckoutPage = isSSR ? CheckoutPageDirect : lazy(() => import('./pages/checkout'));
+const ESIMCompatibilityPage = isSSR ? ESIMCompatibilityPageDirect : lazy(() => import('./pages/ESIMCompatibilityPage'));
+const DataUsageCalculator = isSSR ? DataUsageCalculatorDirect : lazy(() => import('./pages/DataUsageCalculator'));
+const WhatIsESIM = isSSR ? WhatIsESIMDirect : lazy(() => import('./pages/WhatIsESIM'));
+const ArticlesPage = isSSR ? ArticlesPageDirect : lazy(() => import('./pages/articles/ArticlesPage'));
+const ESIMAdoptionTrends = isSSR ? ESIMAdoptionTrendsDirect : lazy(() => import('./pages/articles/ESIMAdoptionTrends'));
+const WhatsAppInChina = isSSR ? WhatsAppInChinaDirect : lazy(() => import('./pages/articles/WhatsAppInChina'));
+const TestLanguagePage = isSSR ? TestLanguagePageDirect : lazy(() => import('./pages/TestLanguagePage'));
+const HelpCenter = isSSR ? HelpCenterDirect : lazy(() => import('./pages/HelpCenter'));
+const SailyDataPlanManagement = isSSR ? SailyDataPlanManagementDirect : lazy(() => import('./pages/articles/SailyDataPlanManagement'));
+const PlansAndPayments = isSSR ? PlansAndPaymentsDirect : lazy(() => import('./pages/PlansAndPayments'));
+const ESIMvsSIMBg = isSSR ? ESIMvsSIMBgDirect : lazy(() => import('./pages/articles/ESIMvsSIMBg'));
+const EIDBgArticle = isSSR ? EIDBgArticleDirect : lazy(() => import('./pages/articles/EIDBgArticle'));
+const RoamingInSerbia = isSSR ? RoamingInSerbiaDirect : lazy(() => import('./pages/articles/RoamingInSerbia'));
 
 
 import Header from './components/Header';
@@ -40,15 +67,11 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { COUNTRIES, REGIONS } from './constants';
 import CanonicalTag from './components/CanonicalTag';
 import StableSkeleton from './components/StableSkeleton';
+// Removed LanguageProvider usage here; providers are applied at the app entry level
 
 type Route = string;
 // e.g., '/', '/europe', '/united-kingdom', '/france', etc.
 
-// Import types from dataService
-import type { Plan } from './utils/dataService';
-
-// Global variable to store plans data for SSR
-let globalPlansData: PlansData | null = null;
 
 // Loading component for lazy loaded pages
 const PageLoader: React.FC = () => (
@@ -69,11 +92,6 @@ const App: React.FC = () => {
         return 'bg'; // Default to Bulgarian for root paths
     };
 
-    // Function to get region for a country
-    const getRegionForCountry = (countrySlug: string): string | null => {
-        const country = COUNTRIES.find(c => c.slug === countrySlug);
-        return country ? country.regionId : null;
-    };
 
     // Function to convert internal route to URL with proper language prefix
     const getUrlWithLanguage = (internalRoute: string, language: string): string => {
@@ -111,6 +129,12 @@ const App: React.FC = () => {
     // Initialize language for SSR
     const getInitialLanguage = (): string => {
         if (typeof window !== 'undefined') {
+            // Check if server provided initial language
+            const serverLanguage = (window as any).__INITIAL_LANGUAGE__;
+            if (serverLanguage) {
+                return serverLanguage;
+            }
+            // Fallback to path-based detection
             const path = window.location.pathname;
             return getLanguageFromPath(path);
         }
@@ -122,20 +146,16 @@ const App: React.FC = () => {
     // Set language for SSR if not already set (client-side only)
     const initialLanguage = getInitialLanguage();
     if (typeof window !== 'undefined' && i18n.language !== initialLanguage) {
-        i18n.changeLanguage(initialLanguage);
+        // Use a timeout to ensure i18n is ready
+        setTimeout(() => {
+            i18n.changeLanguage(initialLanguage);
+        }, 0);
     }
 
     const [route, setRoute] = useState<Route>(getInitialRoute());
-    const [plansData, setPlansData] = useState<PlansData | null>(globalPlansData);
 
     // Note: Individual pages (CountryPage, RegionPage, HomePage) load their own data
     // App component doesn't need to load plans data globally to avoid duplication
-    useEffect(() => {
-        // Set global plans data if available from SSR
-        if (globalPlansData) {
-            setPlansData(globalPlansData);
-        }
-    }, []);
 
     // Initialize route from URL on component mount (client-side only)
     useEffect(() => {
@@ -145,9 +165,11 @@ const App: React.FC = () => {
             const internalRoute = getInternalRouteFromUrl(path);
             setRoute(internalRoute);
             
-            // Set language in i18n
+            // Set language in i18n and wait for it to be ready
             if (lang !== i18n.language) {
-                i18n.changeLanguage(lang);
+                i18n.changeLanguage(lang).then(() => {
+                    console.log(`Client-side language changed to: ${lang}`);
+                });
             }
         }
     }, [i18n]);
@@ -175,7 +197,9 @@ const App: React.FC = () => {
             
             // Update language if changed
             if (lang !== i18n.language) {
-                i18n.changeLanguage(lang);
+                i18n.changeLanguage(lang).then(() => {
+                    console.log(`Client-side language changed to: ${lang} (popstate)`);
+                });
             }
         };
 
@@ -193,12 +217,17 @@ const App: React.FC = () => {
         const path = route.replace(/^\/+/, '');
         const segments = path.split('/');
 
-        // Wrap lazy-loaded components in Suspense
-        const withSuspense = (Component: React.ReactElement) => (
-            <Suspense fallback={<PageLoader />}>
-                {Component}
-            </Suspense>
-        );
+        // Wrap lazy-loaded components in Suspense only on client-side
+        const withSuspense = (Component: React.ReactElement) => {
+            if (!isSSR) {
+                return (
+                    <Suspense fallback={<PageLoader />}>
+                        {Component}
+                    </Suspense>
+                );
+            }
+            return Component;
+        };
 
         if (route === '/checkout' || route.startsWith('/checkout?')) {
             return withSuspense(<CheckoutPage />);

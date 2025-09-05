@@ -1,0 +1,286 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "what_is_esim": "What is an eSIM?"
+  },
+  "hero": {
+    "title": "What is an eSIM and How Does it Work?",
+    "description": "eSIMs are the future of mobile connectivity, offering a digital alternative to physical SIM cards. Learn how they work, their benefits, and why they're perfect for international travel."
+  },
+  "meta": {
+    "updated": "Updated",
+    "reading_time": "Reading time: 8 minutes",
+    "by": "By",
+    "author": "Vasil Andreev",
+    "title": "What is an eSIM? Complete Guide to Digital SIM Cards | eSIM Travel",
+    "description": "Learn everything about eSIMs - digital SIM cards that work without physical cards. Discover how eSIMs work, their benefits for travel, compatibility, and how to get started.",
+    "keywords": "eSIM, digital SIM, travel SIM, international roaming, mobile data, smartphone compatibility",
+    "og_title": "What is an eSIM? Complete Guide to Digital SIM Cards",
+    "og_description": "Learn everything about eSIMs - digital SIM cards that work without physical cards. Perfect for international travel and network switching.",
+    "twitter_title": "What is an eSIM? Complete Guide to Digital SIM Cards",
+    "twitter_description": "Learn everything about eSIMs - digital SIM cards that work without physical cards. Perfect for international travel and network switching."
+  },
+  "toc": {
+    "title": "Table of Contents"
+  },
+  "sections": {
+    "what_is_esim": {
+      "title": "What is an eSIM?",
+      "content": "An eSIM (Embedded SIM) is a digital SIM card that's built into your device. Unlike traditional physical SIM cards, eSIMs are embedded directly into your phone's hardware and can be programmed remotely to work with different mobile networks.",
+      "detailed_explanation": {
+        "paragraph1": "An eSIM (embedded SIM) is a digital SIM card built into your smartphone, tablet, or smartwatch. Unlike traditional physical SIM cards, eSIMs are programmed remotely and can store multiple profiles.",
+        "paragraph2": "The \"e\" in eSIM stands for \"embedded\" - meaning it's permanently installed in your device and cannot be removed or transferred like a physical SIM card."
+      }
+    },
+    "how_it_works": {
+      "title": "How Do eSIMs Work?",
+      "content": "eSIMs work by storing network credentials digitally on your device. When you purchase an eSIM plan, you receive a QR code or activation code that programs your device to connect to the new network without needing a physical card."
+    },
+    "benefits": {
+      "title": "Benefits of eSIMs",
+      "content": "eSIMs offer several advantages over traditional SIM cards, including convenience, flexibility, and better support for multiple networks on a single device."
+    },
+    "travel_advantages": {
+      "title": "Why eSIMs are Perfect for Travel",
+      "content": "eSIMs are particularly beneficial for international travel, offering instant activation, no physical card management, and the ability to switch between multiple networks seamlessly."
+    },
+    "compatibility": {
+      "title": "Device Compatibility",
+      "content": "Most modern smartphones support eSIM technology. Check your device specifications or use our compatibility checker to see if your phone supports eSIM."
+    },
+    "activation": {
+      "title": "How to Activate an eSIM",
+      "content": "Activating an eSIM is simple and can usually be done in a few minutes through your device settings or by scanning a QR code."
+    },
+    "networks": {
+      "title": "Network Support",
+      "content": "Learn which network operators support eSIM technology and how to choose the right plan for your needs."
+    },
+    "installation": {
+      "title": "How to Install an eSIM",
+      "content": "Follow our step-by-step guide to install and activate an eSIM on your device."
+    },
+    "disadvantages": {
+      "title": "Potential Disadvantages",
+      "content": "Learn about the limitations and considerations of eSIM technology to make an informed decision."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "content": "The most common questions and answers about eSIM technology."
+    }
+  },
+  "toc_links": {
+    "what_is_esim": "What is an eSIM?",
+    "how_it_works": "How do eSIMs work?",
+    "benefits": "Benefits of eSIMs",
+    "compatibility": "Phone Compatibility",
+    "travel": "eSIMs for Travel",
+    "networks": "Network Support",
+    "installation": "How to Install an eSIM",
+    "disadvantages": "Potential Disadvantages",
+    "faq": "Frequently Asked Questions"
+  },
+  "key_facts_heading": "Key Facts",
+  "key_facts": [
+    "No physical card required",
+    "Can store multiple network profiles",
+    "Instant activation worldwide",
+    "More secure than physical SIMs",
+    "Environmentally friendly"
+  ],
+  "advantages_heading": "Advantages",
+  "advantages": [
+    "Convenience: No need to carry or swap physical SIM cards",
+    "Multiple Numbers: Use several numbers on one device",
+    "Security: Cannot be lost, stolen, or damaged",
+    "Easy Switching: Change networks without physical cards",
+    "Travel Friendly: Perfect for international roaming",
+    "Environmentally Friendly: Reduces plastic waste",
+    "5G Compatible: Full support for 5G networks"
+  ],
+  "use_cases_heading": "Use Cases",
+  "use_cases": [
+    "International Travel: Avoid expensive roaming charges",
+    "Business: Separate work and personal numbers",
+    "Students: Local number while studying abroad",
+    "Digital Nomads: Stay connected worldwide",
+    "IoT Devices: Smartwatches, tablets, and connected cars"
+  ],
+  "travel_reasons_heading": "Why Use eSIMs for Travel?",
+  "travel_reasons": [
+    "No Roaming Charges: Avoid expensive international fees",
+    "Instant Activation: Connect immediately upon arrival",
+    "Local Rates: Pay local prices for data",
+    "Multiple Countries: One eSIM for entire regions",
+    "No Physical Cards: Less to carry and lose"
+  ],
+  "limitations_heading": "Limitations",
+  "limitations": [
+    "Device Compatibility: Not all phones support eSIM",
+    "Transfer Difficulties: Cannot easily move to new device",
+    "Limited Network Support: Not all carriers offer eSIM",
+    "Feature Limitations: Some advanced features may not work"
+  ],
+  "considerations_heading": "Considerations",
+  "considerations": [
+    "Backup Plan: Keep physical SIM as backup",
+    "Research Carriers: Check eSIM availability before switching",
+    "Device Support: Verify compatibility before purchase",
+    "Technical Support: May need carrier assistance for setup"
+  ],
+  "how_it_works_steps": {
+    "step1": {
+      "title": "Purchase",
+      "description": "Buy an eSIM plan online or from your carrier"
+    },
+    "step2": {
+      "title": "Activate",
+      "description": "Scan QR code or enter activation code"
+    },
+    "step3": {
+      "title": "Connect",
+      "description": "Start using data immediately"
+    }
+  },
+  "technical_process": {
+    "title": "Technical Process:",
+    "steps": [
+      "Your device receives a digital profile from the carrier",
+      "The eSIM chip stores this profile securely",
+      "Your device connects to the network using this profile",
+      "You can switch between multiple profiles instantly"
+    ]
+  },
+  "compatibility": {
+    "title": "Phone Compatibility",
+    "table": {
+      "phone_model": "Phone Model",
+      "esim_support": "eSIM Support",
+      "physical_sim": "Physical SIM",
+      "dual_sim": "Dual SIM"
+    },
+    "important_note": {
+      "title": "Important Note:",
+      "content": "Most modern smartphones (2018 and newer) support eSIM technology. Check your device's specifications or contact your manufacturer to confirm compatibility."
+    },
+    "check_compatibility": {
+      "title": "Not sure if your phone supports eSIM?",
+      "content": "Use our free eSIM compatibility checker to instantly verify if your device supports eSIM technology.",
+      "button": "Check Device Compatibility"
+    }
+  },
+  "travel_providers": {
+    "title": "Popular Travel eSIM Providers",
+    "providers": {
+      "airalo": {
+        "name": "Airalo",
+        "feature": "Global coverage"
+      },
+      "holafly": {
+        "name": "Holafly",
+        "feature": "Unlimited data"
+      },
+      "nomad": {
+        "name": "Nomad",
+        "feature": "Regional plans"
+      },
+      "ubigi": {
+        "name": "Ubigi",
+        "feature": "5G support"
+      },
+      "travelesimple": {
+        "name": "Travel eSIMple",
+        "feature": "201+ countries"
+      }
+    }
+  },
+  "cost_comparison": {
+    "title": "Travel eSIM Cost Comparison",
+    "table": {
+      "region_country": "Region/Country",
+      "data": "Data",
+      "validity": "Validity",
+      "cost": "Cost"
+    },
+    "view_all_plans": "View All Plans"
+  },
+  "installation_guide": {
+    "step_by_step": {
+      "title": "Step-by-Step Guide",
+      "steps": {
+        "step1": {
+          "title": "Check Compatibility",
+          "description": "Ensure your device supports eSIM technology"
+        },
+        "step2": {
+          "title": "Purchase an eSIM Plan",
+          "description": "Buy from your carrier or a travel eSIM provider"
+        },
+        "step3": {
+          "title": "Receive Activation Code",
+          "description": "Get QR code or activation code via email"
+        },
+        "step4": {
+          "title": "Scan QR Code",
+          "description": "Use your camera or Settings app to scan"
+        },
+        "step5": {
+          "title": "Confirm Installation",
+          "description": "Follow on-screen prompts to complete setup"
+        }
+      }
+    },
+    "device_specific": {
+      "title": "Device-Specific Instructions",
+      "devices": {
+        "iphone": {
+          "name": "iPhone",
+          "instructions": "Settings → Cellular → Add Cellular Plan → Scan QR Code"
+        },
+        "samsung": {
+          "name": "Samsung",
+          "instructions": "Settings → Connections → SIM Card Manager → Add eSIM"
+        },
+        "google_pixel": {
+          "name": "Google Pixel",
+          "instructions": "Settings → Network & Internet → Mobile Network → Add eSIM"
+        }
+      }
+    }
+  },
+  "faq": {
+    "questions": {
+      "q1": {
+        "question": "Can I use 5G with an eSIM?",
+        "answer": "Yes, eSIMs support 5G networks just like physical SIM cards. Your device and network must support 5G for this to work."
+      },
+      "q2": {
+        "question": "Can I switch to eSIM with my existing contract?",
+        "answer": "Yes, most carriers allow you to convert your physical SIM to eSIM. Contact your carrier for specific instructions."
+      },
+      "q3": {
+        "question": "Do I need an eSIM to travel in Europe?",
+        "answer": "No, but eSIMs can save you money on roaming charges. Many travelers use eSIMs for better rates than their home carrier's roaming."
+      },
+      "q4": {
+        "question": "How many eSIMs can I have on one device?",
+        "answer": "Most devices support multiple eSIM profiles, but you can typically only use one at a time. Some devices support dual eSIM + physical SIM."
+      },
+      "q5": {
+        "question": "Are eSIMs more secure than physical SIMs?",
+        "answer": "Yes, eSIMs are more secure because they cannot be physically removed or cloned. They're also protected by device security features."
+      },
+      "q6": {
+        "question": "What happens if I lose my phone with an eSIM?",
+        "answer": "Contact your carrier immediately to suspend the eSIM. You can then activate a new eSIM on a replacement device."
+      }
+    }
+  },
+  "buttons": {
+    "browse_all_destinations": "Browse All Destinations",
+    "check_device_compatibility": "Check Device Compatibility",
+    "view_all_plans": "View All Plans"
+  },
+  "cta_heading": "Ready to Get Started with eSIM?",
+  "cta_description": "Check your device compatibility now and find the perfect eSIM plan for your travels."
+} 

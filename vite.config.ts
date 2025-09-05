@@ -146,7 +146,8 @@ export default defineConfig((envConfig: any) => {
             ...(isSsr ? {
               // For SSR bundle, use stable file names so server-production.js can import it.
               entryFileNames: 'entry-server.js',
-              chunkFileNames: 'chunks/[name].js'
+              chunkFileNames: 'chunks/[name].js',
+              assetFileNames: 'assets/[name][extname]'
             } : {
               // Client bundle: Enhanced code-splitting for better performance
               manualChunks: (id) => {

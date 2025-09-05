@@ -4,10 +4,10 @@ This document describes the optimizations made to ensure the website is fully cr
 
 ## Changes Made
 
-### 1. Fixed Lazy Loading for SSR
-- **File**: `App.tsx`
-- **Change**: Implemented conditional loading - direct imports for SSR, lazy loading for client
-- **Impact**: All page content is now rendered server-side instead of showing loading states
+### 1. Hydration and Providers Unified
+- **Files**: `index.tsx`, `src/entry-server.js`, `App.tsx`
+- **Change**: Switched client entry to use `hydrateRoot` when SSR markup exists; centralized providers (`HelmetProvider`, `LanguageProvider`) so SSR and CSR wrap the app identically.
+- **Impact**: Server-rendered HTML matches client-rendered content; hydration no longer remounts and cause mismatches.
 
 ### 2. Enhanced Server-Side Rendering
 - **File**: `server.js`

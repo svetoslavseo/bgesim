@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /assets/plans*.js
+Allow: /
+
+# Specific directives for Google
+User-agent: Googlebot
+Disallow: /assets/plans*.js
+Allow: /
+
+# Specific directives for Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://travelesim.bg/sitemap.xml
+Sitemap: https://travelesim.bg/sitemap-en.xml 
